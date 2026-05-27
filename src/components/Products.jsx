@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
+//import React from 'react';
 import ProductCaseStudy from '../components/ProductCaseStudy';
 import theme from '../theme/theme';   // ← single import; use named exports if preferred
-
+import { Helmet } from "react-helmet-async";
+import Footer from "../components/Footer";
 const { colors, typography, spacing, radius, shadows, transitions, gradients, layout, iconSize } = theme;
 
 // ── Shared style helpers ─────────────────────────────────────
@@ -633,6 +635,59 @@ const Products = () => {
   }
 
   return (
+  <><Helmet>
+  {/* PRIMARY SEO */}
+  <title>Software Products | School ERP, CMS & Aptitude Test Platform | RAM Solutions</title>
+
+  <meta
+    name="description"
+    content="Explore powerful education software products including Counsellor Management System (CMS), School ERP, Day Care ERP, and Aptitude Test Platform. Built for schools, institutes, and organizations in India."
+  />
+
+  <meta
+    name="keywords"
+    content="school ERP India, CMS software, counsellor management system, aptitude test platform, education ERP software, student management system, school management software"
+  />
+
+  <meta name="author" content="Right Analysis Matter Technology Pvt. Ltd." />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="canonical" href="https://your-domain.com/products" />
+
+  {/* OPEN GRAPH */}
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Education Software Products | ERP, CMS & Assessment Platform" />
+  <meta
+    property="og:description"
+    content="Discover scalable education software products designed for modern schools and institutions."
+  />
+  <meta property="og:url" content="https://your-domain.com/products" />
+
+  {/* Twitter */}
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Education Software Products | RAM Solutions" />
+  <meta
+    name="twitter:description"
+    content="School ERP, CMS and aptitude testing platforms for modern education systems."
+  />
+
+  {/* STRUCTURED DATA (IMPORTANT FOR GOOGLE) */}
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Education Software Products",
+      "description":
+        "Software products including ERP, CMS, and assessment systems for schools and institutions.",
+      "url": "https://your-domain.com/products",
+      "hasPart": PRODUCTS.map((p) => ({
+        "@type": "Product",
+        "name": p.fullName,
+        "description": p.description
+      }))
+    })}
+  </script>
+</Helmet>
     <div style={{ minHeight: "100vh", background: colors.bgPage, fontFamily: text.fontFamily }}>
 
       {/* ── HERO ── */}
@@ -747,6 +802,7 @@ const Products = () => {
         </a>
       </div>
     </div>
+    <Footer/></>
   );
 };
 
