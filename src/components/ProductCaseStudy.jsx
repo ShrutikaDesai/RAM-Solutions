@@ -1035,6 +1035,30 @@
 //     </div>
 //   );
 // };
+import {
+  UserPlus,
+  BookOpen,
+  CreditCard,
+  ClipboardList,
+  FileText,
+  CalendarDays,
+  Bell,
+  Video,
+  Lock,
+  BarChart2,
+  ClipboardCheck,
+  UserCog,
+  UserCheck,
+  ListChecks,
+  ScrollText,
+  DollarSign,
+  BookCopy,
+  Truck,
+  Library,
+  Package,
+  Megaphone,
+  LayoutDashboard
+} from "lucide-react";
 
 // export default ProductCaseStudy;
 import { Helmet } from "react-helmet-async";
