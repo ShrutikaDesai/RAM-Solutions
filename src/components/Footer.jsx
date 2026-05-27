@@ -60,7 +60,10 @@ export default function Footer() {
   padding: 40px 60px;    /* adjust spacing inside */
   box-sizing: border-box;
         }
-
+.fs-logo {
+  color:  var(--accent);            /* primary logo color */
+  font-size: 1.6rem;
+}
         .fs-overlay{
           position:absolute;
           inset:0;
