@@ -10,6 +10,7 @@ import Services from "./components/Services";
 import AboutUs from "./components/AboutUs";
 import Home from "./components/Home";
 import Layout from "./components/layouts/Layout";
+import Fallback from "./components/Fallback";
 
 const App = () => {
   return (
@@ -20,15 +21,14 @@ const App = () => {
         <Route element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/" element={<Home />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/services" element={<Services />} />
           <Route path="/products" element={<Products />} />
           <Route path="/product-case-study" element={<ProductCaseStudy />} />
-          <Route path="/contact" element={<ContactUs />} />
           <Route path="/contact-us" element={<ContactUs />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/home" element={<Home />} />
         </Route>
+
+        <Route path="*" element={<Fallback />} />
 
       </Routes>
     </BrowserRouter>

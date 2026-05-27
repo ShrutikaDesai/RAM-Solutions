@@ -226,7 +226,7 @@ const Products = () => {
           </p>
         </div>
 
-        <a href="/contact" style={{
+        <a href="/contact-us" style={{
           display: "inline-block",
           background: colors.accent,
           color: colors.white,

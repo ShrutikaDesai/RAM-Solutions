@@ -68,6 +68,7 @@ const CHANNELS = [
     value: "+91 84849 05526",
     sub: "+91 84849 06643",
     href: "tel:+918484905526",
+    subHref: "tel:+918484906643",
   },
   {
     icon: (
@@ -89,7 +90,7 @@ const CHANNELS = [
       </svg>
     ),
     label: "Working Hours",
-    value: "Mon – Sat: 9AM – 7PM",
+    value: "Mon – Sat: 9AM – 6PM",
     sub: "IST (India Standard Time)",
     href: null,
   },
@@ -225,7 +226,24 @@ const ContactUs = () => {
                 <div style={{ flex: 1 }}>
                   <p style={{ fontSize: isMobile ? 9 : 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: hov ? "rgba(232,160,32,0.9)" : "#e8a020", margin: "0 0 4px" }}>{ch.label}</p>
                   <p style={{ fontSize: isMobile ? 12 : 15, fontWeight: 700, color: hov ? "#fff" : "#0d2b6e", margin: "0 0 3px", lineHeight: 1.3, wordBreak: "break-word" }}>{ch.value}</p>
-                  <p style={{ fontSize: isMobile ? 11 : 12, color: hov ? "rgba(255,255,255,0.6)" : "#8a94b0", margin: 0, fontWeight: 500 }}>{ch.sub}</p>
+                  {ch.subHref ? (
+                    <a
+                      href={ch.subHref}
+                      style={{
+                        fontSize: isMobile ? 11 : 12,
+                        color: hov ? "rgba(255,255,255,0.8)" : "#8a94b0",
+                        fontWeight: 500,
+                        textDecoration: "none",
+                        transition: "color 0.2s ease",
+                      }}
+                      onMouseEnter={(e) => { if (hov) e.currentTarget.style.color = "#e8a020"; }}
+                      onMouseLeave={(e) => { if (hov) e.currentTarget.style.color = hov ? "rgba(255,255,255,0.8)" : "#8a94b0"; }}
+                    >
+                      {ch.sub}
+                    </a>
+                  ) : (
+                    <p style={{ fontSize: isMobile ? 11 : 12, color: hov ? "rgba(255,255,255,0.6)" : "#8a94b0", margin: 0, fontWeight: 500 }}>{ch.sub}</p>
+                  )}
                 </div>
                 {ch.href && !isMobile && (
                   <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 4 }}>
@@ -290,7 +308,7 @@ const ContactUs = () => {
             <div style={{ borderTop: "1px solid rgba(255,255,255,0.12)", paddingTop: 20 }}>
               <InfoRow label="Phone" value="+91 84849 05526 | +91 84849 06643" />
               <InfoRow label="Email" value="support@ramsolutions.in" />
-              <InfoRow label="Hours" value="Mon–Sat · 9AM–7PM IST" />
+              <InfoRow label="Hours" value="Mon–Sat · 9AM–6PM IST" />
             </div>
             {/* Social links */}
             <div style={{ display: "flex", gap: 14, marginTop: 4 }}>

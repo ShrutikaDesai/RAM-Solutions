@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 function useWindowWidth() {
     const [w, setW] = useState(typeof window !== "undefined" ? window.innerWidth : 1200);
@@ -12,7 +12,7 @@ function useWindowWidth() {
 }
 
 const NAV_LINKS = [
-    { label: "Home", href: "/home" },
+    { label: "Home", href: "/" },
     { label: "About", href: "/about-us" },
     { label: "Services", href: "/services" },
     { label: "Products", href: "/products" },
@@ -21,8 +21,17 @@ const NAV_LINKS = [
 const Layout = ({ children }) => {
     const width = useWindowWidth();
     const isMobile = width < 768;
+    const location = useLocation();
     const [menuOpen, setMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+
+    const isLinkActive = (href) => {
+        if (href === "/") {
+            return location.pathname === "/";
+        }
+
+        return location.pathname === href;
+    };
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 10);
@@ -60,6 +69,13 @@ const Layout = ({ children }) => {
         }
         .nav-link:hover { color: #e8a020; }
         .nav-link:hover::after { width: 100%; }
+        .nav-link.active {
+          color: #0d2b6e;
+        }
+        .nav-link.active::after {
+          width: 100%;
+          background: #e8a020;
+        }
         .mob-link {
           display: block;
           color: rgba(255,255,255,0.85);
@@ -73,6 +89,10 @@ const Layout = ({ children }) => {
           transition: color 0.2s, background 0.2s;
         }
         .mob-link:hover { color: #e8a020; background: rgba(255,255,255,0.04); }
+        .mob-link.active {
+          color: #ffd27c;
+          background: rgba(232, 160, 32, 0.14);
+        }
         .top-icon { display:inline-flex; align-items:center; gap:6px; }
       `}</style>
 
@@ -109,19 +129,29 @@ const Layout = ({ children }) => {
                     <div style={{ maxWidth: 1060, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 24px" }}>
                         {/* Left: contact info */}
                         <div style={{ display: "flex", alignItems: "center", gap: 28 }}>
-                            <a href="tel:+918484905526" className="top-icon" style={{ color: "rgba(255,255,255,0.78)", fontSize: 12, textDecoration: "none", transition: "color 0.2s" }}
-                                onMouseEnter={e => e.currentTarget.style.color = "#e8a020"}
-                                onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.78)"}>
+                            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
                                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#e8a020" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" /></svg>
-                                +91 84849 05526  | +91 8484906643
-                            </a>
+                                <a href="tel:+918484905526" style={{ color: "rgba(255,255,255,0.78)", fontSize: 12, textDecoration: "none", transition: "color 0.2s" }}
+                                    onMouseEnter={e => e.currentTarget.style.color = "#e8a020"}
+                                    onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.78)"}>
+                                    +91 84849 05526
+                                </a>
+                                <span style={{ color: "rgba(255,255,255,0.5)", fontSize: 12 }}>|</span>
+                                <a href="tel:+918484906643" style={{ color: "rgba(255,255,255,0.78)", fontSize: 12, textDecoration: "none", transition: "color 0.2s" }}
+                                    onMouseEnter={e => e.currentTarget.style.color = "#e8a020"}
+                                    onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.78)"}>
+                                    +91 8484906643
+                                </a>
+                            </div>
                             <div style={{ width: 1, height: 14, background: "rgba(255,255,255,0.15)" }} />
-                            <a href="mailto:info@ramtechnology.in" className="top-icon" style={{ color: "rgba(255,255,255,0.78)", fontSize: 12, textDecoration: "none", transition: "color 0.2s" }}
-                                onMouseEnter={e => e.currentTarget.style.color = "#e8a020"}
-                                onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.78)"}>
+                            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
                                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#e8a020" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
-                                support@ramsolutions.in
-                            </a>
+                                <a href="mailto:info@ramtechnology.in" style={{ color: "rgba(255,255,255,0.78)", fontSize: 12, textDecoration: "none", transition: "color 0.2s" }}
+                                    onMouseEnter={e => e.currentTarget.style.color = "#e8a020"}
+                                    onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.78)"}>
+                                    info@ramtechnology.in
+                                </a>
+                            </div>
                         </div>
 
                         {/* Right: tagline + social icons */}
@@ -227,7 +257,7 @@ const Layout = ({ children }) => {
 
                     {/* ── LOGO ── */}
                     <a
-                        href="/home"
+                        href="/"
                         style={{
                             textDecoration: "none",
                             display: "flex",
@@ -293,7 +323,13 @@ const Layout = ({ children }) => {
                         {!isMobile && (
                             <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: 36, flexWrap: "wrap" }}>
                                 {NAV_LINKS.map((link) => (
-                                    <a key={link.label} href={link.href} className="nav-link">{link.label}</a>
+                                    <a
+                                        key={link.label}
+                                        href={link.href}
+                                        className={`nav-link ${isLinkActive(link.href) ? "active" : ""}`}
+                                    >
+                                        {link.label}
+                                    </a>
                                 ))}
                             </div>
                         )}
@@ -340,7 +376,12 @@ const Layout = ({ children }) => {
                         <div style={{ position: "absolute", left: 0, right: 0, height: "100%", backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px)", backgroundSize: "22px 22px", pointerEvents: "none" }} />
 
                         {NAV_LINKS.map((link) => (
-                            <a key={link.label} href={link.href} className="mob-link" onClick={() => setMenuOpen(false)}>
+                            <a
+                                key={link.label}
+                                href={link.href}
+                                className={`mob-link ${isLinkActive(link.href) ? "active" : ""}`}
+                                onClick={() => setMenuOpen(false)}
+                            >
                                 {link.label}
                             </a>
                         ))}

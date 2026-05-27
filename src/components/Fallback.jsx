@@ -1,0 +1,226 @@
+import React from "react";
+import {
+  colors,
+  typography,
+  gradients,
+  spacing,
+  radius,
+  shadows,
+  transitions,
+} from "../theme/theme";
+
+const Fallback = () => {
+  return (
+    <div
+      style={{
+        minHeight: "92vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: colors.bgPage,
+        padding: `${spacing.xl}px ${spacing.sectionPadXMob ?? 16}px`,
+        fontFamily: typography.paragraph.fontFamily,
+      }}
+    >
+      <div
+        style={{
+          width: "100%",
+          maxWidth: 640,
+          minHeight: 460,
+          background: gradients.hero,
+          borderRadius: radius.lg,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+          padding: `24px 24px 28px`,
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        {/* Dot grid overlay */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: `radial-gradient(circle, ${colors.whiteTint6} 1px, transparent 1px)`,
+            backgroundSize: "28px 28px",
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* Orb blobs */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            width: 320, height: 320,
+            top: -100, right: -80,
+            borderRadius: radius.full,
+            background: colors.primaryTint22,
+            pointerEvents: "none",
+          }}
+        />
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            width: 200, height: 200,
+            bottom: -60, left: -60,
+            borderRadius: radius.full,
+            background: colors.primaryTint15,
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* Content */}
+        <div style={{ position: "relative", zIndex: 2, display: "flex", flexDirection: "column", alignItems: "center" }}>
+
+          {/* Icon ring */}
+          <div
+            style={{
+              width: 76, height: 76,
+              borderRadius: radius.full,
+              background: colors.whiteTint7,
+              border: `1px solid ${colors.borderLighter}`,
+              display: "flex", alignItems: "center", justifyContent: "center",
+              marginBottom: 16,
+            }}
+          >
+            {/* Replace with your icon component */}
+            <span style={{ fontSize: 32, color: colors.textOnDark60 }}>🗺</span>
+          </div>
+
+          {/* Eyebrow tag */}
+          <span
+            style={{
+              fontFamily: typography.fontFamily.secondaryHeading,
+              fontSize: 12,
+              fontWeight: typography.weight.semibold,
+              letterSpacing: typography.letterSpacing.widest,
+              textTransform: "uppercase",
+              color: colors.accent,
+              background: colors.accentTint12,
+              border: `1px solid ${colors.accentTint25}`,
+              padding: `7px 14px`,
+              borderRadius: radius.pill,
+              marginBottom: 12,
+            }}
+          >
+            Error
+          </span>
+
+          {/* 404 number */}
+          <div
+            style={{
+              fontFamily: typography.heading.fontFamily,
+              fontSize: 96,
+              fontWeight: typography.weight.bold,
+              lineHeight: typography.lineHeight.tight,
+              letterSpacing: typography.letterSpacing.tight,
+              color: colors.textOnDark,
+              margin: `0 0 6px`,
+            }}
+          >
+            4<span style={{ color: colors.accent }}>0</span>4
+          </div>
+
+          {/* Divider */}
+          <div
+            style={{
+              width: 56, height: 3,
+              background: colors.accent,
+              borderRadius: radius.sm,
+              margin: `10px auto 16px`,
+            }}
+          />
+
+          {/* Title */}
+          <h1
+            style={{
+              fontFamily: typography.heading.fontFamily,
+              fontSize: 24,
+              fontWeight: typography.heading.h2.fontWeight,
+              lineHeight: typography.heading.h2.lineHeight,
+              color: colors.textOnDark,
+              margin: `0 0 10px`,
+            }}
+          >
+            Page Not Found
+          </h1>
+
+          {/* Description */}
+          <p
+            style={{
+              fontFamily: typography.paragraph.fontFamily,
+              fontSize: 15,
+              fontWeight: typography.paragraph.fontWeight,
+              lineHeight: typography.paragraph.lineHeight,
+              color: colors.textOnDarkSub,
+              maxWidth: 420,
+              margin: `0 0 22px`,
+            }}
+          >
+            The page you're looking for doesn't exist or may have been moved.
+            Let's get you back on track.
+          </p>
+
+          {/* Action buttons */}
+          <div style={{ display: "flex", gap: 14, flexWrap: "wrap", justifyContent: "center" }}>
+            <button
+              onClick={() => window.location.href = "/"}
+              style={{
+                fontFamily: typography.fontFamily.secondaryHeading,
+                fontSize: 15,
+                fontWeight: typography.weight.semibold,
+                letterSpacing: typography.letterSpacing.wider,
+                background: colors.accent,
+                color: colors.primaryDark,
+                border: "none",
+                padding: `11px 20px`,
+                borderRadius: radius.pill,
+                cursor: "pointer",
+                boxShadow: shadows.cta,
+                transition: transitions.fast,
+                display: "inline-flex",
+                alignItems: "center",
+                gap: spacing.sm,
+              }}
+            >
+              🏠 Go Home
+            </button>
+
+            <button
+              onClick={() => window.history.back()}
+              style={{
+                fontFamily: typography.fontFamily.secondaryHeading,
+                fontSize: 15,
+                fontWeight: typography.weight.semibold,
+                letterSpacing: typography.letterSpacing.wider,
+                background: colors.whiteTint10,
+                color: colors.textOnDark,
+                border: `1px solid ${colors.borderLight}`,
+                padding: `11px 20px`,
+                borderRadius: radius.pill,
+                cursor: "pointer",
+                transition: transitions.fast,
+                display: "inline-flex",
+                alignItems: "center",
+                gap: spacing.sm,
+              }}
+            >
+              ← Go Back
+            </button>
+          </div>
+
+        
+
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Fallback;
