@@ -11,7 +11,7 @@ import AboutUs from "./components/AboutUs";
 import Home from "./components/Home";
 import Layout from "./components/layouts/Layout";
 import Fallback from "./components/Fallback";
-
+import Footer from "./components/Footer";
 const App = () => {
   return (
     <BrowserRouter>
@@ -26,6 +26,7 @@ const App = () => {
           <Route path="/products" element={<Products />} />
           <Route path="/product-case-study" element={<ProductCaseStudy />} />
           <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/footer" element={<Footer/>}/>
         </Route>
 
         <Route path="*" element={<Fallback />} />
