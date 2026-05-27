@@ -10,171 +10,611 @@ const text = typography; // alias for brevity
 // ─────────────────────────────────────────────────────────────
 //  PRODUCTS DATA
 // ─────────────────────────────────────────────────────────────
-const PRODUCTS = [
- {
-  id: 1,
-  tag: "Counselling Management System",
-  name: "CMS",
-  fullName: "Career Counselling & Assessment Platform",
-  description:
-    "An end-to-end digital platform that centralizes career counselling operations — from lead capture, registrations, and payments to assessments, report management, slot booking, and content delivery — reducing manual work and scaling counselling workflows for educational organizations.",
-  features: [
-    "Lead capture & registration management",
-    "Program & package-based access control",
-    "Online & manual payment verification",
-    "Assessment tracking & report management",
-    "Slot booking & counselling workflows",
-    "Role-based access for 7 user types",
-  ],
-  icon: (
-    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      {/* Central person / counsellor */}
-      <circle cx="32" cy="18" r="7" fill={colors.primary} opacity="0.12" stroke={colors.primary} strokeWidth="2.5" />
-      <circle cx="32" cy="16" r="3" fill={colors.primary} opacity="0.6" />
-      <path d="M25 25c1.8-2.5 12.2-2.5 14 0" stroke={colors.primary} strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.5" />
-      {/* Journey flow line */}
-      <path d="M12 38 Q20 28 32 32 Q44 36 52 26" stroke={colors.accent} strokeWidth="2" strokeLinecap="round" strokeDasharray="3 2" fill="none" />
-      {/* Step nodes on journey */}
-      <circle cx="12" cy="38" r="4" fill={colors.accent} opacity="0.25" stroke={colors.accent} strokeWidth="2" />
-      <circle cx="32" cy="32" r="4" fill={colors.accent} opacity="0.5"  stroke={colors.accent} strokeWidth="2" />
-      <circle cx="52" cy="26" r="4" fill={colors.accent} opacity="0.85" stroke={colors.accent} strokeWidth="2" />
-      {/* Step labels */}
-      <rect x="4"  y="44" width="16" height="5" rx="2" fill={colors.primary} opacity="0.15" />
-      <rect x="24" y="38" width="16" height="5" rx="2" fill={colors.primary} opacity="0.15" />
-      <rect x="44" y="32" width="16" height="5" rx="2" fill={colors.primary} opacity="0.20" />
-      {/* Bottom progress bar */}
-      <rect x="8"  y="54" width="48" height="3" rx="1.5" fill={colors.primary} opacity="0.10" />
-      <rect x="8"  y="54" width="30" height="3" rx="1.5" fill={colors.accent} opacity="0.6" />
-    </svg>
-  ),
-  color:  colors.primary,
-  accent: colors.accent,
-},
- {
-  id: 2,
-  tag: "Preschool & Daycare",
-  name: "Preschool ERP",
-  fullName: "Preschool ERP Platform",
-  description:
-    "A complete digital ecosystem for preschools and daycare centres — giving parents real-time visibility into their child's daily care, activities, and development while helping schools automate operations, ensure child safety, and deliver exceptional early childhood experiences.",
-  features: [
-    "Daily child tracking & care monitoring",
-    "OTP / QR-based safe pickup system",
-    "Parent communication app & real-time updates",
-    "Child development & milestone tracking",
-    "Smart fee management & online payments",
-    "Multi-branch & franchise ready",
-  ],
-  icon: (
-    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      {/* School building */}
-      <rect x="10" y="28" width="44" height="26" rx="3" fill={colors.primary} opacity="0.10" stroke={colors.primary} strokeWidth="2.5" />
-      {/* Roof / triangle */}
-      <path d="M6 30 L32 10 L58 30" stroke={colors.accent} strokeWidth="2.5" strokeLinejoin="round" fill={colors.accent} fillOpacity="0.15" />
-      {/* Door */}
-      <rect x="27" y="38" width="10" height="16" rx="2" fill={colors.accent} opacity="0.5" />
-      {/* Left window */}
-      <rect x="14" y="34" width="9" height="8" rx="2" fill={colors.primary} opacity="0.20" stroke={colors.primary} strokeWidth="1.8" />
-      {/* Right window */}
-      <rect x="41" y="34" width="9" height="8" rx="2" fill={colors.primary} opacity="0.20" stroke={colors.primary} strokeWidth="1.8" />
-      {/* Heart above door — child safety symbol */}
-      <path d="M32 36 C32 36 28 32 28 29.5 C28 27.5 30 26 32 28 C34 26 36 27.5 36 29.5 C36 32 32 36 32 36Z" fill={colors.accent} opacity="0.85" />
-    </svg>
-  ),
-  color:  colors.accent,
-  accent: colors.primary,
-},
-{
-  id: 3,
-  tag: "Career Intelligence",
-  name: "Career Assessment Platform",
-  fullName: "Student Career Assessment & Intelligence Platform",
-  description:
-    "A complete AI-ready Career Intelligence Ecosystem built for schools, counsellors, and students — combining psychometric assessments, personalized career recommendations, counselling workflows, and powerful analytics to transform student potential into data-driven career success.",
-  features: [
-    "Psychometric & aptitude assessments",
-    "AI-ready career recommendation engine",
-    "Dynamic student personalization",
-    "Comprehensive career reports & analytics",
-    "Counselling workflow management",
-    "Multi-tenant SaaS for schools & institutes",
-  ],
-  icon: (
-    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <circle cx="32" cy="22" r="12" fill={colors.primary} opacity="0.10" stroke={colors.primary} strokeWidth="2.5" />
-      <circle cx="32" cy="22" r="5" fill={colors.accent} opacity="0.7" />
-      <path d="M20 22 C20 14 44 14 44 22" stroke={colors.primary} strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.4" />
-      <path d="M16 38 C16 30 48 30 48 38 L48 46 C48 48 46 50 44 50 L20 50 C18 50 16 48 16 46 Z" fill={colors.primary} opacity="0.08" stroke={colors.primary} strokeWidth="2.5" />
-      <rect x="23" y="36" width="6" height="10" rx="1.5" fill={colors.accent} opacity="0.5" />
-      <rect x="32" y="32" width="6" height="14" rx="1.5" fill={colors.accent} opacity="0.75" />
-      <rect x="41" y="38" width="4" height="8" rx="1.5" fill={colors.primary} opacity="0.3" />
-      <path d="M14 54 h36" stroke={colors.primary} strokeWidth="2" strokeLinecap="round" opacity="0.2" />
-    </svg>
-  ),
-  color:  colors.primary,
-  accent: colors.accent,
-},
 
-{
-  id: 4,
-  tag: "K+12 Education",
-  name: "K+12 School ERP",
-  fullName: "School ERP Management System",
-  description:
-    "A complete multi-school SaaS ERP that digitizes every operational workflow of a school — admissions, academics, attendance, examinations, fees, transport, library, and parent communication — built on a strict Action → Verification → Approval → Lock → Visibility workflow for full accountability and transparency.",
-  features: [
-    "Approval-driven admissions & enrollment",
-    "Multi-level exam & result management",
-    "Fee management & payment verification",
-    "Attendance with locking & audit trail",
-    "Transport, library & inventory control",
-    "Multi-school SaaS with tenant isolation",
-  ],
-  icon: (
-    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      {/* School rooftop */}
-      <path d="M32 6L6 20v2h52v-2L32 6z" fill={colors.accent} opacity="0.20" stroke={colors.accent} strokeWidth="2.2" strokeLinejoin="round" />
-      {/* Building body */}
-      <rect x="8" y="22" width="48" height="28" rx="2" fill={colors.primary} opacity="0.08" stroke={colors.primary} strokeWidth="2.2" />
-      {/* Left window */}
-      <rect x="13" y="28" width="9" height="8" rx="1.5" fill={colors.primary} opacity="0.18" stroke={colors.primary} strokeWidth="1.8" />
-      {/* Right window */}
-      <rect x="42" y="28" width="9" height="8" rx="1.5" fill={colors.primary} opacity="0.18" stroke={colors.primary} strokeWidth="1.8" />
-      {/* Door */}
-      <rect x="27" y="34" width="10" height="16" rx="2" fill={colors.accent} opacity="0.35" stroke={colors.accent} strokeWidth="1.8" />
-      {/* Approval checkmark badge — represents the workflow */}
-      <circle cx="49" cy="15" r="7" fill={colors.accent} opacity="0.20" stroke={colors.accent} strokeWidth="2" />
-      <path d="M46 15l2.5 2.5L53 12" stroke={colors.accent} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      {/* Ground line */}
-      <rect x="6" y="50" width="52" height="3" rx="1.5" fill={colors.primary} opacity="0.15" />
-    </svg>
-  ),
-  color:  colors.primary,
-  accent: colors.accent,
-},
-  // {
-  //   id: 4,
-  //   tag: "K+12 Education",
-  //   name: "K+12 School ERP",
-  //   fullName: "K+12 Complete School ERP",
-  //   description:
-  //     "A comprehensive school management ecosystem covering admissions, academics, finance, timetable, library, transport, and parent portals — purpose-built for K-12 institutions.",
-  //   features: ["End-to-end admissions flow", "Academic & timetable planner", "Parent & student portals"],
-  //   icon: (
-  //     <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-  //       <path d="M32 8L6 22v2h52v-2L32 8z" fill={colors.accent} opacity="0.25" stroke={colors.accent} strokeWidth="2.2" strokeLinejoin="round" />
-  //       <rect x="12" y="24" width="8" height="22" rx="2" fill={colors.primary} opacity="0.15" stroke={colors.primary} strokeWidth="2" />
-  //       <rect x="28" y="24" width="8" height="22" rx="2" fill={colors.primary} opacity="0.15" stroke={colors.primary} strokeWidth="2" />
-  //       <rect x="44" y="24" width="8" height="22" rx="2" fill={colors.primary} opacity="0.15" stroke={colors.primary} strokeWidth="2" />
-  //       <rect x="8" y="46" width="48" height="4" rx="2" fill={colors.primary} opacity="0.2" stroke={colors.primary} strokeWidth="2" />
-  //       <rect x="28" y="36" width="8" height="10" rx="1.5" fill={colors.accent} opacity="0.4" />
-  //       <circle cx="32" cy="17" r="2.5" fill={colors.accent} />
-  //     </svg>
-  //   ),
-  //   color:  colors.primary,
-  //   accent: colors.accent,
-  // },
+const PRODUCTS = [
+  {
+    id: 1,
+    tag: "Digital Career Counselling",
+    name: "Counselling Platform",
+    fullName: "All-in-One Digital Career Counselling Platform",
+    description:
+      "A complete digital ecosystem for career counselling organizations that streamlines student onboarding, assessments, counselling workflows, report delivery, slot booking, and communication — helping institutions scale counselling operations efficiently.",
+    features: [
+      "Lead capture & registration management",
+      "Program & package-based access control",
+      "Online & manual payment verification",
+      "Assessment tracking & report management",
+      "Slot booking & counselling workflows",
+      "Role-based access for 7 user types",
+    ],
+    icon: (
+      <svg
+        viewBox="0 0 64 64"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full h-full"
+      >
+        {/* Central person / counsellor */}
+        <circle
+          cx="32"
+          cy="18"
+          r="7"
+          fill={colors.primary}
+          opacity="0.12"
+          stroke={colors.primary}
+          strokeWidth="2.5"
+        />
+        <circle cx="32" cy="16" r="3" fill={colors.primary} opacity="0.6" />
+        <path
+          d="M25 25c1.8-2.5 12.2-2.5 14 0"
+          stroke={colors.primary}
+          strokeWidth="2"
+          strokeLinecap="round"
+          fill="none"
+          opacity="0.5"
+        />
+
+        {/* Journey flow line */}
+        <path
+          d="M12 38 Q20 28 32 32 Q44 36 52 26"
+          stroke={colors.accent}
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeDasharray="3 2"
+          fill="none"
+        />
+
+        {/* Step nodes */}
+        <circle
+          cx="12"
+          cy="38"
+          r="4"
+          fill={colors.accent}
+          opacity="0.25"
+          stroke={colors.accent}
+          strokeWidth="2"
+        />
+        <circle
+          cx="32"
+          cy="32"
+          r="4"
+          fill={colors.accent}
+          opacity="0.5"
+          stroke={colors.accent}
+          strokeWidth="2"
+        />
+        <circle
+          cx="52"
+          cy="26"
+          r="4"
+          fill={colors.accent}
+          opacity="0.85"
+          stroke={colors.accent}
+          strokeWidth="2"
+        />
+
+        {/* Labels */}
+        <rect
+          x="4"
+          y="44"
+          width="16"
+          height="5"
+          rx="2"
+          fill={colors.primary}
+          opacity="0.15"
+        />
+        <rect
+          x="24"
+          y="38"
+          width="16"
+          height="5"
+          rx="2"
+          fill={colors.primary}
+          opacity="0.15"
+        />
+        <rect
+          x="44"
+          y="32"
+          width="16"
+          height="5"
+          rx="2"
+          fill={colors.primary}
+          opacity="0.20"
+        />
+
+        {/* Progress */}
+        <rect
+          x="8"
+          y="54"
+          width="48"
+          height="3"
+          rx="1.5"
+          fill={colors.primary}
+          opacity="0.10"
+        />
+        <rect
+          x="8"
+          y="54"
+          width="30"
+          height="3"
+          rx="1.5"
+          fill={colors.accent}
+          opacity="0.6"
+        />
+      </svg>
+    ),
+    color: colors.primary,
+    accent: colors.accent,
+  },
+
+  {
+    id: 2,
+    tag: "Preschool & Daycare",
+    name: "Preschool ERP",
+    fullName: "Smart Preschool & Daycare Management System",
+    description:
+      "An intelligent preschool and daycare management platform that empowers schools with automation, real-time parent communication, child safety monitoring, attendance, fee management, and development tracking — all from a single platform.",
+    features: [
+      "Daily child tracking & care monitoring",
+      "OTP / QR-based safe pickup system",
+      "Parent communication app & real-time updates",
+      "Child development & milestone tracking",
+      "Smart fee management & online payments",
+      "Multi-branch & franchise ready",
+    ],
+    icon: (
+      <svg
+        viewBox="0 0 64 64"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full h-full"
+      >
+        {/* School building */}
+        <rect
+          x="10"
+          y="28"
+          width="44"
+          height="26"
+          rx="3"
+          fill={colors.primary}
+          opacity="0.10"
+          stroke={colors.primary}
+          strokeWidth="2.5"
+        />
+
+        {/* Roof */}
+        <path
+          d="M6 30 L32 10 L58 30"
+          stroke={colors.accent}
+          strokeWidth="2.5"
+          strokeLinejoin="round"
+          fill={colors.accent}
+          fillOpacity="0.15"
+        />
+
+        {/* Door */}
+        <rect
+          x="27"
+          y="38"
+          width="10"
+          height="16"
+          rx="2"
+          fill={colors.accent}
+          opacity="0.5"
+        />
+
+        {/* Windows */}
+        <rect
+          x="14"
+          y="34"
+          width="9"
+          height="8"
+          rx="2"
+          fill={colors.primary}
+          opacity="0.20"
+          stroke={colors.primary}
+          strokeWidth="1.8"
+        />
+        <rect
+          x="41"
+          y="34"
+          width="9"
+          height="8"
+          rx="2"
+          fill={colors.primary}
+          opacity="0.20"
+          stroke={colors.primary}
+          strokeWidth="1.8"
+        />
+
+        {/* Heart */}
+        <path
+          d="M32 36 C32 36 28 32 28 29.5 C28 27.5 30 26 32 28 C34 26 36 27.5 36 29.5 C36 32 32 36 32 36Z"
+          fill={colors.accent}
+          opacity="0.85"
+        />
+      </svg>
+    ),
+    color: colors.accent,
+    accent: colors.primary,
+  },
+
+  {
+    id: 3,
+    tag: "Career Intelligence",
+    name: "Career Intelligence",
+    fullName:
+      "AI-Ready Student Career Assessment & Intelligence Platform",
+    description:
+      "An AI-powered student career intelligence ecosystem designed for schools, counsellors, and educational institutions — offering psychometric analysis, career recommendations, advanced analytics, and personalized student guidance workflows.",
+    features: [
+      "Psychometric & aptitude assessments",
+      "AI-ready career recommendation engine",
+      "Dynamic student personalization",
+      "Comprehensive career reports & analytics",
+      "Counselling workflow management",
+      "Multi-tenant SaaS for schools & institutes",
+    ],
+    icon: (
+      <svg
+        viewBox="0 0 64 64"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full h-full"
+      >
+        <circle
+          cx="32"
+          cy="22"
+          r="12"
+          fill={colors.primary}
+          opacity="0.10"
+          stroke={colors.primary}
+          strokeWidth="2.5"
+        />
+        <circle cx="32" cy="22" r="5" fill={colors.accent} opacity="0.7" />
+
+        <path
+          d="M20 22 C20 14 44 14 44 22"
+          stroke={colors.primary}
+          strokeWidth="2"
+          strokeLinecap="round"
+          fill="none"
+          opacity="0.4"
+        />
+
+        <path
+          d="M16 38 C16 30 48 30 48 38 L48 46 C48 48 46 50 44 50 L20 50 C18 50 16 48 16 46 Z"
+          fill={colors.primary}
+          opacity="0.08"
+          stroke={colors.primary}
+          strokeWidth="2.5"
+        />
+
+        <rect
+          x="23"
+          y="36"
+          width="6"
+          height="10"
+          rx="1.5"
+          fill={colors.accent}
+          opacity="0.5"
+        />
+        <rect
+          x="32"
+          y="32"
+          width="6"
+          height="14"
+          rx="1.5"
+          fill={colors.accent}
+          opacity="0.75"
+        />
+        <rect
+          x="41"
+          y="38"
+          width="4"
+          height="8"
+          rx="1.5"
+          fill={colors.primary}
+          opacity="0.3"
+        />
+
+        <path
+          d="M14 54 h36"
+          stroke={colors.primary}
+          strokeWidth="2"
+          strokeLinecap="round"
+          opacity="0.2"
+        />
+      </svg>
+    ),
+    color: colors.primary,
+    accent: colors.accent,
+  },
+
+  {
+    id: 4,
+    tag: "Multi-School ERP",
+    name: "School ERP",
+    fullName:
+      "Smart Multi-School ERP Platform for Modern Educational Institutions",
+    description:
+      "A scalable and modern multi-school ERP platform that digitizes admissions, academics, attendance, examinations, transport, fee management, parent communication, and operational workflows with enterprise-grade control and transparency.",
+    features: [
+      "Approval-driven admissions & enrollment",
+      "Multi-level exam & result management",
+      "Fee management & payment verification",
+      "Attendance with locking & audit trail",
+      "Transport, library & inventory control",
+      "Multi-school SaaS with tenant isolation",
+    ],
+    icon: (
+      <svg
+        viewBox="0 0 64 64"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full h-full"
+      >
+        {/* Roof */}
+        <path
+          d="M32 6L6 20v2h52v-2L32 6z"
+          fill={colors.accent}
+          opacity="0.20"
+          stroke={colors.accent}
+          strokeWidth="2.2"
+          strokeLinejoin="round"
+        />
+
+        {/* Building */}
+        <rect
+          x="8"
+          y="22"
+          width="48"
+          height="28"
+          rx="2"
+          fill={colors.primary}
+          opacity="0.08"
+          stroke={colors.primary}
+          strokeWidth="2.2"
+        />
+
+        {/* Windows */}
+        <rect
+          x="13"
+          y="28"
+          width="9"
+          height="8"
+          rx="1.5"
+          fill={colors.primary}
+          opacity="0.18"
+          stroke={colors.primary}
+          strokeWidth="1.8"
+        />
+        <rect
+          x="42"
+          y="28"
+          width="9"
+          height="8"
+          rx="1.5"
+          fill={colors.primary}
+          opacity="0.18"
+          stroke={colors.primary}
+          strokeWidth="1.8"
+        />
+
+        {/* Door */}
+        <rect
+          x="27"
+          y="34"
+          width="10"
+          height="16"
+          rx="2"
+          fill={colors.accent}
+          opacity="0.35"
+          stroke={colors.accent}
+          strokeWidth="1.8"
+        />
+
+        {/* Approval Badge */}
+        <circle
+          cx="49"
+          cy="15"
+          r="7"
+          fill={colors.accent}
+          opacity="0.20"
+          stroke={colors.accent}
+          strokeWidth="2"
+        />
+
+        <path
+          d="M46 15l2.5 2.5L53 12"
+          stroke={colors.accent}
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+
+        {/* Ground */}
+        <rect
+          x="6"
+          y="50"
+          width="52"
+          height="3"
+          rx="1.5"
+          fill={colors.primary}
+          opacity="0.15"
+        />
+      </svg>
+    ),
+    color: colors.primary,
+    accent: colors.accent,
+  },
 ];
+
+// const PRODUCTS = [
+//  {
+//   id: 1,
+//   tag: "Counselling Management System",
+//   name: "CMS",
+//   fullName: "Career Counselling & Assessment Platform",
+//   description:
+//     "An end-to-end digital platform that centralizes career counselling operations — from lead capture, registrations, and payments to assessments, report management, slot booking, and content delivery — reducing manual work and scaling counselling workflows for educational organizations.",
+//   features: [
+//     "Lead capture & registration management",
+//     "Program & package-based access control",
+//     "Online & manual payment verification",
+//     "Assessment tracking & report management",
+//     "Slot booking & counselling workflows",
+//     "Role-based access for 7 user types",
+//   ],
+//   icon: (
+//     <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+//       {/* Central person / counsellor */}
+//       <circle cx="32" cy="18" r="7" fill={colors.primary} opacity="0.12" stroke={colors.primary} strokeWidth="2.5" />
+//       <circle cx="32" cy="16" r="3" fill={colors.primary} opacity="0.6" />
+//       <path d="M25 25c1.8-2.5 12.2-2.5 14 0" stroke={colors.primary} strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.5" />
+//       {/* Journey flow line */}
+//       <path d="M12 38 Q20 28 32 32 Q44 36 52 26" stroke={colors.accent} strokeWidth="2" strokeLinecap="round" strokeDasharray="3 2" fill="none" />
+//       {/* Step nodes on journey */}
+//       <circle cx="12" cy="38" r="4" fill={colors.accent} opacity="0.25" stroke={colors.accent} strokeWidth="2" />
+//       <circle cx="32" cy="32" r="4" fill={colors.accent} opacity="0.5"  stroke={colors.accent} strokeWidth="2" />
+//       <circle cx="52" cy="26" r="4" fill={colors.accent} opacity="0.85" stroke={colors.accent} strokeWidth="2" />
+//       {/* Step labels */}
+//       <rect x="4"  y="44" width="16" height="5" rx="2" fill={colors.primary} opacity="0.15" />
+//       <rect x="24" y="38" width="16" height="5" rx="2" fill={colors.primary} opacity="0.15" />
+//       <rect x="44" y="32" width="16" height="5" rx="2" fill={colors.primary} opacity="0.20" />
+//       {/* Bottom progress bar */}
+//       <rect x="8"  y="54" width="48" height="3" rx="1.5" fill={colors.primary} opacity="0.10" />
+//       <rect x="8"  y="54" width="30" height="3" rx="1.5" fill={colors.accent} opacity="0.6" />
+//     </svg>
+//   ),
+//   color:  colors.primary,
+//   accent: colors.accent,
+// },
+//  {
+//   id: 2,
+//   tag: "Preschool & Daycare",
+//   name: "Preschool ERP",
+//   fullName: "Preschool ERP Platform",
+//   description:
+//     "A complete digital ecosystem for preschools and daycare centres — giving parents real-time visibility into their child's daily care, activities, and development while helping schools automate operations, ensure child safety, and deliver exceptional early childhood experiences.",
+//   features: [
+//     "Daily child tracking & care monitoring",
+//     "OTP / QR-based safe pickup system",
+//     "Parent communication app & real-time updates",
+//     "Child development & milestone tracking",
+//     "Smart fee management & online payments",
+//     "Multi-branch & franchise ready",
+//   ],
+//   icon: (
+//     <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+//       {/* School building */}
+//       <rect x="10" y="28" width="44" height="26" rx="3" fill={colors.primary} opacity="0.10" stroke={colors.primary} strokeWidth="2.5" />
+//       {/* Roof / triangle */}
+//       <path d="M6 30 L32 10 L58 30" stroke={colors.accent} strokeWidth="2.5" strokeLinejoin="round" fill={colors.accent} fillOpacity="0.15" />
+//       {/* Door */}
+//       <rect x="27" y="38" width="10" height="16" rx="2" fill={colors.accent} opacity="0.5" />
+//       {/* Left window */}
+//       <rect x="14" y="34" width="9" height="8" rx="2" fill={colors.primary} opacity="0.20" stroke={colors.primary} strokeWidth="1.8" />
+//       {/* Right window */}
+//       <rect x="41" y="34" width="9" height="8" rx="2" fill={colors.primary} opacity="0.20" stroke={colors.primary} strokeWidth="1.8" />
+//       {/* Heart above door — child safety symbol */}
+//       <path d="M32 36 C32 36 28 32 28 29.5 C28 27.5 30 26 32 28 C34 26 36 27.5 36 29.5 C36 32 32 36 32 36Z" fill={colors.accent} opacity="0.85" />
+//     </svg>
+//   ),
+//   color:  colors.accent,
+//   accent: colors.primary,
+// },
+// {
+//   id: 3,
+//   tag: "Career Intelligence",
+//   name: "Career Assessment Platform",
+//   fullName: "Student Career Assessment & Intelligence Platform",
+//   description:
+//     "A complete AI-ready Career Intelligence Ecosystem built for schools, counsellors, and students — combining psychometric assessments, personalized career recommendations, counselling workflows, and powerful analytics to transform student potential into data-driven career success.",
+//   features: [
+//     "Psychometric & aptitude assessments",
+//     "AI-ready career recommendation engine",
+//     "Dynamic student personalization",
+//     "Comprehensive career reports & analytics",
+//     "Counselling workflow management",
+//     "Multi-tenant SaaS for schools & institutes",
+//   ],
+//   icon: (
+//     <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+//       <circle cx="32" cy="22" r="12" fill={colors.primary} opacity="0.10" stroke={colors.primary} strokeWidth="2.5" />
+//       <circle cx="32" cy="22" r="5" fill={colors.accent} opacity="0.7" />
+//       <path d="M20 22 C20 14 44 14 44 22" stroke={colors.primary} strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.4" />
+//       <path d="M16 38 C16 30 48 30 48 38 L48 46 C48 48 46 50 44 50 L20 50 C18 50 16 48 16 46 Z" fill={colors.primary} opacity="0.08" stroke={colors.primary} strokeWidth="2.5" />
+//       <rect x="23" y="36" width="6" height="10" rx="1.5" fill={colors.accent} opacity="0.5" />
+//       <rect x="32" y="32" width="6" height="14" rx="1.5" fill={colors.accent} opacity="0.75" />
+//       <rect x="41" y="38" width="4" height="8" rx="1.5" fill={colors.primary} opacity="0.3" />
+//       <path d="M14 54 h36" stroke={colors.primary} strokeWidth="2" strokeLinecap="round" opacity="0.2" />
+//     </svg>
+//   ),
+//   color:  colors.primary,
+//   accent: colors.accent,
+// },
+
+// {
+//   id: 4,
+//   tag: "K+12 Education",
+//   name: "K+12 School ERP",
+//   fullName: "School ERP Management System",
+//   description:
+//     "A complete multi-school SaaS ERP that digitizes every operational workflow of a school — admissions, academics, attendance, examinations, fees, transport, library, and parent communication — built on a strict Action → Verification → Approval → Lock → Visibility workflow for full accountability and transparency.",
+//   features: [
+//     "Approval-driven admissions & enrollment",
+//     "Multi-level exam & result management",
+//     "Fee management & payment verification",
+//     "Attendance with locking & audit trail",
+//     "Transport, library & inventory control",
+//     "Multi-school SaaS with tenant isolation",
+//   ],
+//   icon: (
+//     <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+//       {/* School rooftop */}
+//       <path d="M32 6L6 20v2h52v-2L32 6z" fill={colors.accent} opacity="0.20" stroke={colors.accent} strokeWidth="2.2" strokeLinejoin="round" />
+//       {/* Building body */}
+//       <rect x="8" y="22" width="48" height="28" rx="2" fill={colors.primary} opacity="0.08" stroke={colors.primary} strokeWidth="2.2" />
+//       {/* Left window */}
+//       <rect x="13" y="28" width="9" height="8" rx="1.5" fill={colors.primary} opacity="0.18" stroke={colors.primary} strokeWidth="1.8" />
+//       {/* Right window */}
+//       <rect x="42" y="28" width="9" height="8" rx="1.5" fill={colors.primary} opacity="0.18" stroke={colors.primary} strokeWidth="1.8" />
+//       {/* Door */}
+//       <rect x="27" y="34" width="10" height="16" rx="2" fill={colors.accent} opacity="0.35" stroke={colors.accent} strokeWidth="1.8" />
+//       {/* Approval checkmark badge — represents the workflow */}
+//       <circle cx="49" cy="15" r="7" fill={colors.accent} opacity="0.20" stroke={colors.accent} strokeWidth="2" />
+//       <path d="M46 15l2.5 2.5L53 12" stroke={colors.accent} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+//       {/* Ground line */}
+//       <rect x="6" y="50" width="52" height="3" rx="1.5" fill={colors.primary} opacity="0.15" />
+//     </svg>
+//   ),
+//   color:  colors.primary,
+//   accent: colors.accent,
+// },
+//   // {
+//   //   id: 4,
+//   //   tag: "K+12 Education",
+//   //   name: "K+12 School ERP",
+//   //   fullName: "K+12 Complete School ERP",
+//   //   description:
+//   //     "A comprehensive school management ecosystem covering admissions, academics, finance, timetable, library, transport, and parent portals — purpose-built for K-12 institutions.",
+//   //   features: ["End-to-end admissions flow", "Academic & timetable planner", "Parent & student portals"],
+//   //   icon: (
+//   //     <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+//   //       <path d="M32 8L6 22v2h52v-2L32 8z" fill={colors.accent} opacity="0.25" stroke={colors.accent} strokeWidth="2.2" strokeLinejoin="round" />
+//   //       <rect x="12" y="24" width="8" height="22" rx="2" fill={colors.primary} opacity="0.15" stroke={colors.primary} strokeWidth="2" />
+//   //       <rect x="28" y="24" width="8" height="22" rx="2" fill={colors.primary} opacity="0.15" stroke={colors.primary} strokeWidth="2" />
+//   //       <rect x="44" y="24" width="8" height="22" rx="2" fill={colors.primary} opacity="0.15" stroke={colors.primary} strokeWidth="2" />
+//   //       <rect x="8" y="46" width="48" height="4" rx="2" fill={colors.primary} opacity="0.2" stroke={colors.primary} strokeWidth="2" />
+//   //       <rect x="28" y="36" width="8" height="10" rx="1.5" fill={colors.accent} opacity="0.4" />
+//   //       <circle cx="32" cy="17" r="2.5" fill={colors.accent} />
+//   //     </svg>
+//   //   ),
+//   //   color:  colors.primary,
+//   //   accent: colors.accent,
+//   // },
+// ];
 
 // ─────────────────────────────────────────────────────────────
 //  PRODUCTS PAGE

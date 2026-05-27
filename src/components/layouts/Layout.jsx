@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
+import Footer from "../Footer";
 
 function useWindowWidth() {
     const [w, setW] = useState(typeof window !== "undefined" ? window.innerWidth : 1200);
@@ -416,6 +417,7 @@ const Layout = ({ children }) => {
 
             {/* ── PAGE CONTENT ── */}
             <main>{children || <Outlet />}</main>
+            <Footer />
         </div>
     );
 };

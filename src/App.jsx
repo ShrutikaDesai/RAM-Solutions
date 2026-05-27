@@ -1,23 +1,19 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-
-
-import Products from "./components/Products";
-import ProductCaseStudy from "./components/ProductCaseStudy";
-import ContactUs from "./components/ContactUs";
-import Services from "./components/Services";
 import AboutUs from "./components/AboutUs";
+import ContactUs from "./components/ContactUs";
+import Fallback from "./components/Fallback";
 import Home from "./components/Home";
 import Layout from "./components/layouts/Layout";
-import Fallback from "./components/Fallback";
+import ProductCaseStudy from "./components/ProductCaseStudy";
+import Products from "./components/Products";
+import Services from "./components/Services";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-
-        {/* ── ALL PAGES INSIDE LAYOUT ── */}
         <Route element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/" element={<Home />} />
@@ -27,9 +23,7 @@ const App = () => {
           <Route path="/product-case-study" element={<ProductCaseStudy />} />
           <Route path="/contact-us" element={<ContactUs />} />
         </Route>
-
         <Route path="*" element={<Fallback />} />
-
       </Routes>
     </BrowserRouter>
   );

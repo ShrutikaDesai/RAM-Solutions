@@ -1955,8 +1955,8 @@ const injectStyles = () => {
 export const CASE_STUDIES = {
   1: {
     id: 1,
-    productName: "CMS",
-    fullName: "Counselling Management System",
+  productName: "Career Counselling Platform",
+  fullName: "All-in-One Digital Career Counselling Platform",
     tagline: "End-to-End Digital Platform for Career Guidance, Assessments & Student Counselling",
     heroColor: "#1a3e8c",
     accent: "#e8a020",
@@ -2017,8 +2017,8 @@ export const CASE_STUDIES = {
 
   2: {
     id: 2,
-    productName: "Preschool ERP",
-    fullName: "Preschool ERP Platform",
+   productName: "Preschool ERP",
+  fullName: "Smart Preschool & Daycare Management System",
     tagline: "Smart Preschool & Daycare Management — Build Parent Trust, Simplify Operations",
     heroColor: "#1a3e8c",
     accent: "#e8a020",
@@ -2081,8 +2081,8 @@ export const CASE_STUDIES = {
 
   3: {
     id: 3,
-    productName: "Career Assessment Platform",
-    fullName: "Student Career Assessment & Intelligence Platform",
+  productName: "Career Assessment ",
+  fullName: "AI-Ready Student Career Assessment & Intelligence Platform",
     tagline: "AI-Ready Career Guidance & Psychometric Assessment Ecosystem — Transform Student Potential Into Data-Driven Career Success",
     heroColor: "#1a3e8c",
     accent: "#e8a020",
@@ -2143,8 +2143,8 @@ export const CASE_STUDIES = {
 
   4: {
     id: 4,
-    productName: "K+12 School ERP",
-    fullName: "K+12 Multi-School ERP SaaS Platform",
+  productName: "K+12 School ERP",
+  fullName: "Smart Multi-School ERP Platform for Modern Educational Institutions",
     tagline: "Approval-Driven Digital Operations for Modern Schools",
     heroColor: "#1a3e8c",
     accent: "#e8a020",
