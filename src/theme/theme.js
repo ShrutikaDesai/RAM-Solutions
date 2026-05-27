@@ -298,8 +298,8 @@
     // Font Families
     fontFamily: {
       paragraph: "'Raleway', sans-serif",
-      heading: "'Titillium Web', sans-serif",
-      secondaryHeading: "'Josefin Sans', sans-serif",
+      heading: "'Raleway', sans-serif",
+      secondaryHeading: "'Raleway', sans-serif",
     },
 
     // Paragraph Styles
@@ -312,7 +312,7 @@
 
     // Main Heading Styles
     heading: {
-      fontFamily: "'Titillium Web', sans-serif",
+      fontFamily: "'Raleway', sans-serif",
 
       h1: {
         fontSize: 72,
@@ -335,7 +335,7 @@
 
     // Secondary Heading
     secondaryHeading: {
-      fontFamily: "'Josefin Sans', sans-serif",
+      fontFamily: "'Raleway', sans-serif",
       fontSize: 14,
       fontWeight: 600,
       lineHeight: 1.4,

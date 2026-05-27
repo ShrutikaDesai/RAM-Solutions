@@ -622,16 +622,19 @@ const PRODUCTS = [
 // ─────────────────────────────────────────────────────────────
 const Products = () => {
   const [hovered, setHovered]          = useState(null);
-  const [selectedProduct, setSelected] = useState(null);
+  // Case study navigation is disabled for now.
+  // const [selectedProduct, setSelected] = useState(null);
 
-  if (selectedProduct !== null) {
-    return (
-      <ProductCaseStudy
-        productId={selectedProduct}
-        onBack={() => setSelected(null)}
-      />
-    );
-  }
+  // If you want product cards to open the case study page again later,
+  // restore the selectedProduct state above and this conditional block.
+  // if (selectedProduct !== null) {
+  //   return (
+  //     <ProductCaseStudy
+  //       productId={selectedProduct}
+  //       onBack={() => setSelected(null)}
+  //     />
+  //   );
+  // }
 
   return (
   <><Helmet>
@@ -727,9 +730,9 @@ const Products = () => {
       <div style={{ height: 32, background: colors.bgPage, marginTop: -32, borderRadius: "32px 32px 0 0", position: "relative", zIndex: 2 }} />
 
       {/* Click hint */}
-      <p style={{ textAlign: "center", fontSize: text.size.base, color: colors.textMuted, fontWeight: text.weight.medium, margin: `${spacing.lg}px 0 -${spacing.sm}px`, letterSpacing: text.letterSpacing.wide }}>
+      {/* <p style={{ textAlign: "center", fontSize: text.size.base, color: colors.textMuted, fontWeight: text.weight.medium, margin: `${spacing.lg}px 0 -${spacing.sm}px`, letterSpacing: text.letterSpacing.wide }}>
         Click any product card to explore its full case study →
-      </p>
+      </p> */}
 
       {/* ── CARDS GRID ── */}
       <div style={{
@@ -747,7 +750,8 @@ const Products = () => {
             isHovered={hovered === p.id}
             onEnter={() => setHovered(p.id)}
             onLeave={() => setHovered(null)}
-            onClick={() => setSelected(p.id)}
+            // Keep product cards non-navigating for now.
+            onClick={undefined}
           />
         ))}
       </div>
@@ -783,7 +787,7 @@ const Products = () => {
           </p>
         </div>
 
-        <a href="/contact-us" style={{
+        <a href="https://wa.me/918484905526" target="_blank" rel="noreferrer" style={{
           display: "inline-block",
           background: colors.accent,
           color: colors.white,
@@ -891,23 +895,56 @@ const ProductCard = ({ product: p, isHovered, onEnter, onLeave, onClick }) => (
     </ul>
 
     {/* CTA link row */}
-    <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-      <span style={{ fontSize: text.size.base, fontWeight: text.weight.bold, color: p.color, letterSpacing: text.letterSpacing.wider, textTransform: "uppercase" }}>
-        View Case Study
-      </span>
-      <span style={{
-        display: "inline-flex", alignItems: "center", justifyContent: "center",
-        width: 26, height: 26,
-        borderRadius: radius.full,
-        background: `${p.color}15`,
-        transition: `transform ${transitions.fast}`,
-        transform: isHovered ? "translateX(4px)" : "translateX(0)",
-      }}>
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-          <path d="M2 6h8M7 3l3 3-3 3" stroke={p.color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </span>
-    </div>
+    {/* CTA link row */}
+<a
+  href="https://wa.me/918484905526"
+  target="_blank"
+  rel="noreferrer"
+  onClick={(e) => e.stopPropagation()} // prevents card click
+  style={{
+    display: "flex",
+    alignItems: "center",
+    gap: 6,
+    textDecoration: "none",
+    width: "fit-content",
+  }}
+>
+  <span
+    style={{
+      fontSize: text.size.base,
+      fontWeight: text.weight.bold,
+      color: p.color,
+      letterSpacing: text.letterSpacing.wider,
+      textTransform: "uppercase",
+    }}
+  >
+    Connect With Us
+  </span>
+
+  <span
+    style={{
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      width: 26,
+      height: 26,
+      borderRadius: radius.full,
+      background: `${p.color}15`,
+      transition: `transform ${transitions.fast}`,
+      transform: isHovered ? "translateX(4px)" : "translateX(0)",
+    }}
+  >
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+      <path
+        d="M2 6h8M7 3l3 3-3 3"
+        stroke={p.color}
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  </span>
+</a>
   </div>
 );
 

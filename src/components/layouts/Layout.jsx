@@ -19,6 +19,8 @@ const NAV_LINKS = [
     { label: "Products", href: "/products" },
 ];
 
+const CTA_FONT_FAMILY = "'Segoe UI','Helvetica Neue',Arial,sans-serif";
+
 const Layout = ({ children }) => {
     const width = useWindowWidth();
     const isMobile = width < 768;
@@ -44,7 +46,7 @@ const Layout = ({ children }) => {
     useEffect(() => { if (!isMobile) setMenuOpen(false); }, [isMobile]);
 
     return (
-        <div style={{ minHeight: "100vh", fontFamily: "'Segoe UI','Helvetica Neue',Arial,sans-serif", background: "#f8f9fc" }}>
+        <div style={{ minHeight: "100vh", fontFamily: "'Raleway', sans-serif", background: "#f8f9fc" }}>
             <style>{`
         @keyframes marqueeScroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
         @keyframes dropDown { from{opacity:0;transform:translateY(-10px)} to{opacity:1;transform:translateY(0)} }
@@ -302,21 +304,19 @@ const Layout = ({ children }) => {
                                 minWidth: 0,
                             }}
                         >
-                            <span
+                            {/* <span
                                 style={{
                                     fontWeight: 900,
                                     fontSize: isMobile ? 11 : 24,
                                     color: "#e8a020",
                                     letterSpacing: isMobile ? "0.01em" : "0.02em",
-
-                                    /* MOBILE TEXT CONTROL */
                                     whiteSpace: isMobile ? "nowrap" : "normal",
                                     overflow: isMobile ? "hidden" : "visible",
                                     textOverflow: isMobile ? "ellipsis" : "unset",
                                 }}
                             >
                                 Right Analysis Matters Pvt. Ltd.
-                            </span>
+                            </span> */}
                         </div>
                     </a>
                     {/* ── RIGHT: DESKTOP NAV / CTA / MOBILE HAMBURGER ── */}
@@ -340,6 +340,7 @@ const Layout = ({ children }) => {
                                 padding: "12px 28px", borderRadius: 8,
                                 textDecoration: "none", fontWeight: 700,
                                 fontSize: 14, letterSpacing: "0.01em",
+                                fontFamily: CTA_FONT_FAMILY,
                                 whiteSpace: "nowrap",
                                 transition: "background 0.2s ease",
                             }}
@@ -394,6 +395,7 @@ const Layout = ({ children }) => {
                                 background: "#e8a020", color: "#fff",
                                 padding: "13px 24px", borderRadius: 8,
                                 textDecoration: "none", fontWeight: 800,
+                                fontFamily: CTA_FONT_FAMILY,
                                 fontSize: 12, letterSpacing: "0.1em", textTransform: "uppercase",
                             }}>
                                 💬 Get a Quote on WhatsApp
@@ -402,11 +404,11 @@ const Layout = ({ children }) => {
 
                         {/* Mobile contact row */}
                         <div style={{ padding: "12px 24px", display: "flex", gap: 20, borderTop: "1px solid rgba(255,255,255,0.06)", marginTop: 8 }}>
-                            <a href="tel:+918484905526" style={{ color: "rgba(255,255,255,0.55)", fontSize: 12, textDecoration: "none", display: "flex", alignItems: "center", gap: 6 }}>
+                            <a href="tel:+918484905526" style={{ color: "rgba(255,255,255,0.55)", fontSize: 12, fontFamily: CTA_FONT_FAMILY, textDecoration: "none", display: "flex", alignItems: "center", gap: 6 }}>
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#e8a020" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" /></svg>
                                 +91 84849 05526
                             </a>
-                            <a href="mailto:info@ramtechnology.in" style={{ color: "rgba(255,255,255,0.55)", fontSize: 12, textDecoration: "none", display: "flex", alignItems: "center", gap: 6 }}>
+                            <a href="mailto:info@ramtechnology.in" style={{ color: "rgba(255,255,255,0.55)", fontSize: 12, fontFamily: CTA_FONT_FAMILY, textDecoration: "none", display: "flex", alignItems: "center", gap: 6 }}>
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#e8a020" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
                                 info@ramtechnology.in
                             </a>
