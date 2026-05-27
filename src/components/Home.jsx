@@ -3,7 +3,6 @@ import theme from "../theme/theme";
 import { useNavigate } from "react-router-dom";
 import {  ChevronDown, ArrowRight,   Info, Rocket } from "lucide-react";
 import { Helmet } from "react-helmet-async";
-import Footer from "../components/Footer";
 const { colors, typography: t, spacing, radius, shadows, transitions, gradients, layout, iconSize, animation } = theme;
 
 // ── HOOKS ────────────────────────────────────────────────────────────
@@ -1089,7 +1088,7 @@ const Home = () => {
         </div>
       </div>
     </div>
-    <Footer/></>
+   </>
   );
 };
 

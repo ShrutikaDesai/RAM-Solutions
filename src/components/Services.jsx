@@ -12,7 +12,6 @@ import {
   layout,
   animation,
 } from '../theme/theme';
-import Footer from "../components/Footer";
 // ── RESPONSIVE HOOK ──────────────────────────────────────────────────
 function useWindowWidth() {
   const [w, setW] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
@@ -694,7 +693,7 @@ const Services = () => {
       </div>
 
     </div>
-    <Footer/></>
+    </>
   );
 };
 

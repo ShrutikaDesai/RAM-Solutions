@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import theme from "../theme/theme";
 import { MessageCircle, Rocket } from "lucide-react";
-import Footer from "../components/Footer";
 const { colors, typography: t, spacing, radius, shadows, transitions, gradients, layout, iconSize, animation } = theme;
 
 // ── HOOKS ────────────────────────────────────────────────────────────
@@ -716,7 +715,7 @@ const AboutUs = () => {
         </div>
       </div>
     </div>
-     <Footer/></>
+     </>
   );
 };
 

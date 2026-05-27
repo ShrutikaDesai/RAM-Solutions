@@ -1,9 +1,8 @@
 import  { useState } from 'react';
 //import React from 'react';
 import ProductCaseStudy from '../components/ProductCaseStudy';
-import theme from '../theme/theme';   // ← single import; use named exports if preferred
+import theme from '../theme/theme';   
 import { Helmet } from "react-helmet-async";
-import Footer from "../components/Footer";
 const { colors, typography, spacing, radius, shadows, transitions, gradients, layout, iconSize } = theme;
 
 // ── Shared style helpers ─────────────────────────────────────
@@ -802,7 +801,7 @@ const Products = () => {
         </a>
       </div>
     </div>
-    <Footer/></>
+  </>
   );
 };
 

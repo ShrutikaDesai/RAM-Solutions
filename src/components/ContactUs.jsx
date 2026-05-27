@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from "react-helmet-async";
-import Footer from "../components/Footer";
 // ── FAQ DATA ────────────────────────────────────────────────────────
 const FAQS = [
   {
@@ -611,7 +610,7 @@ const ContactUs = () => {
       </div>
 
     </div>
-    <Footer/></>
+    </>
   );
 };
 

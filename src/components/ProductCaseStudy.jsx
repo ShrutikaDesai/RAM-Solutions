@@ -1035,7 +1035,18 @@
 //     </div>
 //   );
 // };
+
 import {
+  Brain,
+  Database,
+  Bot,
+  Target,
+  PieChart,
+  CalendarCheck,
+  UsersRound,
+  Milestone,
+  Layers,
+  MessageSquare,
   UserPlus,
   BookOpen,
   CreditCard,
@@ -1058,14 +1069,16 @@ import {
   Package,
   Megaphone,
   LayoutDashboard
+
 } from "lucide-react";
 
 // export default ProductCaseStudy;
 import { Helmet } from "react-helmet-async";
 
 
-import React, { useState } from "react";
-import { colors, typography, spacing, radius, shadows, layout } from "../theme/theme";
+import React, { useEffect, useRef, useState } from "react";
+import { colors, typography, spacing, radius, shadows, layout, } from "../theme/theme";
+
 
 // ── ANIMATION HOOK — fires once when element enters viewport ────────
 const useInView = (threshold = 0.15) => {
@@ -1575,6 +1588,51 @@ const ProductCaseStudy = ({ productId, onBack }) => {
   const cs = CASE_STUDIES[productId];
   if (!cs) return null;
   const { heroColor, accent } = cs;
+  const title = `${cs.fullName} Case Study | Right Analysis Matters Pvt. Ltd.`;
+  const description = cs.tagline || cs.overview;
+  const keywords = [
+    cs.productName,
+    cs.fullName,
+    "case study",
+    "Right Analysis Matters",
+    "education technology",
+    "software product",
+  ].join(", ");
+  const imageUrl =
+    typeof window !== "undefined"
+      ? `${window.location.origin}/logo.png`
+      : "/logo.png";
+  const pageUrl =
+    typeof window !== "undefined"
+      ? window.location.href
+      : `/product-case-study?id=${productId}`;
+  const heroReady = true;
+  const [statsRef, statsVisible] = useInView(0.2);
+  const [overviewRef, overviewVisible] = useInView(0.2);
+  const [challengeRef, challengeVisible] = useInView(0.2);
+  const [solutionRef, solutionVisible] = useInView(0.2);
+  const [resultsRef, resultsVisible] = useInView(0.2);
+
+  const [testRef, testVisible] = useInView(0.2);
+const [techRef, techVisible] = useInView(0.2);
+const [ctaRef, ctaVisible] = useInView(0.2);
+
+  const headingStyle = {
+    fontSize: "clamp(1.4rem, 3vw, 1.9rem)",
+    fontWeight: typography.weight.extrabold,
+    color: colors.textHeading,
+    margin: "0 0 14px",
+    lineHeight: typography.lineHeight.tight,
+    letterSpacing: typography.letterSpacing.tight,
+    fontFamily: typography.fontFamily,
+  };
+  const bodyStyle = {
+    fontSize: 15,
+    color: colors.textBody,
+    lineHeight: 1.75,
+    margin: 0,
+    fontFamily: typography.fontFamily,
+  };
 
   return (
     <><Helmet>
@@ -2049,7 +2107,7 @@ const ProductCaseStudy = ({ productId, onBack }) => {
       </div>
 
     </div>
-    <Footer /></>
+   </>
   );
 };
 
@@ -2115,15 +2173,33 @@ const AnimatedEyebrow = ({ color, children, active }) => (
 const AnimatedCTAButton = ({ accent, href, children }) => {
   const [hov, setHov] = useState(false);
   return (
-    <div
+    <a
+      href={href}
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
-      style={{ background: hov ? colors.bgCard : colors.bgPage, borderRadius: radius.lg, padding: "22px 20px", border: `1.5px solid ${hov ? heroColor : colors.borderDefault}`, transition: `all 0.22s ease`, boxShadow: hov ? shadows.cardSmHover : "none", transform: hov ? "translateY(-3px)" : "none" }}
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 8,
+        background: hov ? colors.white : accent,
+        color: hov ? accent : colors.white,
+        borderRadius: radius.pill,
+        padding: "14px 22px",
+        border: `1.5px solid ${accent}`,
+        textDecoration: "none",
+        fontSize: 13,
+        fontWeight: typography.weight.bold,
+        letterSpacing: "0.04em",
+        fontFamily: typography.fontFamily,
+        transition: "all 0.22s ease",
+        boxShadow: hov ? shadows.cardSmHover : "none",
+        transform: hov ? "translateY(-3px)" : "translateY(0)",
+        whiteSpace: "nowrap",
+      }}
     >
-      <div style={{ fontSize: 28, marginBottom: 12 }}>{mod.icon}</div>
-      <h4 style={{ fontSize: 15, fontWeight: typography.weight.bold, color: colors.textHeading, margin: "0 0 8px", fontFamily: typography.fontFamily }}>{mod.name}</h4>
-      <p style={{ fontSize: 13, color: colors.textBody, lineHeight: 1.6, margin: 0, fontFamily: typography.fontFamily }}>{mod.desc}</p>
-    </div>
+      {children}
+    </a>
   );
 };
 
