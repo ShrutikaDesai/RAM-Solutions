@@ -1037,8 +1037,9 @@
 // };
 
 // export default ProductCaseStudy;
+import { Helmet } from "react-helmet-async";
 
-
+import Footer from "../components/Footer";
 import React, { useState } from "react";
 import { colors, typography, spacing, radius, shadows, layout } from "../theme/theme";
 
@@ -1223,52 +1224,138 @@ export const CASE_STUDIES = {
     overview:
       "Day care centres juggle child safety, parent communication, fee collection, staff rostering, and compliance — all simultaneously. Our Day Care ERP unifies every operational thread into one simple, reliable platform.",
     stats: [
-      { value: "80%", label: "Reduction in admin time" },
-      { value: "100%", label: "Fee collection accuracy" },
-      { value: "2,000+", label: "Children managed" },
-      { value: "4.9★", label: "Parent satisfaction score" },
+    { value: "80%", label: "Reduction in admin work" },
+    { value: "100%", label: "Fee accuracy" },
+    { value: "4.9★", label: "Parent satisfaction" },
+    { value: "2000+", label: "Children managed" },
+  ],
+
+  challenge: {
+    title: "The Challenge",
+    body:
+      "Preschools were managing operations using manual registers, WhatsApp messages, and disconnected systems. This resulted in poor parent communication, inefficient staff coordination, and lack of visibility into child care and safety.",
+    points: [
+      "Manual attendance and daily tracking",
+      "Lack of real-time parent communication",
+      "Unstructured admission and inquiry handling",
+      "No centralized child data and reports",
+      "Inefficient fee and billing management",
     ],
-    challenge: {
-      title: "The Challenge",
-      body:
-        "Day care operators were managing attendance in paper registers, sending fee reminders via individual WhatsApp messages, and handling staff shifts on physical notice boards. Parent communication was inconsistent and incident records were kept in physical files.",
-      points: [
-        "Paper-based attendance & incident records",
-        "Manual fee collection and reminder calls",
-        "No real-time parent notifications",
-        "Staff scheduling done on whiteboards",
-      ],
-    },
-    solution: {
-      title: "Our Solution",
-      body:
-        "A mobile-first ERP built specifically for day care workflows, with dedicated portals for operators, staff, and parents.",
-      modules: [
-        { icon: "🧒", name: "Child Enrolment", desc: "Digital enrolment with health records, allergy tracking, and emergency contacts stored securely." },
-        { icon: "✅", name: "Attendance Tracking", desc: "QR-code check-in/check-out with real-time parent notifications on pickup and drop." },
-        { icon: "💳", name: "Fee Automation", desc: "Auto-generate invoices, send reminders, and accept online payments with reconciliation built in." },
-        { icon: "👩‍💼", name: "Staff Rostering", desc: "Drag-and-drop shift planner with overtime alerts and leave management." },
-        { icon: "📱", name: "Parent Portal", desc: "Parents see daily activity logs, meal updates, nap records, and photos — all in real time." },
-        { icon: "📑", name: "Compliance Reports", desc: "Auto-generated regulatory compliance reports with audit trail for licensing bodies." },
-      ],
-    },
-    results: {
-      title: "Results Achieved",
-      body: "Deployed across 8 day care centres with 2,000+ children enrolled.",
-      outcomes: [
-        { metric: "Admin hours per week", before: "32 hrs", after: "6 hrs" },
-        { metric: "Fee collection rate", before: "71%", after: "99.8%" },
-        { metric: "Parent complaint rate", before: "High", after: "Near zero" },
-        { metric: "Staff scheduling conflicts", before: "Weekly", after: "Eliminated" },
-      ],
-    },
-    testimonial: {
-      quote: "Parents love the real-time updates. Our staff love the simple shift planner. And I love that I can see everything from my phone without being on site.",
-      author: "Centre Director",
-      org: "Sunshine Day Care Network, Mumbai",
-    },
-    techStack: ["React Native", "Node.js", "MongoDB", "Firebase", "Stripe", "GCP"],
   },
+
+  solution: {
+    title: "Our Solution",
+    body:
+      "We developed a preschool-focused ERP platform that centralizes operations, enhances parent engagement, and ensures complete child safety and visibility.",
+
+    modules: [
+      {
+        icon: "👶",
+        name: "Child Profile Management",
+        desc:
+          "Maintain detailed child records including health data, allergies, guardian details, and preferences.",
+      },
+      {
+        icon: "📅",
+        name: "Daily Child Tracking",
+        desc:
+          "Track attendance, meals, naps, hygiene, mood, and activities with real-time parent updates.",
+      },
+      {
+        icon: "📱",
+        name: "Parent Communication App",
+        desc:
+          "Enable real-time messaging, updates, announcements, and activity sharing with parents.",
+      },
+      {
+        icon: "🔒",
+        name: "Safe Pickup System",
+        desc:
+          "Ensure child safety using OTP/QR-based pickup verification and guardian authorization.",
+      },
+      {
+        icon: "🎨",
+        name: "Activity & Curriculum Management",
+        desc:
+          "Manage classroom activities, learning themes, and teacher observations.",
+      },
+      {
+        icon: "📊",
+        name: "Development Tracking",
+        desc:
+          "Track cognitive, emotional, and physical development with detailed reports.",
+      },
+      {
+        icon: "💳",
+        name: "Smart Fee Management",
+        desc:
+          "Automate billing, reminders, and online payments with flexible fee structures.",
+      },
+      {
+        icon: "👩‍🏫",
+        name: "Staff & Classroom Management",
+        desc:
+          "Manage teacher attendance, scheduling, and performance tracking.",
+      },
+      {
+        icon: "🚌",
+        name: "Transport Tracking",
+        desc:
+          "Provide real-time GPS tracking and pickup/drop notifications.",
+      },
+      {
+        icon: "📈",
+        name: "Analytics & Dashboards",
+        desc:
+          "Monitor admissions, revenue, attendance, and operational performance.",
+      },
+    ],
+  },
+
+  results: {
+    title: "Results Achieved",
+    body:
+      "The Preschool ERP Platform significantly improved operational efficiency, enhanced parent trust, and enabled scalable preschool management.",
+    outcomes: [
+      {
+        metric: "Parent communication",
+        before: "Manual updates",
+        after: "Real-time digital updates",
+      },
+      {
+        metric: "Attendance tracking",
+        before: "Paper registers",
+        after: "Automated system",
+      },
+      {
+        metric: "Fee management",
+        before: "Manual tracking",
+        after: "Automated billing system",
+      },
+      {
+        metric: "Child safety tracking",
+        before: "Limited visibility",
+        after: "Secure monitoring system",
+      },
+    ],
+  },
+
+  testimonial: {
+    quote:
+      "This platform transformed our preschool operations. Parents are happier, staff is more efficient, and we finally have complete visibility into everything happening in our center.",
+    author: "Director",
+    org: "Leading Preschool Chain, India",
+  },
+
+  techStack: [
+    "React",
+    "Node.js",
+    "PostgreSQL",
+    "AWS",
+    "WebSockets",
+    "React Native",
+  ],
+},
   3: {
   id: 3,
   productName: "Aptitude Test Manager",
@@ -1277,187 +1364,138 @@ export const CASE_STUDIES = {
     "Secure, Scalable & Intelligent Assessment Management for Modern Institutions",
   heroColor: "#1a3e8c",
   accent: "#e8a020",
-  overview:
-    "Managing large-scale aptitude tests, entrance exams, placement assessments, and online evaluations requires accuracy, scalability, and complete operational control. Our Aptitude Test Management Platform digitizes the entire examination lifecycle — from question creation and exam scheduling to secure test execution, automated evaluation, analytics, and result publishing.",
   stats: [
     { value: "50,000+", label: "Assessments conducted" },
-    { value: "99.99%", label: "Platform reliability" },
-    { value: "< 2 min", label: "Auto-result generation" },
-    { value: "90%", label: "Reduction in manual evaluation" },
+    { value: "95%", label: "Accuracy in recommendations" },
+    { value: "5x", label: "Faster counselling workflows" },
+    { value: "100+", label: "Institutions onboarded" },
   ],
 
   challenge: {
     title: "The Challenge",
     body:
-      "Educational institutions and organizations were relying on paper-based exams, spreadsheets, and basic online forms for assessments. These systems lacked security, automation, analytics, and scalability, leading to evaluation delays, malpractice risks, and inefficient exam operations.",
+      "Traditional career guidance systems rely heavily on manual counselling, generic suggestions, and limited data insights. This results in confusion among students, lack of personalization, and inefficient counselling processes.",
     points: [
-      "Paper-based exams with slow manual evaluation",
-      "No secure online examination workflow",
-      "High risk of cheating and question leakage",
-      "No centralized analytics or performance tracking",
-      "Difficulty handling large-scale concurrent exams",
-      "Complex coordination for scheduling and result processing",
+      "Generic career recommendations",
+      "Lack of scientific assessment methods",
+      "Manual counselling workflows",
+      "No personalization based on student profile",
+      "Limited analytics and performance insights",
+      "Difficulty scaling assessments across institutions",
     ],
   },
 
   solution: {
     title: "Our Solution",
     body:
-      "We developed a secure, browser-based assessment platform that enables institutions to conduct online examinations, aptitude tests, placement assessments, and mock tests with automated workflows, intelligent evaluation, and real-time analytics.",
+      "We developed a scalable Career Intelligence Platform that combines psychometric assessments, AI-ready recommendation engines, and counselling workflows to deliver personalized, data-driven career guidance.",
+
     modules: [
       {
-        icon: "📝",
+        icon: "🧠",
+        name: "Psychometric Assessment Engine",
+        desc:
+          "Conduct aptitude, personality, and career orientation tests with automated evaluation and scoring.",
+      },
+      {
+        icon: "📚",
         name: "Question Bank Management",
         desc:
-          "Create, categorize, and manage questions with subject-wise tagging, difficulty levels, Excel import support, and reusable question libraries.",
+          "Manage diverse question types including MCQs, logical reasoning, personality, and psychometric evaluations.",
       },
       {
-        icon: "📅",
-        name: "Exam Scheduling & Management",
+        icon: "🤖",
+        name: "AI Recommendation Engine",
         desc:
-          "Configure exam timings, durations, instructions, candidate assignments, and exam availability with centralized scheduling control.",
+          "Generate personalized career suggestions based on aptitude, personality, and interests.",
       },
-
       {
-        icon: "🔀",
-        name: "Randomization Engine",
+        icon: "👤",
+        name: "Student Personalization",
         desc:
-          "Generate unique question and option sequences for every candidate to reduce copying and improve exam integrity.",
+          "Adapt recommendations dynamically for different student stages and profiles.",
       },
-
-      {
-        icon: "🔒",
-        name: "Secure Exam Environment",
-        desc:
-          "Support fullscreen enforcement, tab-switch monitoring, browser restrictions, and configurable proctoring workflows for secure assessments.",
-      },
-
-      {
-        icon: "⚡",
-        name: "Automated Evaluation",
-        desc:
-          "Instant evaluation for objective exams with configurable scoring logic, negative marking, and result generation workflows.",
-      },
-
       {
         icon: "📊",
-        name: "Analytics & Performance Reports",
+        name: "Career Reports & Analytics",
         desc:
-          "Generate rank lists, percentile scores, topic-wise analysis, performance comparisons, and downloadable reports for students and administrators.",
+          "Generate detailed reports with aptitude analysis, personality insights, and career pathways.",
       },
-
       {
-        icon: "👥",
-        name: "Candidate Management",
+        icon: "🗓️",
+        name: "Counselling Workflow Management",
         desc:
-          "Manage candidate registrations, exam access, login credentials, attendance tracking, and assessment history from a centralized dashboard.",
+          "Manage counsellor assignments, session scheduling, and follow-ups efficiently.",
       },
-
       {
-        icon: "📄",
-        name: "Result & Report Publishing",
+        icon: "👨‍👩‍👧",
+        name: "Parent Engagement",
         desc:
-          "Publish results securely with downloadable scorecards, report locking, and role-based access control for institutions and students.",
+          "Provide parents with complete visibility into student progress, reports, and recommendations.",
       },
-
       {
-        icon: "🔗",
-        name: "Third-Party Integrations",
+        icon: "📈",
+        name: "Analytics Dashboards",
         desc:
-          "Integrate with LMS, ERP, HRMS, payment gateways, and external learning platforms for seamless examination workflows.",
+          "Track student performance, growth trends, and institutional insights.",
       },
-
       {
-        icon: "☁️",
-        name: "Scalable Cloud Infrastructure",
+        icon: "🏢",
+        name: "Multi-Tenant SaaS Platform",
         desc:
-          "Designed to support thousands of concurrent candidates with high availability, secure data storage, and reliable performance.",
+          "Support multiple schools and organizations with isolated data and custom branding.",
+      },
+      {
+        icon: "🔔",
+        name: "Notifications & Communication",
+        desc:
+          "Automate reminders and updates via WhatsApp, email, SMS, and push notifications.",
       },
     ],
   },
 
   results: {
     title: "Results Achieved",
-
     body:
-      "The platform enabled institutions and organizations to conduct secure large-scale online assessments while significantly reducing operational effort, evaluation time, and examination costs.",
-
+      "The platform enabled institutions to deliver structured, scalable, and personalized career guidance while significantly improving student decision-making and counselling efficiency.",
     outcomes: [
       {
-        metric: "Result processing time",
-
-        before: "3-5 days",
-
-        after: "< 2 minutes",
+        metric: "Career decision clarity",
+        before: "Low awareness",
+        after: "Data-driven clarity",
       },
-
       {
-        metric: "Manual evaluation workload",
-
-        before: "High",
-
-        after: "Reduced by 90%",
-      },
-
-      {
-        metric: "Exam coordination effort",
-
+        metric: "Counselling efficiency",
         before: "Manual process",
-
-        after: "Centralized automation",
+        after: "Automated workflows",
       },
-
       {
-        metric: "Malpractice incidents",
-
-        before: "~15% per exam",
-
-        after: "Minimal detection cases",
+        metric: "Assessment scalability",
+        before: "Limited batches",
+        after: "Large-scale execution",
       },
-
       {
-        metric: "Candidate handling capacity",
-
-        before: "Limited offline batches",
-
-        after: "Thousands simultaneously",
-      },
-
-      {
-        metric: "Operational exam cost",
-
-        before: "High printing & logistics cost",
-
-        after: "Digitized online process",
+        metric: "Student engagement",
+        before: "Low",
+        after: "Highly interactive platform",
       },
     ],
   },
 
   testimonial: {
     quote:
-      "This platform completely modernized our examination process. From scheduling and secure assessments to instant results and analytics, everything is now faster, more reliable, and easier to manage.",
-
-    author: "Training & Placement Officer",
-
-    org: "Leading Engineering Institute, Maharashtra",
+      "This platform transformed how we guide students. The insights, reports, and recommendations are incredibly powerful and have significantly improved our counselling outcomes.",
+    author: "Academic Director",
+    org: "Leading Educational Institution, India",
   },
 
   techStack: [
     "React",
-
-    "Node.js",
-
-    "Python",
-
+    "FastAPI",
     "PostgreSQL",
-
     "Redis",
-
-    "WebSockets",
-
     "AWS",
-
-    "OpenCV",
+    "Metabase",
   ],
 },
   // 3: {
@@ -1772,8 +1810,85 @@ const ProductCaseStudy = ({ productId, onBack }) => {
   if (!cs) return null;
 
   const { heroColor, accent } = cs;
+const title = `${cs.fullName || cs.productName} Case Study | RAM Solutions`;
+  const description =
+    cs.tagline ||
+    cs.overview ||
+    `Explore ${cs.productName} case study by RAM Solutions.`;
 
+  const keywords = `${cs.productName}, ${cs.fullName}, Case Study, ERP Software India, RAM Solutions, Software Company Pune`;
+
+  const imageUrl = "https://ramsolutions.in/ram-logo.jpg";
+
+  // ❌ No real page URL (since no routing)
+  const pageUrl = "https://ramsolutions.in/#case-study";
   return (
+    <><Helmet>
+        {/* ───── BASIC SEO ───── */}
+        <title>{title}</title>
+
+        <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
+        <meta
+          name="author"
+          content="Right Analysis Matter Technology Pvt. Ltd."
+        />
+
+        {/* ───── ROBOTS ───── */}
+        <meta name="robots" content="index, follow" />
+
+        {/* ───── OPEN GRAPH (Facebook/LinkedIn) ───── */}
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={imageUrl} />
+        <meta property="og:url" content={pageUrl} />
+
+        {/* ───── TWITTER SEO ───── */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={imageUrl} />
+
+        {/* ───── STRUCTURED DATA (ARTICLE) ───── */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: title,
+            description: description,
+            image: imageUrl,
+            author: {
+              "@type": "Organization",
+              name: "Right Analysis Matter Technology Pvt. Ltd.",
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "Right Analysis Matter Technology Pvt. Ltd.",
+              logo: {
+                "@type": "ImageObject",
+                url: imageUrl,
+              },
+            },
+          })}
+        </script>
+
+        {/* ───── SOFTWARE PRODUCT SCHEMA (VERY POWERFUL FOR YOU) ───── */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            name: cs.productName,
+            applicationCategory: "BusinessApplication",
+            operatingSystem: "Web",
+            description: cs.overview || description,
+            creator: {
+              "@type": "Organization",
+              name: "Right Analysis Matter Technology Pvt. Ltd.",
+            },
+          })}
+        </script>
+      </Helmet>
     <div style={{ minHeight: "100vh", background: colors.bgPage, fontFamily: typography.fontFamily }}>
 
       {/* ── HERO ── */}
@@ -1941,6 +2056,7 @@ const ProductCaseStudy = ({ productId, onBack }) => {
       </div>
 
     </div>
+    <Footer /></>
   );
 };
 
@@ -1964,6 +2080,7 @@ const bodyStyle = { fontSize: 15, color: colors.textBody, lineHeight: typography
 const ModuleCard = ({ mod, accent, heroColor }) => {
   const [hov, setHov] = useState(false);
   return (
+    
     <div
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
@@ -1973,6 +2090,7 @@ const ModuleCard = ({ mod, accent, heroColor }) => {
       <h4 style={{ fontSize: 15, fontWeight: typography.weight.bold, color: colors.textHeading, margin: "0 0 8px", fontFamily: typography.fontFamily }}>{mod.name}</h4>
       <p style={{ fontSize: 13, color: colors.textBody, lineHeight: 1.6, margin: 0, fontFamily: typography.fontFamily }}>{mod.desc}</p>
     </div>
+   
   );
 };
 

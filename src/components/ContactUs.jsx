@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
+import { Helmet } from "react-helmet-async";
+import Footer from "../components/Footer";
 // ── FAQ DATA ────────────────────────────────────────────────────────
 const FAQS = [
   {
@@ -124,6 +125,136 @@ const ContactUs = () => {
   const rightFaqs = showTwoColFaq ? FAQS.filter((_, i) => i >= 5) : [];
 
   return (
+    <>
+    <Helmet>
+  {/* ✅ BASIC SEO */}
+  <title>Contact RAM Solutions | Website Development Company in Pune</title>
+
+  <meta
+    name="description"
+    content="Contact Right Analysis Matter Technology Pvt. Ltd. (RAM Solutions) in Pune. Call, WhatsApp, or email us for software development, mobile apps, UI/UX, cloud, and digital solutions."
+  />
+
+  <meta
+    name="keywords"
+    content="Contact RAM Solutions, Website Development Pune, IT Company Pune Contact, Software Company Pune, Mobile App Development Pune, RAM Solutions Phone Number, RAM Solutions Email"
+  />
+
+  <meta name="author" content="Right Analysis Matter Technology Pvt. Ltd." />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="canonical" href="https://yourwebsite.com/contact" />
+
+  {/* ✅ OPEN GRAPH (WHATSAPP / FACEBOOK) */}
+  <meta property="og:title" content="Contact RAM Solutions | Let's Build Your Project" />
+  <meta
+    property="og:description"
+    content="Get in touch with RAM Solutions for websites, apps, and digital solutions. Fast response via call, WhatsApp, or email."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourwebsite.com/contact" />
+  <meta property="og:image" content="https://yourwebsite.com/ram-logo.jpg" />
+
+  {/* ✅ TWITTER SEO */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact RAM Solutions" />
+  <meta
+    name="twitter:description"
+    content="Reach out to RAM Solutions for web development, mobile apps, and digital services."
+  />
+  <meta name="twitter:image" content="https://yourwebsite.com/ram-logo.jpg" />
+
+  {/* ✅ LOCAL SEO */}
+  <meta name="geo.region" content="IN-MH" />
+  <meta name="geo.placename" content="Pune" />
+  <meta name="geo.position" content="18.51536;73.779194" />
+  <meta name="ICBM" content="18.51536, 73.779194" />
+
+  {/* ✅ ORGANIZATION SCHEMA */}
+  <script type="application/ld+json">
+    {`
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Right Analysis Matter Technology Pvt. Ltd.",
+      "url": "https://yourwebsite.com",
+      "logo": "https://yourwebsite.com/ram-logo.jpg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-8484905526",
+        "contactType": "customer support",
+        "areaServed": "IN",
+        "availableLanguage": ["English"]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Golden Arch, Bavdhan",
+        "addressLocality": "Pune",
+        "addressRegion": "Maharashtra",
+        "postalCode": "411021",
+        "addressCountry": "India"
+      }
+    }
+    `}
+  </script>
+
+  {/* ✅ FAQ SCHEMA */}
+  <script type="application/ld+json">
+    {`
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How can I contact RAM Solutions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can contact RAM Solutions via phone, WhatsApp, or email as provided on our contact page."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is RAM Solutions located?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We are located in Bavdhan, Pune, Maharashtra, India."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What services do you provide?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We provide web development, mobile app development, UI/UX design, cloud solutions, and analytics services."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are your working hours?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our working hours are Monday to Saturday, 9 AM to 6 PM IST."
+          }
+        }
+      ]
+    }
+    `}
+  </script>
+
+  {/* ✅ CONTACT PAGE SCHEMA */}
+  <script type="application/ld+json">
+    {`
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contact RAM Solutions",
+      "url": "https://yourwebsite.com/contact",
+      "description": "Get in touch with RAM Solutions for web development, mobile apps, and digital solutions."
+    }
+    `}
+  </script>
+</Helmet>
     <div style={{
       minHeight: "100vh",
       background: "#f8f9fc",
@@ -480,6 +611,7 @@ const ContactUs = () => {
       </div>
 
     </div>
+    <Footer/></>
   );
 };
 
