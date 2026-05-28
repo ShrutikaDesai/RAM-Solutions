@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Helmet } from "react-helmet-async";
 import theme from "../theme/theme";
 import { MessageCircle, Rocket } from "lucide-react";
 const { colors, typography: t, spacing, radius, shadows, transitions, gradients, layout, iconSize, animation } = theme;
@@ -206,69 +205,6 @@ const AboutUs = () => {
 
   return (
     <>
-   
-
-<Helmet>
-  {/* Primary Meta */}
-  <title>About RAM | Web Development, Mobile Apps & Digital Solutions Company</title>
-
-  <meta
-    name="description"
-    content="RAM is a leading digital solutions company specializing in web development, mobile applications, cloud solutions, and scalable software systems. We build modern, high-performance digital experiences for businesses."
-  />
-
-  <meta
-    name="keywords"
-    content="RAM company, web development company, software development, mobile app development, digital solutions, UI UX design, cloud solutions, IT consulting, scalable applications"
-  />
-
-  <meta name="author" content="RAM" />
-  <meta name="robots" content="index, follow" />
-
-  {/* Open Graph (Facebook, WhatsApp, LinkedIn) */}
-  <meta property="og:title" content="About RAM – Smart Digital Solutions Company" />
-  <meta
-    property="og:description"
-    content="We create modern websites, scalable applications, and intelligent digital solutions that help businesses grow faster."
-  />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://yourwebsite.com/about" />
-  <meta property="og:image" content="https://yourwebsite.com/ram-logo.jpg" />
-
-  {/* Twitter */}
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="About RAM – Digital Solutions Company" />
-  <meta
-    name="twitter:description"
-    content="Building scalable digital products, web apps, and intelligent systems for modern businesses."
-  />
-  <meta name="twitter:image" content="https://yourwebsite.com/ram-logo.jpg" />
-
-  {/* Canonical URL */}
-  <link rel="canonical" href="https://yourwebsite.com/about" />
-
-  {/* Favicon */}
-  <link rel="icon" href="/favicon.ico" />
-
-  {/* JSON-LD Schema */}
-  <script type="application/ld+json">
-    {`
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "RAM Solutions",
-      "url": "https://yourwebsite.com",
-      "logo": "https://yourwebsite.com/ram-logo.png",
-      "description": "Digital solutions company providing web development, mobile apps, and scalable software systems.",
-      "sameAs": [
-        "https://www.linkedin.com/",
-        "https://www.instagram.com/",
-        "https://www.facebook.com/"
-      ]
-    }
-    `}
-  </script>
-</Helmet>
     <div style={{
       minHeight: "100vh",
       background: colors.bgPage,

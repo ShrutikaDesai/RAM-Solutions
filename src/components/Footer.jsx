@@ -79,7 +79,7 @@ const Footer = () => {
       background: "linear-gradient(135deg, #051840 0%, #0d2b6e 35%, #1a3e8c 60%, #0a1630 100%)",
       position: "relative",
       overflow: "hidden",
-      fontFamily: "'Segoe UI','Helvetica Neue',Arial,sans-serif",
+      fontFamily: "'Raleway', sans-serif",
     }}>
 
       {/* ── Dot grid texture ── */}

@@ -1,5 +1,4 @@
 import React from "react";
-import { Helmet } from "react-helmet-async";
 import Footer from "../components/Footer";
 import {
   colors,
@@ -14,41 +13,6 @@ import {
 const Fallback = () => {
   return (
     <>
-    <Helmet>
-  {/* Basic SEO */}
-  <title>404 - Page Not Found | RAM Solutions</title>
-  <meta
-    name="description"
-    content="The page you're looking for doesn't exist. Explore RAM Solutions to discover our web development, mobile app, and digital services."
-  />
-  <meta
-    name="keywords"
-    content="404 error, page not found, RAM Solutions, web development Pune, software company India"
-  />
-  <meta name="robots" content="noindex, follow" />
-
-  {/* Open Graph (Facebook, LinkedIn) */}
-  <meta property="og:title" content="404 - Page Not Found | RAM Solutions" />
-  <meta
-    property="og:description"
-    content="Oops! This page doesn't exist. Visit RAM Solutions to explore our services and solutions."
-  />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://yourwebsite.com/404" />
-  <meta property="og:image" content="https://yourwebsite.com/ram-logo.jpg" />
-
-  {/* Twitter SEO */}
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="404 - Page Not Found | RAM Solutions" />
-  <meta
-    name="twitter:description"
-    content="This page couldn't be found. Visit RAM Solutions to explore our digital services."
-  />
-  <meta name="twitter:image" content="https://yourwebsite.com/ram-logo.jpg" />
-
-  {/* Canonical */}
-  <link rel="canonical" href="https://yourwebsite.com/404" />
-</Helmet>
     <div
       style={{
         minHeight: "92vh",

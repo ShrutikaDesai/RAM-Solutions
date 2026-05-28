@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowRight, Compass, PhoneCall } from 'lucide-react';
-import { Helmet } from "react-helmet-async";
 import {
   colors,
   typography,
@@ -158,60 +157,6 @@ const Services = () => {
 
   return (
     <>
-    <Helmet>
-  {/* Basic SEO */}
-  <title>Web Development, Mobile Apps & Digital Services | RAM Technologies</title>
-
-  <meta
-    name="description"
-    content="RAM Technologies offers web development, mobile app development, cloud solutions, SEO, and software services to help businesses grow and scale efficiently."
-  />
-
-  <meta
-    name="keywords"
-    content="web development, mobile app development, SEO services, cloud solutions, software development, UI UX design, RAM Technologies"
-  />
-
-  <meta name="author" content="RAM Technologies" />
-  <meta name="robots" content="index, follow" />
-
-  {/* Open Graph (Facebook / LinkedIn) */}
-  <meta property="og:title" content="Digital Services | RAM Technologies" />
-  <meta
-    property="og:description"
-    content="Explore our web, mobile, cloud, and software development services designed for modern businesses."
-  />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://yourwebsite.com/services" />
-  <meta property="og:image" content="https://yourwebsite.com/og-image.jpg" />
-
-  {/* Twitter */}
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="RAM Technologies Services" />
-  <meta
-    name="twitter:description"
-    content="Web, mobile, and cloud solutions to scale your business."
-  />
-  <meta name="twitter:image" content="https://yourwebsite.com/og-image.jpg" />
-
-  {/* Canonical URL */}
-  <link rel="canonical" href="https://yourwebsite.com/services" />
-
-  {/* JSON-LD (Simple Structured Data) */}
-  <script type="application/ld+json">
-    {JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      name: "RAM Technologies",
-      url: "https://yourwebsite.com",
-      logo: "https://yourwebsite.com/logo.png",
-      sameAs: [
-        "https://www.linkedin.com",
-        "https://www.instagram.com"
-      ]
-    })}
-  </script>
-</Helmet>
     <div style={{
       minHeight: "100vh",
       background: colors.bgPage,

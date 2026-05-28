@@ -1073,7 +1073,6 @@ import {
 } from "lucide-react";
 
 // export default ProductCaseStudy;
-import { Helmet } from "react-helmet-async";
 
 
 import React, { useEffect, useRef, useState } from "react";
@@ -1635,72 +1634,7 @@ const [ctaRef, ctaVisible] = useInView(0.2);
   };
 
   return (
-    <><Helmet>
-        {/* ───── BASIC SEO ───── */}
-        <title>{title}</title>
-
-        <meta name="description" content={description} />
-        <meta name="keywords" content={keywords} />
-        <meta
-          name="author"
-          content="Right Analysis Matter Technology Pvt. Ltd."
-        />
-
-        {/* ───── ROBOTS ───── */}
-        <meta name="robots" content="index, follow" />
-
-        {/* ───── OPEN GRAPH (Facebook/LinkedIn) ───── */}
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:image" content={imageUrl} />
-        <meta property="og:url" content={pageUrl} />
-
-        {/* ───── TWITTER SEO ───── */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={imageUrl} />
-
-        {/* ───── STRUCTURED DATA (ARTICLE) ───── */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            headline: title,
-            description: description,
-            image: imageUrl,
-            author: {
-              "@type": "Organization",
-              name: "Right Analysis Matter Technology Pvt. Ltd.",
-            },
-            publisher: {
-              "@type": "Organization",
-              name: "Right Analysis Matter Technology Pvt. Ltd.",
-              logo: {
-                "@type": "ImageObject",
-                url: imageUrl,
-              },
-            },
-          })}
-        </script>
-
-        {/* ───── SOFTWARE PRODUCT SCHEMA (VERY POWERFUL FOR YOU) ───── */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            name: cs.productName,
-            applicationCategory: "BusinessApplication",
-            operatingSystem: "Web",
-            description: cs.overview || description,
-            creator: {
-              "@type": "Organization",
-              name: "Right Analysis Matter Technology Pvt. Ltd.",
-            },
-          })}
-        </script>
-      </Helmet>
+    <>
     <div style={{ minHeight: "100vh", background: colors.bgPage, fontFamily: typography.fontFamily }}>
 
       {/* ── HERO ── */}
