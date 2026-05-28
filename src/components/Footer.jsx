@@ -211,14 +211,14 @@ const Footer = () => {
 
         <div className="footer-divider" style={{ borderTop:"1px solid rgba(255,255,255,0.08)", margin:"0 28px" }} />
 
-        <div className="footer-bottom" style={{ maxWidth:1060, margin:"0 auto", padding:"18px 28px", display:"flex", alignItems:"center", justifyContent:"space-between", flexWrap:"wrap", gap:10 }}>
-          <p style={{ fontSize:12, color:"rgba(255,255,255,0.28)", margin:0 }}>
+        <div className="footer-bottom" style={{ maxWidth:1060, margin:"0 auto", padding:"18px 28px", display:"flex", alignItems:"center", justifyContent:"center", flexWrap:"wrap", gap:10 }}>
+          <p style={{ fontSize:12, color:"rgba(255,255,255,0.28)", margin:0, textAlign:"center", width:"100%" }}>
             © {new Date().getFullYear()} <span style={{ color:"#e8a020" }}>Right Analysis Matters Pvt. Ltd.</span> All rights reserved.
           </p>
-          <div className="footer-bottom-links" style={{ display:"flex", gap:20 }}>
+          {/* <div className="footer-bottom-links" style={{ display:"flex", gap:20 }}>
             <a href="/privacy-policy" className="ft-bl-link" style={{ fontSize:12, color:"rgba(255,255,255,0.28)", textDecoration:"none" }}>Privacy Policy</a>
             <a href="/terms" className="ft-bl-link" style={{ fontSize:12, color:"rgba(255,255,255,0.28)", textDecoration:"none" }}>Terms of Use</a>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>
