@@ -16,7 +16,7 @@ const Fallback = () => {
     <>
     <Helmet>
   {/* Basic SEO */}
-  <title>404 - Page Not Found | RAM Solutions</title>
+  <title>RAM Solutions | Web Development, Mobile Apps & Digital Solutions Company</title>
   <meta
     name="description"
     content="The page you're looking for doesn't exist. Explore RAM Solutions to discover our web development, mobile app, and digital services."

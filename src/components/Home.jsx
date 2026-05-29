@@ -185,9 +185,7 @@ const Home = () => {
     <>
     <Helmet>
   {/*  Primary SEO */}
-  <title>
-    Website Development Company in Pune | Cloud & Software Solutions | RAM Technology
-  </title>
+  <title>RAM Solutions | Web Development, Mobile Apps & Digital Solutions Company</title>
 
   <meta
     name="description"

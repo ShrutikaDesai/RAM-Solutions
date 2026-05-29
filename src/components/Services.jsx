@@ -161,7 +161,7 @@ const Services = () => {
     <>
     <Helmet>
   {/* Basic SEO */}
-  <title>Web Development, Mobile Apps & Digital Services | RAM Technologies</title>
+  <title>RAM Solutions | Web Development, Mobile Apps & Digital Solutions Company</title>
 
   <meta
     name="description"

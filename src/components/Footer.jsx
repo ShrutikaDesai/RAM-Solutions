@@ -330,7 +330,7 @@ export default function Footer() {
           <div className="fs-contact-compact" aria-label="Contact information">
             <div className="fs-contact-line">
               <Mail size={16} aria-hidden="true" />
-              <a href="mailto:support@ramsolutions.com">support@ramsolutions.com</a>
+              <a href="mailto:support@ramsolutions.in">support@ramsolutions.in</a>
             </div>
             <div className="fs-contact-line">
               <Phone size={16} aria-hidden="true" />
@@ -342,19 +342,33 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="fs-social" aria-label="Follow RAM Solutions on social media">
-            <a className="fs-social-link" href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.5 9.9v-7h-2.2V12h2.2V9.7c0-2.2 1.3-3.4 3.3-3.4.95 0 1.95.17 1.95.17v2.1h-1.07c-1.06 0-1.39.66-1.39 1.34V12h2.36l-.38 2.9h-1.98v7A10 10 0 0022 12z"/></svg>
-            </a>
+          
 
-            <a className="fs-social-link" href="#" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.9c-.6.3-1.2.5-1.9.6.7-.4 1.2-1 1.4-1.8-.7.4-1.5.7-2.3.9C18.6 4.7 17.7 4 16.6 4c-1.6 0-2.9 1.3-2.9 2.9 0 .2 0 .4.1.6C10.7 7.4 8 6 6 4c-.3.6-.5 1.3-.5 2 0 1.3.7 2.4 1.8 3-.6 0-1.2-.2-1.7-.5v.1c0 1.8 1.3 3.3 3 3.6-.3.1-.6.1-.9.1-.2 0-.4 0-.6-.1.4 1.3 1.6 2.2 3 2.2-1.1.9-2.5 1.4-4 1.4H6c1.5.9 3.3 1.4 5.2 1.4 6.2 0 9.6-5.1 9.6-9.6v-.4c.7-.5 1.3-1.1 1.8-1.8-.6.3-1.3.5-2 .6z"/></svg>
-            </a>
+  <div className="fs-social" aria-label="Follow RAM Solutions on social media">
+  <a
+    className="fs-social-link"
+    href="https://www.facebook.com/people/Right-Analysis-Matters-Pvt-Ltd/61584691050212/"
+    aria-label="Facebook"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M22 12a10 10 0 10-11.5 9.9v-7h-2.2V12h2.2V9.7c0-2.2 1.3-3.4 3.3-3.4.95 0 1.95.17 1.95.17v2.1h-1.07c-1.06 0-1.39.66-1.39 1.34V12h2.36l-.38 2.9h-1.98v7A10 10 0 0022 12z"/>
+    </svg>
+  </a>
 
-            <a className="fs-social-link" href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11.02 0zM3 8.98h4v12H3zM9 8.98h3.8v1.6h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.66 4.78 6.12v7.33H19v-6.5c0-1.55-.03-3.55-2.16-3.55-2.16 0-2.49 1.68-2.49 3.42v6.63H9z"/></svg>
-            </a>
-          </div>
+  <a
+    className="fs-social-link"
+    href="https://www.instagram.com/rightanalysismatters/"
+    aria-label="Instagram"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-2.9a1.1 1.1 0 100 2.2 1.1 1.1 0 000-2.2z"/>
+    </svg>
+  </a>
+</div>
         </div>
 
         {/* PRODUCTS */}
@@ -370,15 +384,15 @@ export default function Footer() {
 
         {/* COMPANY */}
         <div className="fs-box">
-          <h3>Company</h3>
-          <nav>
-            <a href="/about">About</a>
-            <a href="/services">Services</a>
-            <a href="/projects">Projects</a>
-            <a href="/careers">Careers</a>
-            <a href="/contact">Contact</a>
-          </nav>
-        </div>
+  <h3>Company</h3>
+  <nav>
+    <a href="/about-us">About</a>
+    <a href="/services">Services</a>
+    <a href="/products">Projects</a>
+    <a href="/contact-us">Contact</a>
+  </nav>
+</div>
+
 
         {/* CONTACT + SUBSCRIBE */}
         <div className="fs-box fs-subscribe">

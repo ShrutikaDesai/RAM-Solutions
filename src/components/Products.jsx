@@ -134,7 +134,7 @@ const Products = () => {
   return (
   <><Helmet>
   {/* PRIMARY SEO */}
-  <title>Software Products | School ERP, CMS & Aptitude Test Platform | RAM Solutions</title>
+  <title>RAM Solutions | Web Development, Mobile Apps & Digital Solutions Company</title>
 
   <meta
     name="description"

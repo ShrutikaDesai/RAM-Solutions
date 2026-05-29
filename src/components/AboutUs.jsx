@@ -211,7 +211,7 @@ const AboutUs = () => {
 
 <Helmet>
   {/* Primary Meta */}
-  <title>About RAM | Web Development, Mobile Apps & Digital Solutions Company</title>
+  <title>RAM Solutions | Web Development, Mobile Apps & Digital Solutions Company</title>
 
   <meta
     name="description"

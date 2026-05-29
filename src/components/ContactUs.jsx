@@ -128,7 +128,7 @@ const ContactUs = () => {
     <>
     <Helmet>
   {/* ✅ BASIC SEO */}
-  <title>Contact RAM Solutions | Website Development Company in Pune</title>
+  <title>RAM Solutions | Web Development, Mobile Apps & Digital Solutions Company</title>
 
   <meta
     name="description"

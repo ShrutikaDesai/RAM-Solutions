@@ -1824,71 +1824,78 @@ const title = `${cs.fullName || cs.productName} Case Study | RAM Solutions`;
   const pageUrl = "https://ramsolutions.in/#case-study";
   return (
     <><Helmet>
-        {/* ───── BASIC SEO ───── */}
-        <title>{title}</title>
+  {/* ───── TITLE (HARDCODED) ───── */}
+  <title>RAM Solutions | Web Development, Mobile Apps & Digital Solutions Company</title>
 
-        <meta name="description" content={description} />
-        <meta name="keywords" content={keywords} />
-        <meta
-          name="author"
-          content="Right Analysis Matter Technology Pvt. Ltd."
-        />
+  {/* ───── META TAGS ───── */}
+  <meta name="description" content={description} />
+  <meta name="keywords" content={keywords} />
+  <meta name="author" content="Right Analysis Matter Technology Pvt. Ltd." />
+  <meta name="robots" content="index, follow" />
 
-        {/* ───── ROBOTS ───── */}
-        <meta name="robots" content="index, follow" />
+  {/* ───── OPEN GRAPH (Facebook/LinkedIn) ───── */}
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={imageUrl} />
+  <meta property="og:url" content={pageUrl} />
 
-        {/* ───── OPEN GRAPH (Facebook/LinkedIn) ───── */}
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:image" content={imageUrl} />
-        <meta property="og:url" content={pageUrl} />
+  {/* ───── TWITTER SEO ───── */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={imageUrl} />
 
-        {/* ───── TWITTER SEO ───── */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={imageUrl} />
+  {/* ───── STRUCTURED DATA (ARTICLE) ───── */}
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: title,
+      description: description,
+      image: imageUrl,
+      author: {
+        "@type": "Organization",
+        name: "Right Analysis Matter Technology Pvt. Ltd.",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Right Analysis Matter Technology Pvt. Ltd.",
+        logo: {
+          "@type": "ImageObject",
+          url: imageUrl,
+        },
+      },
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": pageUrl,
+      },
+    })}
+  </script>
 
-        {/* ───── STRUCTURED DATA (ARTICLE) ───── */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            headline: title,
-            description: description,
-            image: imageUrl,
-            author: {
-              "@type": "Organization",
-              name: "Right Analysis Matter Technology Pvt. Ltd.",
-            },
-            publisher: {
-              "@type": "Organization",
-              name: "Right Analysis Matter Technology Pvt. Ltd.",
-              logo: {
-                "@type": "ImageObject",
-                url: imageUrl,
-              },
-            },
-          })}
-        </script>
+  {/* ───── SOFTWARE PRODUCT SCHEMA ───── */}
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      name: cs.productName,
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Web",
+      description: cs.overview || description,
+      creator: {
+        "@type": "Organization",
+        name: "Right Analysis Matter Technology Pvt. Ltd.",
+      },
+      offers: {
+        "@type": "Offer",
+        url: pageUrl,
+        price: "0", // adjust if product has a price
+        priceCurrency: "INR",
+      },
+    })}
+  </script>
+</Helmet>
 
-        {/* ───── SOFTWARE PRODUCT SCHEMA (VERY POWERFUL FOR YOU) ───── */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            name: cs.productName,
-            applicationCategory: "BusinessApplication",
-            operatingSystem: "Web",
-            description: cs.overview || description,
-            creator: {
-              "@type": "Organization",
-              name: "Right Analysis Matter Technology Pvt. Ltd.",
-            },
-          })}
-        </script>
-      </Helmet>
     <div style={{ minHeight: "100vh", background: colors.bgPage, fontFamily: typography.fontFamily }}>
 
       {/* ── HERO ── */}
