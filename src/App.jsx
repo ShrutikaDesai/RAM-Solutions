@@ -10,9 +10,33 @@ import ProductCaseStudy from "./components/ProductCaseStudy";
 import Products from "./components/Products";
 import Services from "./components/Services";
 import Footer from "./components/Footer";
-
+import Loader from "./components/Loader";
+import { useState, useEffect } from "react";
 
 const App = () => {
+  const [loading, setLoading] = useState(true);
+  const [showLoader, setShowLoader] = useState(false);
+
+  useEffect(() => {
+    const loaderTimer = setTimeout(() => setShowLoader(true), 300);
+    const finishLoading = () => setLoading(false);
+
+    if (document.readyState === "complete") {
+      finishLoading();
+    } else {
+      window.addEventListener("load", finishLoading);
+    }
+
+    return () => {
+      clearTimeout(loaderTimer);
+      window.removeEventListener("load", finishLoading);
+    };
+  }, []);
+
+  if (loading && showLoader) {
+    return <Loader />;
+  }
+
   return (
     <BrowserRouter>
       <Routes>

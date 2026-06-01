@@ -259,7 +259,7 @@ const AboutUs = () => {
           gridTemplateColumns: isMobile ? "1fr" : "1.1fr 0.9fr",
           gap: isMobile ? 50 : 60,
           alignItems: "center",
-          paddingTop: isMobile ? 0 : 60,
+          paddingTop: isMobile ? 20 : 60,
           paddingBottom: isMobile ? 0 : 60,
         }}>
 
@@ -466,7 +466,7 @@ const AboutUs = () => {
       </div>
 
       {/* ── MARQUEE STRIP ── */}
-      <div style={{ background: colors.primaryDark, padding: "14px 0", overflow: "hidden", position: "relative", zIndex: 2, marginTop: -70 }}>
+      <div style={{ background: colors.primaryDark, padding: "14px 0", overflow: "hidden", position: "relative", zIndex: 2, marginTop: -30 }}>
         <div style={{ display: "flex", animation: "marqueeScroll 18s linear infinite", width: "max-content" }}>
           {[...Array(2)].map((_, rep) => (
             <div key={rep} style={{ display: "flex", alignItems: "center" }}>

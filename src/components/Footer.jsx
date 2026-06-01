@@ -195,7 +195,7 @@ const Footer = () => {
               <a href="tel:+918484906643" style={{ color:"rgba(255,255,255,0.68)", fontSize:13, textDecoration:"none" }}>+91 84849 06643</a>
             </ContactRow>
             <ContactRow icon={<MailIcon />} label="Email">
-              <a href="mailto:info@ramtechnology.in" style={{ color:"rgba(255,255,255,0.68)", fontSize:13, textDecoration:"none" }}>info@ramtechnology.in</a>
+              <a href="mailto:support@ramsolutions.in" style={{ color:"rgba(255,255,255,0.68)", fontSize:13, textDecoration:"none" }}>support@ramsolutions.in</a>
             </ContactRow>
             <ContactRow icon={<PinIcon />} label="Location">
               <span style={{ color:"rgba(255,255,255,0.68)", fontSize:13 }}>Bavdhan, Pune, Maharashtra, India</span>
