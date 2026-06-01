@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import theme from "../theme/theme";
 import { MessageCircle, Rocket } from "lucide-react";
 const { colors, typography: t, spacing, radius, shadows, transitions, gradients, layout, iconSize, animation } = theme;
+import { Helmet } from "react-helmet-async";
 
 // ── HOOKS ────────────────────────────────────────────────────────────
 function useWindowWidth() {

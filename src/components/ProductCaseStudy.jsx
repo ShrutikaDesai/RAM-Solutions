@@ -1072,12 +1072,10 @@ import {
 
 } from "lucide-react";
 
-// export default ProductCaseStudy;
-
 
 import React, { useEffect, useRef, useState } from "react";
 import { colors, typography, spacing, radius, shadows, layout, } from "../theme/theme";
-
+import { Helmet } from "react-helmet-async";
 
 // ── ANIMATION HOOK — fires once when element enters viewport ────────
 const useInView = (threshold = 0.15) => {

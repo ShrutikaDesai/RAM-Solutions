@@ -3,6 +3,7 @@ import  { useEffect, useState } from 'react';
 import ProductCaseStudy from '../components/ProductCaseStudy';
 import theme from '../theme/theme';   
 const { colors, typography, spacing, radius, shadows, transitions, gradients, layout, iconSize } = theme;
+import { Helmet } from "react-helmet-async";
 
 // ── Shared style helpers ─────────────────────────────────────
 const text = typography; // alias for brevity

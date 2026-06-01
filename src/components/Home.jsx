@@ -3,6 +3,7 @@ import theme from "../theme/theme";
 import { useNavigate } from "react-router-dom";
 import {  ChevronDown, ArrowRight,   Info, Rocket } from "lucide-react";
 const { colors, typography: t, spacing, radius, shadows, transitions, gradients, layout, iconSize, animation } = theme;
+import { Helmet } from "react-helmet-async";
 
 // ── HOOKS ────────────────────────────────────────────────────────────
 function useWindowWidth() {

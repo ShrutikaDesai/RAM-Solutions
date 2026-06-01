@@ -11,6 +11,10 @@ import {
   layout,
   animation,
 } from '../theme/theme';
+import { Helmet } from "react-helmet-async";
+
+
+
 // ── RESPONSIVE HOOK ──────────────────────────────────────────────────
 function useWindowWidth() {
   const [w, setW] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);

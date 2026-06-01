@@ -9,6 +9,7 @@ import {
   shadows,
   transitions,
 } from "../theme/theme";
+import { Helmet } from "react-helmet-async";
 
 const Fallback = () => {
   return (
