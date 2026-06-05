@@ -1,6 +1,6 @@
 import  { useEffect, useState } from 'react';
 //import React from 'react';
-import ProductCaseStudy from '../components/ProductCaseStudy';
+//import ProductCaseStudy from '../components/ProductCaseStudy';
 import theme from '../theme/theme';   
 const { colors, typography, spacing, radius, shadows, transitions, gradients, layout, iconSize } = theme;
 import { Helmet } from "react-helmet-async";
@@ -25,18 +25,18 @@ function useWindowWidth() {
 const PRODUCTS = [
   {
     id: 1,
-    tag: "Digital Career Counselling",
-    name: "Counselling Platform",
-    fullName: "All-in-One Digital Career Counselling Platform",
+    tag: "Career Intelligence Platform",
+    name: "Counselling & Career Intelligence Platform",
+    fullName: "End-to-end platform for counselling and career management",
     description:
-      "A complete digital ecosystem for career counselling organizations that streamlines student onboarding, assessments, counselling workflows, report delivery, slot booking, and communication — helping institutions scale counselling operations efficiently.",
+      "A complete counselling ecosystem streamlining lead management, student onboarding, assessments, report delivery, counselling sessions, content distribution, and follow-up workflows — helping organisations scale efficiently.",
     features: [
-      "Lead capture & registration management",
-      "Program & package-based access control",
-      "Online & manual payment verification",
-      "Assessment tracking & report management",
+      "Lead capture & student onboarding",
+      "Program & package management",
+      "Assessment & psychometric tracking",
+      "Career reports & intelligence insights",
       "Slot booking & counselling workflows",
-      "Role-based access for 7 user types",
+      "Content library & automated follow-ups",
     ],
     icon: (
       <svg
@@ -160,18 +160,18 @@ const PRODUCTS = [
 
   {
     id: 2,
-    tag: "Preschool & Daycare",
-    name: "Preschool ERP",
-    fullName: "Smart Preschool & Daycare Management System",
+    tag: "MULTI-SCHOOL ERP",
+    name: "School ERP",
+    fullName: "Smart Multi-School ERP Platform for Modern Educational Institutions",
     description:
-      "An intelligent preschool and daycare management platform that empowers schools with automation, real-time parent communication, child safety monitoring, attendance, fee management, and development tracking — all from a single platform.",
+      "A scalable and centralized school management platform that digitizes admissions, academics, attendance, examinations, fee management, parent communication, and administrative operations across one or multiple schools.",
     features: [
-      "Daily child tracking & care monitoring",
-      "OTP / QR-based safe pickup system",
-      "Parent communication app & real-time updates",
-      "Child development & milestone tracking",
-      "Smart fee management & online payments",
-      "Multi-branch & franchise ready",
+      "Admission & enrollment management",
+      "Attendance & examination workflows",
+      "Fee collection & payment tracking",
+      "Parent communication portal",
+      "Transport, library & inventory management",
+      "Multi-school administration dashboard",
     ],
     icon: (
       <svg
@@ -252,19 +252,19 @@ const PRODUCTS = [
 
   {
     id: 3,
-    tag: "Career Intelligence",
-    name: "Career Intelligence",
+    tag: "PRESCHOOL & DAYCARE ERP",
+    name: "Preschool ERP",
     fullName:
-      "AI-Ready Student Career Assessment & Intelligence Platform",
+      "Smart Preschool & Daycare Management System",
     description:
-      "An AI-powered student career intelligence ecosystem designed for schools, counsellors, and educational institutions — offering psychometric analysis, career recommendations, advanced analytics, and personalized student guidance workflows.",
+      "An intelligent preschool and daycare management solution designed to simplify child tracking, parent engagement, attendance monitoring, fee management, and daily operational workflows.",
     features: [
-      "Psychometric & aptitude assessments",
-      "AI-ready career recommendation engine",
-      "Dynamic student personalization",
-      "Comprehensive career reports & analytics",
-      "Counselling workflow management",
-      "Multi-tenant SaaS for schools & institutes",
+      "Child attendance & activity tracking",
+      "Parent communication & notifications",
+      "Safe pickup & drop management",
+      "Fee management & payment collection",
+      "Development milestone tracking",
+      "Multi-branch daycare management",
     ],
     icon: (
       <svg
@@ -344,19 +344,19 @@ const PRODUCTS = [
 
   {
     id: 4,
-    tag: "Multi-School ERP",
-    name: "School ERP",
+    tag: "CUSTOM PRACTICE MANAGEMENT",
+    name: "Coaching, Therapy & Wellness Platform",
     fullName:
-      "Smart Multi-School ERP Platform for Modern Educational Institutions",
+      "Fully Customizable Client Management Platform for Coaches, Therapists, Consultants & Wellness Professionals",
     description:
-      "A scalable and modern multi-school ERP platform that digitizes admissions, academics, attendance, examinations, transport, fee management, parent communication, and operational workflows with enterprise-grade control and transparency.",
+      "A flexible platform that adapts to your business processes, helping you manage leads, clients, appointments, payments, programs, reports, content, and ongoing engagement from one centralized system.",
     features: [
-      "Approval-driven admissions & enrollment",
-      "Multi-level exam & result management",
-      "Fee management & payment verification",
-      "Attendance with locking & audit trail",
-      "Transport, library & inventory control",
-      "Multi-school SaaS with tenant isolation",
+      "Lead & client management",
+      "Appointment scheduling & reminders",
+      "Program & package management",
+      "Program & package management",
+      "Reports, documents & content delivery",
+      "Custom workflows & role-based access",
     ],
     icon: (
       <svg
@@ -755,17 +755,21 @@ const Products = () => {
         gridTemplateColumns: `repeat(auto-fit, minmax(${layout.gridMinCard}px, 1fr))`,
         gap: layout.gridGap,
       }}>
-        {PRODUCTS.map((p) => (
-          <ProductCard
-            key={p.id}
-            product={p}
-            isHovered={hovered === p.id}
-            onEnter={() => setHovered(p.id)}
-            onLeave={() => setHovered(null)}
-            // Keep product cards non-navigating for now.
-            onClick={undefined}
-          />
-        ))}
+        {PRODUCTS.map((p, index) => (
+  <div
+    key={p.id}
+    style={{
+      transform: index === 3 ? "translateX(108%)" : "none",
+    }}
+  >
+    <ProductCard
+      product={p}
+      isHovered={hovered === p.id}
+      onEnter={() => setHovered(p.id)}
+      onLeave={() => setHovered(null)}
+    />
+  </div>
+))}
       </div>
 
       {/* ── BOTTOM CTA ── */}
@@ -799,22 +803,46 @@ const Products = () => {
           </p>
         </div>
 
-        <a href="https://wa.me/918484905526" target="_blank" rel="noreferrer" style={{
-          display: "inline-block",
-          background: colors.accent,
-          color: colors.white,
-          fontWeight: text.weight.bold,
-          fontSize: text.size.md,
-          letterSpacing: text.letterSpacing.wider,
-          textTransform: "uppercase",
-          padding: "14px 32px",
-          borderRadius: radius.md,
-          textDecoration: "none",
-          whiteSpace: "nowrap",
-          boxShadow: shadows.cta,
-        }}>
-          Contact Us →
-        </a>
+       <a
+  href="https://wa.me/918484905526"
+  target="_blank"
+  rel="noreferrer"
+  style={{
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 6,
+
+    background: colors.accent,
+    color: colors.white,
+
+    padding: isMobile ? "14px 24px" : "21px 26px",              // ✅ SAME
+    borderRadius: radius.md + 2,
+    textDecoration: "none",
+
+    fontWeight: text.weight.bold,
+    fontSize: text.size.base,          // ✅ match
+    letterSpacing: "0.07em",           // ✅ match
+    textTransform: "uppercase",
+
+    boxShadow: shadows.primary,        // ✅ match system
+    fontFamily: text.fontFamily?.secondaryHeading,
+
+    transition: "all 0.3s ease",
+    lineHeight: "1",
+    whiteSpace: "nowrap",
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform = "translateY(-3px)";
+    e.currentTarget.style.boxShadow = "0 14px 30px rgba(0,0,0,0.15)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = "translateY(0px)";
+    e.currentTarget.style.boxShadow = shadows.primary;
+  }}
+>
+  Contact Us →
+</a>
       </div>
     </div>
   </>

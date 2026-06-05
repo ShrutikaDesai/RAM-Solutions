@@ -159,24 +159,8 @@ const Layout = ({ children }) => {
 
                         {/* Right: tagline + social icons */}
                         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-                            <span
-                                style={{
-                                    color: "rgba(255,255,255,0.4)",
-                                    fontSize: 11,
-                                    letterSpacing: "0.1em",
-                                    textTransform: "uppercase",
-                                }}
-                            >
-                                Right Analysis Matters
-                            </span>
-
-                            <div
-                                style={{
-                                    width: 1,
-                                    height: 14,
-                                    background: "rgba(255,255,255,0.15)",
-                                }}
-                            />
+                           
+                           
 
                             {/* FACEBOOK */}
                             <a
@@ -239,7 +223,31 @@ const Layout = ({ children }) => {
                                     <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5a4.25 4.25 0 004.25-4.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5zm8.88 1.12a1.13 1.13 0 110 2.25 1.13 1.13 0 010-2.25zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.5A3.5 3.5 0 1015.5 12 3.5 3.5 0 0012 8.5z" />
                                 </svg>
                             </a>
-
+ {/* LINKEDIN */}
+  <a
+    href="https://www.linkedin.com"
+    target="_blank"
+    rel="noreferrer"
+    style={{
+      color: "rgba(255,255,255,0.5)",
+      transition: "all 0.25s ease",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    }}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.color = "#e8a020";
+      e.currentTarget.style.transform = "translateY(-2px)";
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.color = "rgba(255,255,255,0.5)";
+      e.currentTarget.style.transform = "translateY(0)";
+    }}
+  >
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0V8zm7.5 0H12v2.2h.1c.6-1.1 2.1-2.2 4.3-2.2 4.6 0 5.4 3 5.4 6.9V24h-5v-7.8c0-1.9 0-4.3-2.6-4.3s-3 2-3 4.1V24h-5V8z"/>
+    </svg>
+  </a>
 
                         </div>
                     </div>

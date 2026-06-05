@@ -201,7 +201,7 @@ const Footer = () => {
               <span style={{ color:"rgba(255,255,255,0.68)", fontSize:13 }}>Bavdhan, Pune, Maharashtra, India</span>
             </ContactRow>
             <div className="footer-cta-wrap">
-              <a href="/contact-us" className="cta-btn" style={{ display:"inline-flex", alignItems:"center", gap:8, background:"#e8a020", color:"#fff", fontSize:12, fontWeight:700, letterSpacing:"0.07em", textTransform:"uppercase", padding:"11px 22px", borderRadius:8, textDecoration:"none", marginTop:6, transition:"background 0.2s,transform 0.2s" }}>
+              <a href="/contact-us" className="cta-btn" style={{ display:"inline-flex", alignItems:"center", gap:8, background:"#e8a020", color:"#fff", fontSize:14, fontWeight:700, letterSpacing:"0.07em", textTransform:"uppercase", padding:"13px 26px", borderRadius:8, textDecoration:"none", marginTop:6, transition:"background 0.2s,transform 0.2s" }}>
                 Request a Demo →
               </a>
             </div>

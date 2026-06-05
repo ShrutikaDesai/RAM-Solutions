@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, Compass, PhoneCall } from 'lucide-react';
+import { ArrowRight, Compass, PhoneCall,Phone,MessageCircle } from 'lucide-react';
 import {
   colors,
   typography,
@@ -13,7 +13,16 @@ import {
 } from '../theme/theme';
 import { Helmet } from "react-helmet-async";
 
-
+import {
+  Globe,
+  Smartphone,
+  BarChart3,
+  Settings,
+  Cloud,
+  Search,
+  ShoppingCart,
+  Lightbulb
+} from "lucide-react";
 
 // ── RESPONSIVE HOOK ──────────────────────────────────────────────────
 function useWindowWidth() {
@@ -106,20 +115,51 @@ const SERVICES = [
 ];
 
 const FEATURES = [
-  { icon: "🌐", title: "Custom Website Development", desc: "We design and develop responsive, fast, and scalable websites tailored to your business goals and brand identity." },
-  { icon: "📱", title: "Mobile App Development", desc: "Build powerful Android, iOS, and cross-platform apps designed for performance, usability, and user experience." },
-  { icon: "📊", title: "Data Analytics & Insights", desc: "Turn raw data into actionable insights using custom dashboards, reports, and predictive analytics solutions." },
-  { icon: "🎨", title: "UI/UX Design Services", desc: "We create modern, intuitive, and user-friendly designs that improve engagement, retention, and conversions." },
-  { icon: "⚙️", title: "Software & Application Development", desc: "From internal tools to full enterprise platforms, we build reliable and scalable software tailored to your workflows." },
-  { icon: "☁️", title: "Cloud Deployment & DevOps", desc: "Set up secure cloud infrastructure, CI/CD pipelines, and deployment automation tailored for your project." },
-  { icon: "🔍", title: "SEO & Digital Growth Solutions", desc: "Enhance your online presence with SEO, analytics, and performance optimization strategies that drive real traffic." },
-  { icon: "🛒", title: "E-Commerce Development", desc: "Launch secure, scalable online stores with payment gateways, inventory tracking, and seamless automation." },
-  { icon: "💡", title: "IT Consulting & Technical Strategy", desc: "Get expert guidance for scaling technology, improving systems architecture, and optimizing performance." },
+  {
+    icon: Globe,
+    title: "Custom Website Development",
+    desc: "We design and develop responsive, fast, and scalable websites tailored to your business goals and brand identity.",
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile App Development",
+    desc: "Build powerful Android, iOS, and cross-platform apps designed for performance, usability, and user experience.",
+  },
+  {
+    icon: BarChart3,
+    title: "Data Analytics & Insights",
+    desc: "Turn raw data into actionable insights using custom dashboards, reports, and predictive analytics solutions.",
+  },
+  {
+    icon: Settings,
+    title: "Software & Application Development",
+    desc: "From internal tools to full enterprise platforms, we build reliable and scalable software tailored to your workflows.",
+  },
+  {
+    icon: Cloud,
+    title: "Cloud Deployment & DevOps",
+    desc: "Set up secure cloud infrastructure, CI/CD pipelines, and deployment automation tailored for your project.",
+  },
+  {
+    icon: Search,
+    title: "SEO & Digital Growth Solutions",
+    desc: "Enhance your online presence with SEO, analytics, and performance optimization strategies that drive real traffic.",
+  },
+  {
+    icon: ShoppingCart,
+    title: "E-Commerce Development",
+    desc: "Launch secure, scalable online stores with payment gateways, inventory tracking, and seamless automation.",
+  },
+  {
+    icon: Lightbulb,
+    title: "IT Consulting & Technical Strategy",
+    desc: "Get expert guidance for scaling technology, improving systems architecture, and optimizing performance.",
+  },
 ];
 
 const TESTIMONIALS = [
   {
-    name: "Reena Bhutada", role: "Director",
+    name: "Reena Bhutada", role: "Director - Abhinav Career Scope",
     text: "RAM developed our counselling platform with a clean design and smooth user experience. Their team clearly understood our requirements and delivered a reliable, professional solution for our counselling services.",
     avatar: "RB", stars: 5,
   },
@@ -127,7 +167,7 @@ const TESTIMONIALS = [
     text:
       "RAM Technologies created a modern and user-friendly website for St. John High School & Junior College, Pulgaon. Their professionalism and technical expertise made the entire process smooth and successful.",
     name: "Mr. Santosh Yadav",
-    role: "Management Representative",
+    role: "Principal - StJohn High School & Junior College, Pulgaon ",
     avatar: "SY",
     stars: 5,
   },
@@ -172,7 +212,7 @@ const Services = () => {
 
   <meta
     name="keywords"
-    content="web development, mobile app development, SEO services, cloud solutions, software development, UI UX design, RAM Technologies"
+    content="web development, mobile app development, SEO services, cloud solutions, software development, RAM Technologies"
   />
 
   <meta name="author" content="RAM Technologies" />
@@ -352,53 +392,84 @@ const Services = () => {
             transform: heroIn ? "translateY(0)" : "translateY(25px)",
             transition: `all 1s ease 0.3s`,
           }}>
+           <a
+  href="https://wa.me/918484905526"
+  target="_blank"
+  rel="noreferrer"
+  style={{
+    background: gradients.accent,
+    color: colors.textOnDark,
+    padding: `${spacing.md}px ${spacing.xxl - 4}px`,
+    borderRadius: radius.md,
+    textDecoration: "none",
+    fontFamily: typography.fontFamily.secondaryHeading,
+    fontWeight: typography.weight.extrabold,
+    fontSize: typography.size.base,
+    letterSpacing: typography.letterSpacing.wide,
+    textTransform: "uppercase",
+    boxShadow: shadows.ctaLg,
+    transition: `all ${transitions.default}`,
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",   // ✅ better alignment
+    gap: 8,
+    lineHeight: "1",
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform = "translateY(-3px)";
+    e.currentTarget.style.boxShadow = "0 14px 30px rgba(0,0,0,0.15)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = "translateY(0px)";
+    e.currentTarget.style.boxShadow = shadows.ctaLg;
+  }}
+>
+  <PhoneCall size={18} strokeWidth={2.2} />
+  Get Free Consultation
+</a>
             <a
-              href="https://wa.me/918484905526"
-              target="_blank"
-              rel="noreferrer"
-              style={{
-                background: gradients.accent,
-                color: colors.textOnDark,
-                padding: `${spacing.md}px ${spacing.xxl - 4}px`,
-                borderRadius: radius.md,
-                textDecoration: "none",
-                fontFamily: typography.fontFamily.secondaryHeading,
-                fontWeight: typography.weight.extrabold,
-                fontSize: typography.size.base,
-                letterSpacing: typography.letterSpacing.wide,
-                textTransform: "uppercase",
-                boxShadow: shadows.ctaLg,
-                transition: `all ${transitions.default}`,
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-              }}
-            >
-              <PhoneCall size={18} strokeWidth={2.2} />
-              Get Free Consultation
-            </a>
-            <a
-              href="#features"
-              style={{
-                background: colors.whiteTint10,
-                color: colors.textOnDark,
-                padding: `${spacing.md}px ${spacing.xxl - 4}px`,
-                borderRadius: radius.md,
-                textDecoration: "none",
-                fontFamily: typography.fontFamily.secondaryHeading,
-                fontWeight: typography.weight.bold,
-                fontSize: typography.size.base,
-                border: `1px solid ${colors.borderLight}`,
-                backdropFilter: "blur(10px)",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-              }}
-            >
-              <Compass size={18} strokeWidth={2.2} />
-              Explore Services
-              <ArrowRight size={16} strokeWidth={2.2} />
-            </a>
+  href="#features"
+  style={{
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 6,
+
+    background: colors.whiteTint10,
+    color: colors.textOnDark,
+
+    padding: isMobile ? "14px 24px" : "21px 26px" ,            // ✅ SAME as all buttons
+    borderRadius: radius.md + 2,
+    textDecoration: "none",
+
+    fontFamily: typography.fontFamily.secondaryHeading,
+    fontWeight: typography.weight.bold,
+    fontSize: typography.size.base,
+    letterSpacing: "0.07em",           // ✅ SAME
+    textTransform: "uppercase",
+
+    border: `1px solid ${colors.borderLight}`,
+    backdropFilter: "blur(10px)",
+
+    boxShadow: shadows.primary,        // ✅ add consistency
+    transition: "all 0.3s ease",
+    lineHeight: "1",
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform = "translateY(-3px)";
+    e.currentTarget.style.boxShadow = "0 14px 30px rgba(0,0,0,0.15)";
+    e.currentTarget.style.background = colors.whiteTint20;
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = "translateY(0px)";
+    e.currentTarget.style.boxShadow = shadows.primary;
+    e.currentTarget.style.background = colors.whiteTint10;
+  }}
+>
+  <Compass size={14} strokeWidth={2} />   {/* ✅ match icon size */}
+  Explore Services
+  <ArrowRight size={14} strokeWidth={2} />
+</a>
           </div>
 
           {/* Floating Cards */}
@@ -439,7 +510,7 @@ const Services = () => {
                 <h2
                   style={{
                     margin: 0,
-                    color: colors.accent,
+                    color: "#f8d373",
                     fontSize: isMobile ? "1.25rem" : "1.5rem",
                     fontFamily: typography.heading.fontFamily,
                     fontWeight: typography.weight.extrabold,
@@ -566,6 +637,7 @@ const Services = () => {
               fontSize: isMobile ? "1.25rem" : "1.55rem",
               margin: `0 0 ${spacing.lg - 4}px`,
               lineHeight: typography.lineHeight.normal,
+              textTransform: "capitalize",
             }}>
               Best-fit technology, chosen for your project
             </h3>
@@ -659,38 +731,89 @@ const Services = () => {
             }}>Talk to our team — free consultation, no commitment.</p>
           </div>
           <div style={{ display: "flex", gap: spacing.sm + 4, flexWrap: "wrap", width: isMobile ? "100%" : "auto" }}>
-            <a href="tel:+918484905526" style={{
-              display: "inline-block",
-              background: colors.accent,
-              color: colors.textOnDark,
-              fontFamily: typography.fontFamily.secondaryHeading,
-              fontWeight: typography.weight.bold,
-              fontSize: typography.size.base,
-              letterSpacing: typography.letterSpacing.wide,
-              textTransform: "uppercase",
-              padding: `${spacing.md}px ${spacing.xxl - 4}px`,
-              borderRadius: radius.md,
-              textDecoration: "none",
-              boxShadow: shadows.cta,
-              flex: isMobile ? "1" : "none",
-              textAlign: "center",
-            }}>📞 Call Now</a>
-            <a href="https://wa.me/918484905526" target="_blank" rel="noreferrer" style={{
-              display: "inline-block",
-              background: colors.whiteTint10,
-              color: colors.textOnDark,
-              fontFamily: typography.fontFamily.secondaryHeading,
-              fontWeight: typography.weight.bold,
-              fontSize: typography.size.base,
-              letterSpacing: typography.letterSpacing.wide,
-              textTransform: "uppercase",
-              padding: `${spacing.md}px ${spacing.xxl - 4}px`,
-              borderRadius: radius.md,
-              textDecoration: "none",
-              border: `1px solid ${colors.borderLight}`,
-              flex: isMobile ? "1" : "none",
-              textAlign: "center",
-            }}>💬 WhatsApp</a>
+           <a
+  href="tel:+918484905526"
+  style={{
+    display: "inline-flex",                 // ✅ fix alignment
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 6,
+
+    background: colors.accent,
+    color: colors.textOnDark,
+
+    padding: isMobile ? "14px 24px" : "21px 26px",  // ✅ keep ONLY this
+    borderRadius: radius.md + 2,                    // ✅ match system
+    textDecoration: "none",
+
+    fontFamily: typography.fontFamily.secondaryHeading,
+    fontWeight: typography.weight.bold,
+    fontSize: typography.size.base,
+    letterSpacing: "0.07em",                        // ✅ match others
+    textTransform: "uppercase",
+
+    boxShadow: shadows.primary,                     // ✅ unify shadow
+    transition: "all 0.3s ease",
+    lineHeight: "1",
+
+    width: isMobile ? "100%" : "auto",              // ✅ mobile full width
+    textAlign: "center",
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform = "translateY(-3px)";
+    e.currentTarget.style.boxShadow = "0 14px 30px rgba(0,0,0,0.15)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = "translateY(0px)";
+    e.currentTarget.style.boxShadow = shadows.primary;
+  }}
+>
+ <Phone size={18} /> Call Now
+</a>
+            <a
+  href="https://wa.me/918484905526"
+  target="_blank"
+  rel="noreferrer"
+  style={{
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 6,
+
+    background: colors.whiteTint10,
+    color: colors.textOnDark,
+
+    padding: isMobile ? "14px 24px" : "21px 26px",
+    borderRadius: radius.md + 2,
+    textDecoration: "none",
+
+    fontFamily: typography.fontFamily.secondaryHeading,
+    fontWeight: typography.weight.bold,
+    fontSize: typography.size.base,
+    letterSpacing: "0.07em",              // ✅ force consistency
+    textTransform: "uppercase",
+
+    border: `1px solid ${colors.borderLight}`,
+    boxShadow: shadows.primary,           // ✅ add depth
+    transition: "all 0.3s ease",
+    lineHeight: "1",
+
+    width: isMobile ? "100%" : "auto",    // ✅ better than flex
+    textAlign: "center",
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform = "translateY(-3px)";
+    e.currentTarget.style.boxShadow = "0 14px 30px rgba(0,0,0,0.15)";
+    e.currentTarget.style.background = colors.whiteTint20;
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = "translateY(0px)";
+    e.currentTarget.style.boxShadow = shadows.primary;
+    e.currentTarget.style.background = colors.whiteTint10;
+  }}
+>
+<MessageCircle size={18} />WhatsApp
+</a>
           </div>
         </div>
       </div>
@@ -845,6 +968,7 @@ const ServiceCard = ({ svc, idx, inView, isMobile }) => {
 // ── FEATURE ITEM ─────────────────────────────────────────────────────
 const FeatureItem = ({ f, idx, inView }) => {
   const [hov, setHov] = useState(false);
+  const Icon = f.icon;
   return (
     <div
       onMouseEnter={() => setHov(true)}
@@ -861,22 +985,52 @@ const FeatureItem = ({ f, idx, inView }) => {
         cursor: "default",
       }}
     >
-      <div style={{
-        width: 48, height: 48, borderRadius: radius.md, flexShrink: 0,
-        background: hov ? colors.primary : colors.primaryTint7,
-        border: `1.5px solid ${hov ? colors.primary : colors.primaryTint12}`,
-        display: "flex", alignItems: "center", justifyContent: "center",
-        fontSize: 22,
-        transition: `all ${transitions.fast}`,
-      }}>
-        {f.icon}
-      </div>
+      <div
+  style={{
+    width: 56,
+    height: 56,
+    borderRadius: "16px", // modern instead of circle
+
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+
+    background: hov
+      ? "linear-gradient(135deg, rgba(232,160,32,0.25), rgba(255,184,77,0.15))"
+      : "rgba(232,160,32,0.06)",
+
+    border: hov
+      ? "1px solid rgba(240, 158, 17, 0.5)"
+      : "1px solid rgba(232,160,32,0.15)",
+
+    boxShadow: hov
+      ? "0 12px 28px rgba(232,160,32,0.25)"
+      : "0 2px 10px rgba(0,0,0,0.05)",
+
+    transform: hov ? "scale(1.10) rotate(-4deg)" : "scale(1)",
+
+    transition: "all 0.35s ease",
+
+    flexShrink: 0,
+  }}
+>
+  <Icon
+    size={24}
+    color="rgb(232,160,32)"
+    strokeWidth={hov ? 2.4 : 2}
+    style={{
+      filter: hov
+        ? "drop-shadow(0 4px 10px rgba(232,160,32,0.35))"
+        : "none",
+    }}
+  />
+</div>
       <div>
         <h4 style={{
           fontSize: typography.size.lg,
           fontFamily: typography.heading.fontFamily,
           fontWeight: typography.weight.bold,
-          color: hov ? colors.textHeading : "#1a2340",
+          color: hov ? colors.textHeading : "rgb(29, 40, 79)",
           margin: `0 0 ${spacing.xs + 2}px`,
           lineHeight: typography.lineHeight.normal,
         }}>{f.title}</h4>
@@ -894,37 +1048,74 @@ const FeatureItem = ({ f, idx, inView }) => {
 
 // ── EXPERTISE BAR ────────────────────────────────────────────────────
 const ExpertiseBar = ({ ex, idx, inView }) => (
-  <div style={{
-    opacity: inView ? 1 : 0,
-    transform: inView ? "translateX(0)" : "translateX(-24px)",
-    transition: `opacity 0.5s ease ${idx * 0.09}s, transform 0.5s ease ${idx * 0.09}s`,
-  }}>
-    <div style={{ display: "flex", justifyContent: "space-between", marginBottom: spacing.xs + 3 }}>
-      <span style={{
-        fontSize: typography.size.lg - 0.5,
-        fontFamily: typography.fontFamily.paragraph,
-        fontWeight: typography.weight.bold,
-        color: "#1a2340",
-      }}>{ex.label}</span>
-      <span style={{
-        fontSize: typography.size.sm,
-        fontFamily: typography.fontFamily.secondaryHeading,
-        fontWeight: typography.weight.bold,
-        color: colors.accent,
-      }}>{ex.pct}%</span>
+  <div
+    style={{
+      opacity: inView ? 1 : 0,
+      transform: inView ? "translateX(0)" : "translateX(-24px)",
+      transition: `all 0.6s ease ${idx * 0.1}s`,
+      marginBottom: spacing.lg,
+    }}
+  >
+    {/* LABEL ROW */}
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        marginBottom: spacing.xs + 4,
+      }}
+    >
+      <span
+        style={{
+          fontSize: typography.size.lg,
+          fontFamily: typography.fontFamily.paragraph,
+          fontWeight: typography.weight.bold,
+          color: "#1a2340",
+        }}
+      >
+        {ex.label}
+      </span>
+
+      <span
+        style={{
+          fontSize: typography.size.sm,
+          fontFamily: typography.fontFamily.secondaryHeading,
+          fontWeight: typography.weight.bold,
+          color: colors.accent,
+        }}
+      >
+        {ex.pct}%
+      </span>
     </div>
-    <div style={{ height: 8, background: colors.primaryTint8, borderRadius: radius.sm + 4, overflow: "hidden" }}>
-      <div style={{
-        height: "100%",
-        width: inView ? `${ex.pct}%` : "0%",
-        background: `linear-gradient(90deg, ${colors.primary} 0%, ${colors.accent} 100%)`,
-        borderRadius: radius.sm + 4,
-        transition: `width 1s ease ${0.3 + idx * 0.1}s`,
-      }} />
+
+    {/* BAR BACKGROUND */}
+    <div
+      style={{
+        height: 10,
+        background: colors.primaryTint8,
+        borderRadius: 999,
+        overflow: "hidden",
+      }}
+    >
+      {/* FILL */}
+      <div
+        style={{
+          height: "100%",
+          width: inView ? `${ex.pct}%` : "0%",
+          background:
+            "linear-gradient(90deg, rgb(232,160,32), #ffb84d)",
+
+          borderRadius: 999,
+
+          transition: "width 1.2s cubic-bezier(0.25, 1, 0.5, 1)",
+
+          boxShadow: inView
+            ? "0 0 18px rgba(232,160,32,0.35)"
+            : "none",
+        }}
+      />
     </div>
   </div>
 );
-
 // ── TESTIMONIAL CARD ─────────────────────────────────────────────────
 const TestimonialCard = ({ t, idx, inView, isMobile }) => (
   <div style={{

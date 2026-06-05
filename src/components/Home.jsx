@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import theme from "../theme/theme";
 import { useNavigate } from "react-router-dom";
-import {  ChevronDown, ArrowRight,   Info, Rocket } from "lucide-react";
+import {  Phone, MessageCircle, ChevronDown, ArrowRight,   Info, Rocket ,Zap, ShieldCheck, Cloud, Lightbulb,Code2, BarChart3, Smartphone,Globe, Wrench,Cog,Database,ShieldAlert,RefreshCw} from "lucide-react";
 const { colors, typography: t, spacing, radius, shadows, transitions, gradients, layout, iconSize, animation } = theme;
 import { Helmet } from "react-helmet-async";
+
+// Animation of icon
 
 // ── HOOKS ────────────────────────────────────────────────────────────
 function useWindowWidth() {
@@ -29,23 +31,67 @@ function useInView(threshold = 0.15) {
 
 // ── DATA ─────────────────────────────────────────────────────────────
 const SERVICES = [
-  { icon: "🖥️", title: "Web Development", desc: "We design and build responsive, high-performance websites that boost your brand, improve engagement, and convert visitors into customers.", color: colors.primaryDark },
-  { icon: "☁️", title: "Cloud Services", desc: "Secure, scalable cloud infrastructure setup, DevOps automation, and cloud migration tailored for long-term growth.", color: colors.primary },
-  { icon: "📊", title: "Analytical Services", desc: "Transform your raw data into meaningful insights with advanced dashboards, analytics pipelines, and reporting automation.", color: colors.primaryDark },
-  { icon: "📱", title: "App Development", desc: "End-to-end mobile and web application development with modern UI/UX, APIs, integrations, and robust architecture.", color: colors.primary },
+  {
+    icon: <Code2 size={28} strokeWidth={2.2} />,
+    title: "Web Development",
+    desc: "We design and build responsive, high-performance websites that boost your brand, improve engagement, and convert visitors into customers.",
+    color: colors.primaryDark,
+  },
+  {
+    icon: <Cloud size={28} strokeWidth={2.2} />,
+    title: "Cloud Services",
+    desc: "Secure, scalable cloud infrastructure setup, DevOps automation, and cloud migration tailored for long-term growth.",
+    color: colors.primary,
+  },
+  {
+    icon: <BarChart3 size={28} strokeWidth={2.2} />,
+    title: "Analytical Services",
+    desc: "Transform your raw data into meaningful insights with advanced dashboards, analytics pipelines, and reporting automation.",
+    color: colors.primaryDark,
+  },
+  {
+    icon: <Smartphone size={28} strokeWidth={2.2} />,
+    title: "App Development",
+    desc: "End-to-end mobile and web application development with modern UI/UX, APIs, integrations, and robust architecture.",
+    color: colors.primary,
+  },
 ];
-
 const FEATURES = [
-  { icon: "🔷", title: "Custom software applications" },
-  { icon: "☁️", title: "Cloud infrastructure setup" },
-  { icon: "⚙️", title: "Business automation workflows" },
-  { icon: "🗄️", title: "Data engineering" },
-  { icon: "📈", title: "Dashboards & analytics" },
+  {
+    icon: <Code2 size={18} strokeWidth={2.2} />,
+    color: "rgb(13, 43, 110)",
+    title: "Custom Software Applications",
+  },
+  {
+    icon: <Cloud size={18} strokeWidth={2.2} />,
+    color: "rgb(232, 160, 32)",
+    title: "Cloud Infrastructure Setup",
+  },
+  {
+    icon: <Cog size={18} strokeWidth={2.2} />,
+    color: "rgb(13, 43, 110)",
+    title: "Business Automation Workflows",
+  },
+  {
+    icon: <Database size={18} strokeWidth={2.2} />,
+    color: "rgb(232, 160, 32)",
+    title: "Data Engineering",
+  },
+  {
+    icon: <BarChart3 size={18} strokeWidth={2.2} />,
+    color: "rgb(13, 43, 110)",
+    title: "Dashboards & Analytics",
+  },
 ];
-
+const OTHER_FEATURES = [
+  { icon: ShieldCheck, text: "SSL & Encrypted Data Transfer" },
+  { icon: ShieldAlert, text: "DDoS Protection Layer" },
+  { icon: Zap, text: "CDN & Performance Boost" },
+  { icon: RefreshCw, text: "Auto Backups & Recovery" },
+];
 const WEB_DEV_COLS = [
   {
-    label: "Responsive web apps",
+    label: "Responsive Web Apps",
     color: colors.accent,
     points: [
       "Mobile-first, fully responsive layouts that adapt to all screen sizes.",
@@ -57,7 +103,7 @@ const WEB_DEV_COLS = [
     ],
   },
   {
-    label: "API integration & microservices",
+    label: "API Integration & Microservices",
     color: colors.primary,
     points: [
       "Seamless integration of third-party APIs for payments, authentication, and business tools.",
@@ -68,7 +114,7 @@ const WEB_DEV_COLS = [
     ],
   },
   {
-    label: "E-commerce, payment integrations, PWA support",
+    label: "E-Commerce, Payment Integrations, PWA Support",
     color: colors.green,
     points: [
       "End-to-end e-commerce solutions with cart, checkout, product management, and order tracking.",
@@ -81,9 +127,21 @@ const WEB_DEV_COLS = [
 ];
 
 const SECURITY_FEATURES = [
-  { icon: "🌐", title: "Modern cloud hosting setup", desc: "Modern cloud hosting setup with encrypted data transfers & backups." },
-  { icon: "🔧", title: "Scalable architecture", desc: "Scalable architecture to handle growth & peak loads." },
-  { icon: "⚡", title: "Performance-optimized systems", desc: "Performance-optimized systems ensuring smooth operations." },
+  {
+    icon: Globe,
+    title: "Modern Cloud Hosting Setup",
+    desc: "Modern cloud hosting setup with encrypted data transfers & backups.",
+  },
+  {
+    icon: Wrench,
+    title: "Scalable Architecture",
+    desc: "Scalable architecture to handle growth & peak loads.",
+  },
+  {
+    icon: Zap,
+    title: "Performance-Optimized Systems",
+    desc: "Performance-optimized systems ensuring smooth operations.",
+  },
 ];
 
 const TESTIMONIALS = [
@@ -91,14 +149,14 @@ const TESTIMONIALS = [
     text:
       "RAM developed our counselling platform with a clean design and smooth user experience. Their team clearly understood our requirements and delivered a reliable, professional solution for our counselling services.",
     name: "Reena Bhutada",
-    role: "Director",
+    role: "Director - Abhinav Career Scope",
     avatar: "RB",
   },
   {
     text:
       "RAM Technologies created a modern and user-friendly website for St. John High School & Junior College, Pulgaon. Their professionalism and technical expertise made the entire process smooth and successful.",
     name: "Mr. Santosh Yadav",
-    role: "Management Representative",
+    role: "Principal - StJohn High School & Junior College, Pulgaon ",
     avatar: "SY",
   },
 
@@ -111,13 +169,13 @@ const TESTIMONIALS = [
 },
 ];
 
-const STATS = [
-  { num: "⚡", label: "Fast Delivery" },
-  { num: "🔒", label: "Secure Solutions" },
-  { num: "☁️", label: "Cloud Ready" },
-  { num: "💡", label: "Smart Innovation" },
-];
 
+  const STATS = [
+  { icon: <Zap size={28} strokeWidth={2.6} />, label: "Fast Delivery" },
+  { icon: <ShieldCheck size={28} strokeWidth={2.6} />, label: "Secure Solutions" },
+  { icon: <Cloud size={28} strokeWidth={2.6} />, label: "Cloud Ready" },
+  { icon: <Lightbulb size={28} strokeWidth={2.6} />, label: "Smart Innovation" },
+];
 // ── SECTION HEADER ───────────────────────────────────────────────────
 const SectionHeader = ({ label, title, inView, isMobile, dark = false }) => (
   <div style={{ textAlign: "center", marginBottom: isMobile ? 36 : 52, ...animation.fadeIn(inView) }}>
@@ -179,7 +237,15 @@ const Home = () => {
   const secPad = isMobile
     ? `${layout.sectionPadYMob}px ${layout.sectionPadXMob}px`
     : `${layout.sectionPadY}px ${layout.sectionPadX}px`;
+//     //icon animation
+//     const [activeIndex, setActiveIndex] = useState(0);
+// useEffect(() => {
+//   const interval = setInterval(() => {
+//     setActiveIndex((prev) => (prev + 1) % STATS.length);
+//   }, 1000); // speed (change if needed)
 
+//   return () => clearInterval(interval);
+// }, []);
   return (
     <>
     <Helmet>
@@ -382,20 +448,7 @@ const Home = () => {
 
           <div style={{ position: "relative", zIndex: 2, padding: isMobile ? "0" : "64px 56px 64px 60px", maxWidth: isMobile ? "100%" : 560 }}>
             {/* Eyebrow */}
-            <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24, opacity: heroIn ? 1 : 0, animation: heroIn ? "slideRight 0.6s ease forwards" : "none" }}>
-              <div style={{ width: 36, height: 3, background: colors.accent, borderRadius: radius.sm }} />
-              <span style={{
-                color: colors.accent,
-                fontSize: t.size.xs,
-                fontWeight: t.weight.extrabold,
-                letterSpacing: "0.22em",
-                textTransform: "uppercase",
-                fontFamily: t.fontFamily.secondaryHeading,  // ← Josefin Sans
-              }}>
-                Right Analysis Matters
-              </span>
-            </div>
-
+            
             {/* Headline */}
             <div style={{ marginBottom: spacing.xl }}>
               {["Right Analysis", "Matters", "Pvt. Ltd."].map((line, i) => (
@@ -459,20 +512,47 @@ const Home = () => {
                 Know More
               </a>
 
-              <a href="#services"
-                style={{
-                  display: "inline-flex", alignItems: "center", gap: 8,
-                  background: "transparent", color: colors.textOnDark85,
-                  padding: "14px 26px", borderRadius: radius.md,
-                  textDecoration: "none", fontWeight: t.weight.semibold,
-                  fontSize: t.size.sm, letterSpacing: "0.08em",
-                  textTransform: "uppercase", border: `1px solid ${colors.borderLight}`,
-                  fontFamily: t.fontFamily.secondaryHeading,  // ← Josefin Sans (CTA)
-                }}
-              >
-                Our Services
-                <ChevronDown size={16} />
-              </a>
+              <a
+  href="#services"
+  style={{
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 6,
+
+    background: "transparent",
+    color: colors.textOnDark85,
+
+    padding: isMobile ? "14px 24px" : "21px 26px",              // ✅ SAME system
+    borderRadius: radius.md + 2,
+    textDecoration: "none",
+
+    fontWeight: t.weight.bold,
+    fontSize: t.size.base,
+    letterSpacing: "0.07em",
+    textTransform: "uppercase",
+
+    border: `1px solid ${colors.borderLight}`,
+    boxShadow: shadows.primary,        // ✅ add depth
+    fontFamily: t.fontFamily.secondaryHeading,
+
+    transition: "all 0.3s ease",
+    lineHeight: "1",
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform = "translateY(-3px)";
+    e.currentTarget.style.boxShadow = "0 14px 30px rgba(0,0,0,0.15)";
+    e.currentTarget.style.background = colors.whiteTint10;
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = "translateY(0px)";
+    e.currentTarget.style.boxShadow = shadows.primary;
+    e.currentTarget.style.background = "transparent";
+  }}
+>
+  Our Services
+  <ChevronDown size={14} />   {/* ✅ match icon size */}
+</a>
             </div>
           </div>
         </div>
@@ -483,28 +563,97 @@ const Home = () => {
           <div style={{ position: "absolute", bottom: 40, left: isMobile ? -60 : -20, width: 180, height: 180, borderRadius: radius.full, border: `2px solid ${colors.accentTint15}`, zIndex: 0 }} />
 
           {/* Stats */}
-          <div style={{ position: "relative", zIndex: 1, display: "grid", gridTemplateColumns: "1fr 1fr", gap: isMobile ? spacing.lg : 28, marginBottom: isMobile ? 28 : 40 }}>
-            {STATS.map((item, i) => (
-              <div key={i} style={{ opacity: heroIn ? 1 : 0, transition: `all 0.6s ease ${0.3 + i * 0.13}s`, borderLeft: "3px solid", borderColor: i % 2 === 0 ? colors.accent : colors.primaryDark, paddingLeft: spacing.xl }}>
-                <div style={{ fontSize: isMobile ? "2rem" : "2.8rem", fontWeight: 900, color: colors.textHeading, lineHeight: 1, letterSpacing: "-0.04em" }}>{item.num}</div>
-                <div style={{
-                  fontSize: t.size.xs,
-                  fontWeight: t.weight.bold,
-                  color: colors.textMuted,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  marginTop: 6,
-                  fontFamily: t.fontFamily.secondaryHeading,  // ← Josefin Sans
-                }}>
-                  {item.label}
-                </div>
-              </div>
-            ))}
+          <div
+      style={{
+        position: "relative",
+        zIndex: 1,
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        gap: isMobile ? 20 : 28,
+        marginBottom: isMobile ? 28 : 40,
+      }}
+    >
+      {STATS.map((item, i) => (
+        
+        <div
+          key={i}
+          style={{
+            position: "relative",
+            padding: "20px 18px",
+            borderRadius: 14,
+            background: "rgba(255,255,255,0.04)",
+            border: "1px solid rgba(255,255,255,0.08)",
+            backdropFilter: "blur(10px)",
+            overflow: "hidden",
+
+            opacity: heroIn ? 1 : 0,
+            transform: heroIn ? "translateY(0px)" : "translateY(20px)",
+            transition: `all 0.6s ease ${0.3 + i * 0.15}s`,
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = "translateY(-6px)";
+            e.currentTarget.style.boxShadow =
+              "0 20px 40px rgba(0,0,0,0.15)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = "translateY(0px)";
+            e.currentTarget.style.boxShadow = "none";
+          }}
+        >
+          {/* Glow effect */}
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background:
+                i % 2 === 0
+                  ? "radial-gradient(circle at top left, rgba(232,160,32,0.15), transparent 60%)"
+                  : "radial-gradient(circle at top left, rgba(59,130,246,0.15), transparent 60%)",
+              pointerEvents: "none",
+            }}
+          />
+
+          {/* Icon */}
+          <div
+            style={{
+              width: 50,
+              height: 50,
+              borderRadius: 14,
+              background:
+                i % 2 === 0
+                  ? "rgba(232,160,32,0.12)"
+                  : "rgba(13, 43, 110, 0.14)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color: i % 2 === 0 ? "#e8a020" : "rgb(13, 43, 110)",
+              marginBottom: 12,
+            }}
+          >
+            {item.icon}
           </div>
+
+          {/* Label */}
+          <div
+            style={{
+              fontSize: t?.size?.xs || "12px",
+              fontWeight: t?.weight?.bold || 700,
+              color: colors?.textMuted || "#aaa",
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              fontFamily:
+                t?.fontFamily?.secondaryHeading || "sans-serif",
+            }}
+          >
+            {item.label}
+          </div>
+        </div>
+      ))}
+    </div>
 
           {/* Tags */}
           <div style={{ position: "relative", zIndex: 1, display: "flex", flexWrap: "wrap", gap: 10, marginBottom: 28, opacity: heroIn ? 1 : 0, transition: "all 0.7s ease 0.75s" }}>
-            {["Web Development", "Mobile Apps", "Data Analytics", "UI/UX Design", "Cloud & DevOps", "IT Consulting"].map((tag, i) => (
+            {["Web Development", "Mobile Apps", "Data Analytics", "Cloud & DevOps", "IT Consulting"].map((tag, i) => (
               <span key={i} style={{
                 fontSize: t.size.xs,
                 fontWeight: t.weight.bold,
@@ -543,19 +692,41 @@ const Home = () => {
                 Web • Cloud • Analytics • Automation
               </div>
             </div>
-            <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 8 }}>
-              <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#22c55e", boxShadow: "0 0 12px rgba(34,197,94,0.6)" }} />
-              <span style={{
-                fontSize: t.size.xs,
-                color: colors.textMuted,
-                fontWeight: t.weight.semibold,
-                letterSpacing: "0.05em",
-                textTransform: "uppercase",
-                fontFamily: t.fontFamily.secondaryHeading,  // ← Josefin Sans
-              }}>
-                Available for Projects
-              </span>
-            </div>
+           
+
+<div
+  onClick={() => navigate("/products")}
+  style={{
+    marginLeft: "auto",
+    display: "flex",
+    alignItems: "center",
+    gap: 8,
+    cursor: "pointer",
+  }}
+>
+  <div
+    style={{
+      width: 10,
+      height: 10,
+      borderRadius: "50%",
+      background: "#22c55e",
+      boxShadow: "0 0 12px rgba(34,197,94,0.6)",
+    }}
+  />
+
+  <span
+    style={{
+      fontSize: t.size.xs,
+      color: colors.textMuted,
+      fontWeight: t.weight.semibold,
+      letterSpacing: "0.05em",
+      textTransform: "capitalize",
+      fontFamily: t.fontFamily.secondaryHeading,
+    }}
+  >
+    Explore Products
+  </span>
+</div>
           </div>
         </div>
       </div>
@@ -565,7 +736,7 @@ const Home = () => {
         <div style={{ display: "flex", animation: "marqueeScroll 20s linear infinite", width: "max-content" }}>
           {[...Array(2)].map((_, rep) => (
             <div key={rep} style={{ display: "flex", alignItems: "center" }}>
-              {["Web Development", "Mobile Apps", "Data Analytics", "UI/UX Design", "Cloud & DevOps", "IT Consulting", "Performance Optimization", "Security Solutions"].map((item, i) => (
+              {["Web Development", "Mobile Apps", "Data Analytics", "Cloud & DevOps", "IT Consulting", "Performance Optimization", "Security Solutions"].map((item, i) => (
                 <React.Fragment key={i}>
                   <span style={{
                     color: colors.textOnDark85,
@@ -590,7 +761,7 @@ const Home = () => {
       {/* ── SERVICES ── */}
       <div id="services" style={{ background: colors.bgPage }}>
         <div ref={servRef} style={{ maxWidth: layout.maxWidthGrid, margin: "0 auto", padding: secPad }}>
-          <SectionHeader label="Our Services" title="End-to-end technology solutions for your business" inView={servIn} isMobile={isMobile} />
+          <SectionHeader label="Our Services" title="End-To-End Technology Solutions For Your Business" inView={servIn} isMobile={isMobile} />
           <p style={{
             textAlign: "center",
             color: colors.textBodyAlt,
@@ -605,8 +776,57 @@ const Home = () => {
           </p>
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : isTablet ? "1fr 1fr" : "repeat(4,1fr)", gap: isMobile ? spacing.xl : 22 }}>
             {SERVICES.map((s, i) => (
+              
               <div key={i} className="service-card" style={{ background: colors.bgCard, borderRadius: radius.xl, padding: isMobile ? "28px 22px" : "36px 28px", border: `2px solid ${colors.borderDefault}`, boxShadow: shadows.cardMd, ...animation.fadeIn(servIn, i * 0.12), cursor: "default" }}>
-                <div style={{ fontSize: 36, marginBottom: spacing.xl }}>{s.icon}</div>
+          <div
+  style={{
+    width: 58,
+    height: 58,
+    borderRadius: 16,
+
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+
+    marginBottom: spacing.xl,
+
+    background: "rgba(232, 160, 32, 0.14)",
+    border: "1px solid rgba(232, 160, 32, 0.25)",
+    boxShadow: "0 10px 25px rgba(232, 160, 32, 0.25)",
+
+    position: "relative",
+    overflow: "hidden",
+
+    transition: "all 0.35s ease",
+  }}
+>
+  {/* glow layer (ONLY for icon box) */}
+  <div
+    style={{
+      position: "absolute",
+      inset: "-40%",
+      background:
+        "radial-gradient(circle at top left, rgba(232,160,32,0.35), transparent 60%)",
+      opacity: 0.6,
+    }}
+  />
+
+  {/* icon only styling */}
+  <div
+    style={{
+      position: "relative",
+      zIndex: 2,
+      color: "rgb(13, 43, 110)",
+      filter: "drop-shadow(0 4px 10px rgba(232,160,32,0.35))",
+    }}
+  >
+    {React.cloneElement(s.icon, {
+      size: 24,
+      color: "rgb(13, 43, 110)",
+      strokeWidth: 2.2,
+    })}
+  </div>
+</div>
                 <div style={{ width: 32, height: 3, background: colors.accent, borderRadius: radius.sm, marginBottom: spacing.md }} />
                 <h3 style={{
                   fontSize: t.size.xl,
@@ -640,31 +860,37 @@ const Home = () => {
               </div>
             ))}
           </div>
-          <div style={{ textAlign: "center", marginTop: 36, ...animation.fadeIn(servIn, 0.5) }}>
-            <button
-              onClick={() => navigate("/services")}
-              style={{
-                display: "inline-flex", alignItems: "center", gap: 8,
-                background: gradients.primary,
-                color: colors.white,
-                padding: "14px 36px",
-                borderRadius: radius.md + 2,
-                fontWeight: t.weight.bold,
-                fontSize: t.size.base,
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
-                boxShadow: shadows.primary,
-                border: "none",
-                cursor: "pointer",
-                transition: "all 0.3s ease",
-                fontFamily: t.fontFamily.secondaryHeading,  // ← Josefin Sans
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-3px)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0px)"; }}
-            >
-              All Services <ArrowRight size={16} />
-            </button>
-          </div>
+        <div style={{ textAlign: "center", marginTop: 36, ...animation.fadeIn(servIn, 0.5) }}>
+  <button
+    onClick={() => navigate("/services")}
+    style={{
+      display: "inline-flex",
+      alignItems: "center",
+      gap: spacing.sm,                 // ✅ same as first button
+      background: gradients.primary,
+      color: colors.white,
+      padding: isMobile ? "14px 24px" : "21px 26px",            // ✅ match exactly
+      borderRadius: radius.md + 2,
+      fontWeight: t.weight.bold,
+      fontSize: t.size.base,
+      letterSpacing: "0.07em",         // ✅ match
+      textTransform: "uppercase",
+      boxShadow: shadows.primary,
+      border: "none",
+      cursor: "pointer",
+      transition: "all 0.3s ease",
+      fontFamily: t.fontFamily.secondaryHeading,
+    }}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.transform = "translateY(-3px)";
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.transform = "translateY(0px)";
+    }}
+  >
+    All Services <ArrowRight size={14} /> {/* ✅ match icon size */}
+  </button>
+</div>
         </div>
       </div>
 
@@ -708,7 +934,20 @@ const Home = () => {
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 32 }}>
                 {FEATURES.map((f, i) => (
                   <div key={i} style={{ display: "flex", alignItems: "center", gap: 10, ...animation.fadeIn(featIn, 0.3 + i * 0.1) }}>
-                    <div style={{ width: iconSize.featureSm, height: iconSize.featureSm, borderRadius: radius.full, background: colors.primaryTint7, display: "flex", alignItems: "center", justifyContent: "center", fontSize: t.size.md, flexShrink: 0 }}>{f.icon}</div>
+                    <div style={{
+  width: iconSize.featureSm,
+  height: iconSize.featureSm,
+  borderRadius: radius.full,
+  background: colors.primaryTint7,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  fontSize: t.size.md,
+  flexShrink: 0,
+  color: "rgb(13, 43, 110)"   // ✅ added
+}}>
+  {f.icon}
+</div>
                     <span style={{
                       fontSize: t.size.base,
                       color: "#3a4260",
@@ -721,17 +960,38 @@ const Home = () => {
                   </div>
                 ))}
               </div>
-              <a href={WA} target="_blank" rel="noreferrer" style={{
-                display: "inline-flex", alignItems: "center", gap: spacing.sm,
-                background: gradients.primary, color: colors.white,
-                padding: "13px 26px", borderRadius: radius.md + 2,
-                textDecoration: "none", fontWeight: t.weight.bold,
-                fontSize: t.size.base, letterSpacing: "0.07em",
-                textTransform: "uppercase", boxShadow: shadows.primary,
-                fontFamily: t.fontFamily.secondaryHeading,  // ← Josefin Sans
-              }}>
-                Learn More <ArrowRight size={14} />
-              </a>
+              <a
+  href={WA}
+  target="_blank"
+  rel="noreferrer"
+  style={{
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: spacing.sm,
+    background: gradients.primary,
+    color: colors.white,
+    padding: isMobile ? "14px 24px" : "21px 26px",
+    borderRadius: radius.md + 2,
+    textDecoration: "none",
+    fontWeight: t.weight.bold,
+    fontSize: t.size.base,
+    letterSpacing: "0.07em",
+    textTransform: "uppercase",
+    boxShadow: shadows.primary,
+    fontFamily: t.fontFamily.secondaryHeading,
+    transition: "all 0.3s ease", // ✅ required for smooth hover
+    lineHeight: "1",
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform = "translateY(-3px)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = "translateY(0px)";
+  }}
+>
+  Learn More <ArrowRight size={14} />
+</a>
             </div>
 
             {/* Right: illustration */}
@@ -740,9 +1000,27 @@ const Home = () => {
                 <div style={{ position: "absolute", top: -30, right: -30, width: 200, height: 200, borderRadius: radius.full, border: `2px solid ${colors.accentTint12}` }} />
                 <div style={{ position: "absolute", bottom: -50, left: -20, width: 200, height: 200, borderRadius: radius.full, background: colors.accentTint5 }} />
                 <div style={{ position: "relative", display: "flex", justifyContent: "center", marginBottom: spacing.xl }}>
+                  
                   <div style={{ width: 80, height: 60, background: colors.accentTint15, borderRadius: 12, border: `2px solid ${colors.accentTint25 + "80"}`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 32 }}>☁️</div>
                   <div style={{ position: "absolute", top: 10, left: "50%", marginLeft: -64, width: 64, height: 44, background: colors.whiteTint7, borderRadius: 10, border: `1px solid ${colors.whiteTint8}`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22 }}>🖥️</div>
-                  <div style={{ position: "absolute", top: 10, left: "50%", marginLeft: 0, width: 64, height: 44, background: colors.whiteTint7, borderRadius: 10, border: `1px solid ${colors.whiteTint8}`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22 }}>📊</div>
+                  <div
+  style={{
+    position: "absolute",
+    top: 10,
+    left: "50%",
+    marginLeft: 0,
+    width: 64,
+    height: 44,
+    background: colors.whiteTint7,
+    borderRadius: 10,
+    border: `1px solid ${colors.whiteTint8}`,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  }}
+>
+  <BarChart3 size={22} color="rgb(241, 238, 233)" strokeWidth={2.4} />
+</div>
                 </div>
                 <p style={{
                   color: colors.textOnDark85,
@@ -752,7 +1030,7 @@ const Home = () => {
                   margin: `0 0 ${spacing.sm}px`,
                   fontFamily: t.fontFamily.heading,  // ← Titillium Web
                 }}>
-                  End-to-End Digital Ecosystem
+                  End-To-End Digital Ecosystem
                 </p>
                 <p style={{
                   color: colors.textOnDark60,
@@ -819,25 +1097,40 @@ const Home = () => {
                 </ul>
                 <div style={{ marginTop: -20 }}>
                   <a
-                    href={WA}
-                    target="_blank"
-                    rel="noreferrer"
-                    style={{
-                      display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8,
-                      background: col.color, color: colors.white,
-                      padding: "12px 24px", borderRadius: radius.md,
-                      textDecoration: "none", fontWeight: t.weight.bold,
-                      fontSize: t.size.base, letterSpacing: "0.1em",
-                      textTransform: "uppercase", transition: "all 0.3s ease",
-                      boxShadow: "0 8px 18px rgba(0,0,0,0.08)",
-                      fontFamily: t.fontFamily.secondaryHeading,  // ← Josefin Sans
-                    }}
-                    onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-3px)"; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0px)"; }}
-                  >
-                    <Rocket size={16} />
-                    Get Started
-                  </a>
+  href={WA}
+  target="_blank"
+  rel="noreferrer"
+  style={{
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 8,
+    background: col.color,
+    color: colors.white,
+    padding: isMobile ? "14px 24px" : "21px 26px",
+    borderRadius: radius.md,
+    textDecoration: "none",
+    fontWeight: t.weight.bold,
+    fontSize: t.size.base,
+    letterSpacing: "0.1em",
+    textTransform: "uppercase",
+    transition: "all 0.3s ease",
+    boxShadow: "0 8px 18px rgba(0,0,0,0.08)",
+    fontFamily: t.fontFamily.secondaryHeading,
+    lineHeight: "1",
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform = "translateY(-3px)";
+    e.currentTarget.style.boxShadow = "0 14px 30px rgba(0,0,0,0.15)"; // 🔥 stronger shadow
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = "translateY(0px)";
+    e.currentTarget.style.boxShadow = "0 8px 18px rgba(0,0,0,0.08)"; // reset
+  }}
+>
+  <Rocket size={16} />
+  Get Started
+</a>
                 </div>
               </div>
             ))}
@@ -851,22 +1144,50 @@ const Home = () => {
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: isMobile ? 32 : 60, alignItems: "center" }}>
             {/* Left visual */}
             <div style={{ ...animation.fadeIn(secIn, 0, "left"), order: isMobile ? 2 : 1 }}>
-              <div style={{ background: gradients.featureCard, borderRadius: radius.xl + 4, padding: "40px", display: "flex", flexDirection: "column", gap: spacing.lg }}>
-                {["🔒 SSL & Encrypted Data Transfer", "🛡️ DDoS Protection Layer", "⚡ CDN & Performance Boost", "🔁 Auto Backups & Recovery"].map((item, i) => (
-                  <div key={i} style={{ display: "flex", alignItems: "center", gap: spacing.md, background: colors.bgCard, borderRadius: 12, padding: "16px 20px", boxShadow: shadows.section, ...animation.fadeIn(secIn, 0.2 + i * 0.1) }}>
-                    <span style={{ fontSize: 18 }}>{item.split(" ")[0]}</span>
-                    <span style={{
-                      fontSize: t.size.base,
-                      fontWeight: t.weight.semibold,
-                      color: colors.textHeading,
-                      fontFamily: t.fontFamily.paragraph,  // ← Raleway
-                    }}>
-                      {item.split(" ").slice(1).join(" ")}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
+  <div
+    style={{
+      background: gradients.featureCard,
+      borderRadius: radius.xl + 4,
+      padding: "40px",
+      display: "flex",
+      flexDirection: "column",
+      gap: spacing.lg,
+    }}
+  >
+    {OTHER_FEATURES.map((item, i) => {
+      const Icon = item.icon;
+
+      return (
+        <div
+          key={i}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: spacing.md,
+            background: colors.bgCard,
+            borderRadius: 12,
+            padding: "16px 20px",
+            boxShadow: shadows.section,
+            ...animation.fadeIn(secIn, 0.2 + i * 0.1),
+          }}
+        >
+          <Icon size={20} color={colors.accent} />
+
+          <span
+            style={{
+              fontSize: t.size.base,
+              fontWeight: t.weight.semibold,
+              color: colors.textHeading,
+              fontFamily: t.fontFamily.paragraph,
+            }}
+          >
+            {item.text}
+          </span>
+        </div>
+      );
+    })}
+  </div>
+</div>
             {/* Right text */}
             <div style={{ ...animation.fadeIn(secIn, 0.2, "right"), order: isMobile ? 1 : 2 }}>
               <p style={{
@@ -885,74 +1206,111 @@ const Home = () => {
                 fontWeight: 900,
                 color: colors.textHeading,
                 margin: `0 0 28px`,
+                textTransform: "capitalize",
                 lineHeight: t.lineHeight.normal,
                 fontFamily: t.fontFamily.heading,  // ← Titillium Web
               }}>
                 Safe and Secure Web Application
               </h2>
-              {SECURITY_FEATURES.map((f, i) => (
-                <div key={i} style={{ display: "flex", gap: spacing.xl, marginBottom: 22, ...animation.fadeIn(secIn, 0.3 + i * 0.12) }}>
-                  <div style={{ width: iconSize.feature, height: iconSize.feature, borderRadius: 12, background: gradients.primary, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20, flexShrink: 0 }}>{f.icon}</div>
-                  <div>
-                    <h4 style={{
-                      fontSize: t.size.md,
-                      fontWeight: t.weight.extrabold,
-                      color: colors.textHeading,
-                      margin: `0 0 ${spacing.xs / 2}px`,
-                      fontFamily: t.fontFamily.heading,  // ← Titillium Web
-                    }}>
-                      {f.title}
-                    </h4>
-                    <p style={{
-                      fontSize: t.size.base,
-                      color: colors.textSub,
-                      lineHeight: t.lineHeight.body,
-                      margin: 0,
-                      fontFamily: t.fontFamily.paragraph,  // ← Raleway
-                    }}>
-                      {f.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-              <a href={WA} target="_blank" rel="noreferrer" style={{
-                display: "inline-flex", alignItems: "center", gap: 6,
-                background: gradients.primary, color: colors.white,
-                padding: "13px 28px", borderRadius: radius.md + 2,
-                textDecoration: "none", fontWeight: t.weight.bold,
-                fontSize: t.size.base, letterSpacing: "0.07em",
-                textTransform: "uppercase", boxShadow: shadows.primary,
-                marginTop: spacing.sm,
-                fontFamily: t.fontFamily.secondaryHeading,  // ← Josefin Sans
-              }}>
-                Learn More <ArrowRight size={14} />
-              </a>
+              {SECURITY_FEATURES.map((f, i) => {
+  const Icon = f.icon;
+
+  return (
+    <div
+      key={i}
+      style={{
+        display: "flex",
+        gap: spacing.xl,
+        marginBottom: 22,
+        ...animation.fadeIn(secIn, 0.3 + i * 0.12),
+      }}
+    >
+      <div
+        style={{
+          width: iconSize.feature,
+          height: iconSize.feature,
+          borderRadius: 12,
+          background: "rgb(232, 160, 32)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexShrink: 0,
+        }}
+      >
+        <Icon size={20} color="white" />
+      </div>
+
+      <div>
+        <h4
+          style={{
+            fontSize: t.size.md,
+            fontWeight: t.weight.extrabold,
+            color: colors.textHeading,
+            margin: `0 0 ${spacing.xs / 2}px`,
+            fontFamily: t.fontFamily.heading,
+          }}
+        >
+          {f.title}
+        </h4>
+
+        <p
+          style={{
+            fontSize: t.size.base,
+            color: colors.textSub,
+            lineHeight: t.lineHeight.body,
+            margin: 0,
+            fontFamily: t.fontFamily.paragraph,
+          }}
+        >
+          {f.desc}
+        </p>
+      </div>
+    </div>
+  );
+})}
+              <a
+  href={WA}
+  target="_blank"
+  rel="noreferrer"
+  style={{
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",   // ✅ keeps content perfectly centered
+    gap: 6,
+    background: gradients.primary,
+    color: colors.white,
+    padding: isMobile ? "14px 24px" : "21px 26px",
+    borderRadius: radius.md + 2,
+    textDecoration: "none",
+    fontWeight: t.weight.bold,
+    fontSize: t.size.base,
+    letterSpacing: "0.07em",
+    textTransform: "uppercase",
+    boxShadow: shadows.primary,
+    marginTop: spacing.sm,
+    fontFamily: t.fontFamily.secondaryHeading,
+    transition: "all 0.3s ease", // ✅ required for smooth hover
+    lineHeight: "1",             // ✅ prevents size mismatch
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform = "translateY(-3px)";
+    e.currentTarget.style.boxShadow = "0 14px 30px rgba(0,0,0,0.15)"; // same hover depth
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = "translateY(0px)";
+    e.currentTarget.style.boxShadow = shadows.primary; // reset to original
+  }}
+>
+  Learn More <ArrowRight size={14} />
+</a>
             </div>
           </div>
         </div>
       </div>
 
       {/* ── STATS STRIP ── */}
-      <div ref={statsRef} style={{ background: gradients.cta, padding: isMobile ? "48px 16px" : "56px 24px" }}>
-        <div style={{ maxWidth: layout.maxWidthGrid, margin: "0 auto", display: "grid", gridTemplateColumns: isMobile ? "1fr 1fr" : "repeat(4,1fr)", gap: spacing.xl, textAlign: "center" }}>
-          {STATS.map((s, i) => (
-            <div key={i} style={{ ...animation.fadeIn(statsIn, i * 0.12) }}>
-              <div style={{ fontSize: isMobile ? "2.4rem" : "3rem", fontWeight: 900, color: colors.accent, lineHeight: 1, letterSpacing: "-0.04em" }}>{s.num}</div>
-              <div style={{
-                fontSize: t.size.sm,
-                fontWeight: t.weight.bold,
-                color: colors.textOnDark60,
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                marginTop: spacing.sm,
-                fontFamily: t.fontFamily.secondaryHeading,  // ← Josefin Sans
-              }}>
-                {s.label}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      
+     
 
       {/* ── TESTIMONIALS ── */}
       <div style={{ background: colors.bgPage }}>
@@ -1060,28 +1418,77 @@ const Home = () => {
             </p>
           </div>
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap", width: isMobile ? "100%" : "auto" }}>
-            <a href="tel:+918484905526" style={{
-              display: "inline-block", background: colors.accent, color: colors.white,
-              fontWeight: t.weight.bold, fontSize: t.size.base,
-              letterSpacing: "0.06em", textTransform: "uppercase",
-              padding: "14px 28px", borderRadius: radius.md,
-              textDecoration: "none", boxShadow: shadows.ctaLg,
-              flex: isMobile ? "1" : "none", textAlign: "center",
-              fontFamily: t.fontFamily.secondaryHeading,  // ← Josefin Sans
-            }}>
-              📞 Call Now
-            </a>
-            <a href={WA} target="_blank" rel="noreferrer" style={{
-              display: "inline-block", background: colors.whiteTint10, color: colors.white,
-              fontWeight: t.weight.bold, fontSize: t.size.base,
-              letterSpacing: "0.06em", textTransform: "uppercase",
-              padding: "14px 28px", borderRadius: radius.md,
-              textDecoration: "none", border: `1px solid ${colors.borderLight}`,
-              flex: isMobile ? "1" : "none", textAlign: "center",
-              fontFamily: t.fontFamily.secondaryHeading,  // ← Josefin Sans
-            }}>
-              💬 WhatsApp
-            </a>
+            <a
+  href="tel:+918484905526"
+  style={{
+    display: "inline-flex",              // ✅ match others (not inline-block)
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 6,
+    background: colors.accent,
+    color: colors.white,
+    fontWeight: t.weight.bold,
+    fontSize: t.size.base,
+    letterSpacing: "0.07em",             // ✅ match others
+    textTransform: "uppercase",
+    padding: isMobile ? "14px 24px" : "21px 26px",                // ✅ match size
+    borderRadius: radius.md + 2,         // ✅ consistent radius
+    textDecoration: "none",
+    boxShadow: shadows.primary,          // ✅ same shadow system
+    flex: isMobile ? "1" : "none",
+    textAlign: "center",
+    fontFamily: t.fontFamily.secondaryHeading,
+    transition: "all 0.3s ease",         // ✅ smooth hover
+    lineHeight: "1",
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform = "translateY(-3px)";
+    e.currentTarget.style.boxShadow = "0 14px 30px rgba(0,0,0,0.15)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = "translateY(0px)";
+    e.currentTarget.style.boxShadow = shadows.primary;
+  }}
+>
+  <Phone size={18} /> Call Now
+</a>
+            <a
+  href={WA}
+  target="_blank"
+  rel="noreferrer"
+  style={{
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 6,
+    background: colors.whiteTint10,
+    color: colors.white,
+    fontWeight: t.weight.bold,
+    fontSize: t.size.base,
+    letterSpacing: "0.07em",
+    textTransform: "uppercase",
+    padding: isMobile ? "14px 24px" : "21px 26px",              // ✅ same size
+    borderRadius: radius.md + 2,
+    textDecoration: "none",
+    border: `1px solid ${colors.borderLight}`,
+    boxShadow: shadows.primary,        // ✅ ADD THIS (missing)
+    flex: isMobile ? "1" : "none",
+    textAlign: "center",
+    fontFamily: t.fontFamily.secondaryHeading,
+    transition: "all 0.3s ease",
+    lineHeight: "1",
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform = "translateY(-3px)";
+    e.currentTarget.style.boxShadow = "0 14px 30px rgba(0,0,0,0.15)"; // ✅ SAME hover
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = "translateY(0px)";
+    e.currentTarget.style.boxShadow = shadows.primary; // reset
+  }}
+>
+  <MessageCircle size={18} /> WhatsApp
+</a>
           </div>
         </div>
       </div>

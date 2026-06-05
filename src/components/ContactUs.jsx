@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from "react-helmet-async";
-
-
+import theme from "../theme/theme";
+import {Phone,MessageCircle} from "lucide-react";
+const {  typography: t,  radius, shadows,  } = theme;
 // ── FAQ DATA ────────────────────────────────────────────────────────
 const FAQS = [
   {
@@ -92,7 +93,7 @@ const CHANNELS = [
       </svg>
     ),
     label: "Working Hours",
-    value: "Mon – Sat: 9AM – 6PM",
+    value: "Mon – Fri\n9:30AM – 6:30PM",
     sub: "IST (India Standard Time)",
     href: null,
   },
@@ -227,7 +228,7 @@ const ContactUs = () => {
           "name": "What services do you provide?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We provide web development, mobile app development, UI/UX design, cloud solutions, and analytics services."
+            "text": "We provide web development, mobile app development, cloud solutions, and analytics services."
           }
         },
         {
@@ -288,7 +289,7 @@ const ContactUs = () => {
             lineHeight: 1.15,
             letterSpacing: "-0.02em",
           }}>
-            We'd Love to Hear<br />
+            We'd Love To Hear<br />
             <span style={{ color: "#e8a020" }}>From You</span>
           </h1>
           <p style={{
@@ -440,7 +441,7 @@ const ContactUs = () => {
             <div style={{ borderTop: "1px solid rgba(255,255,255,0.12)", paddingTop: 20 }}>
               <InfoRow label="Phone" value="+91 84849 05526 | +91 84849 06643" />
               <InfoRow label="Email" value="support@ramsolutions.in" />
-              <InfoRow label="Hours" value="Mon–Sat · 9AM–6PM IST" />
+              <InfoRow label="Hours" value="Mon–Fri · 9:30AM–6:30PM IST" />
             </div>
             {/* Social links */}
             <div style={{ display: "flex", gap: 14, marginTop: 4 }}>
@@ -478,6 +479,31 @@ const ContactUs = () => {
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                 </svg>
               </a>
+              <a
+  href="https://www.linkedin.com/company/YOUR-COMPANY-NAME"
+  target="_blank"
+  rel="noreferrer"
+  style={{
+    width: 42,
+    height: 42,
+    borderRadius: "50%",
+    border: "1px solid rgba(232,160,32,0.35)",
+    background: "rgba(232,160,32,0.08)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    textDecoration: "none",
+  }}
+>
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="#e8a020"
+  >
+    <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.95v5.66H9.37V9h3.41v1.56h.05c.48-.9 1.65-1.85 3.39-1.85 3.63 0 4.3 2.39 4.3 5.49v6.25zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/>
+  </svg>
+</a>
             </div>
           </div>
 
@@ -565,49 +591,88 @@ const ContactUs = () => {
         </div>
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap", width: isMobile ? "100%" : "auto" }}>
           <a
-            href="tel:+918484905526"
-            style={{
-              display: "inline-block",
-              background: "#e8a020",
-              color: "#fff",
-              fontWeight: 700,
-              fontSize: isMobile ? 12 : 13,
-              letterSpacing: "0.06em",
-              textTransform: "uppercase",
-              padding: isMobile ? "12px 20px" : "13px 28px",
-              borderRadius: 8,
-              textDecoration: "none",
-              whiteSpace: "nowrap",
-              boxShadow: "0 4px 20px rgba(232,160,32,0.4)",
-              flex: isMobile ? "1" : "none",
-              textAlign: "center",
-            }}
-          >
-            📞 Call Now
-          </a>
+  href="tel:+918484905526"
+  style={{
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 6,
+
+    background: "#e8a020",        // ✅ keep your brand color
+    color: "#fff",
+
+   padding: isMobile ? "14px 24px" : "21px 26px",         // ✅ SAME everywhere
+    borderRadius: radius.md + 2,
+    textDecoration: "none",
+
+    fontWeight: 700,
+    fontSize: t.size.base,        // ✅ consistent
+    letterSpacing: "0.07em",
+    textTransform: "uppercase",
+
+    boxShadow: shadows.primary,   // ✅ unify system
+    fontFamily: t.fontFamily.secondaryHeading,
+
+    transition: "all 0.3s ease",
+    lineHeight: "1",
+    width: isMobile ? "100%" : "auto",
+    whiteSpace: "nowrap",
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform = "translateY(-3px)";
+    e.currentTarget.style.boxShadow = "0 14px 30px rgba(0,0,0,0.15)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = "translateY(0px)";
+    e.currentTarget.style.boxShadow = shadows.primary;
+  }}
+>
+ <Phone size={18} /> Call Now
+</a>
           <a
-            href="https://wa.me/918484905526"
-            target="_blank"
-            rel="noreferrer"
-            style={{
-              display: "inline-block",
-              background: "rgba(255,255,255,0.12)",
-              color: "#fff",
-              fontWeight: 700,
-              fontSize: isMobile ? 12 : 13,
-              letterSpacing: "0.06em",
-              textTransform: "uppercase",
-              padding: isMobile ? "12px 20px" : "13px 28px",
-              borderRadius: 8,
-              textDecoration: "none",
-              whiteSpace: "nowrap",
-              border: "1px solid rgba(255,255,255,0.2)",
-              flex: isMobile ? "1" : "none",
-              textAlign: "center",
-            }}
-          >
-            💬 WhatsApp
-          </a>
+  href="https://wa.me/918484905526"
+  target="_blank"
+  rel="noreferrer"
+  style={{
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 6,
+
+    background: "rgba(255,255,255,0.12)",
+    color: "#fff",
+
+    padding: isMobile ? "14px 24px" : "21px 26px",              // ✅ SAME everywhere
+    borderRadius: 10,                  // ✅ instead of 8
+    textDecoration: "none",
+
+    fontWeight: 700,
+    fontSize: "14px",                  // ✅ consistent
+    letterSpacing: "0.07em",
+    textTransform: "uppercase",
+
+    border: "1px solid rgba(255,255,255,0.2)",
+    boxShadow: "0 8px 18px rgba(0,0,0,0.1)",  // ✅ add depth
+
+    transition: "all 0.3s ease",
+    lineHeight: "1",
+    width: isMobile ? "100%" : "auto",
+    whiteSpace: "nowrap",
+    textAlign: "center",
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform = "translateY(-3px)";
+    e.currentTarget.style.boxShadow = "0 14px 30px rgba(0,0,0,0.15)";
+    e.currentTarget.style.background = "rgba(255,255,255,0.18)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = "translateY(0px)";
+    e.currentTarget.style.boxShadow = "0 8px 18px rgba(0,0,0,0.1)";
+    e.currentTarget.style.background = "rgba(255,255,255,0.12)";
+  }}
+>
+  <MessageCircle size={18} /> WhatsApp
+</a>
         </div>
       </div>
 

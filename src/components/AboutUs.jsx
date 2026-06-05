@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import theme from "../theme/theme";
-import { MessageCircle, Rocket } from "lucide-react";
+import { Phone,MessageCircle,PhoneCall, Rocket ,Lightbulb, Handshake, Zap, ShieldCheck} from "lucide-react";
 const { colors, typography: t, spacing, radius, shadows, transitions, gradients, layout, iconSize, animation } = theme;
 import { Helmet } from "react-helmet-async";
 
@@ -55,13 +55,13 @@ const TESTIMONIALS = [
     text:
       "RAM Technologies created a modern and user-friendly website for St. John High School & Junior College, Pulgaon. Their professionalism and technical expertise made the entire process smooth and successful.",
     name: "Mr. Santosh Yadav",
-    role: "Management Representative",
+    role: "Principal - StJohn High School & Junior College, Pulgaon",
     avatar: "SY",
   },
   {
     text: "RAM developed our counselling platform with a clean design and smooth user experience. Their team clearly understood our requirements and delivered a reliable, professional solution for our counselling services.",
     name: "Reena Bhutada",
-    role: "Director",
+    role: "Director - Abhinav Career Scope",
     avatar: "RB",
   },
   {
@@ -73,10 +73,26 @@ const TESTIMONIALS = [
 ];
 
 const VALUES = [
-  { icon: "💡", title: "Innovation",    desc: "We stay ahead of the curve by embracing modern tech and creative problem-solving." },
-  { icon: "🤝", title: "Transparency",  desc: "Clear communication and honest collaboration at every step of your project." },
-  { icon: "⚡", title: "Speed",         desc: "Fast delivery without compromise — we move with urgency and purpose." },
-  { icon: "🔒", title: "Security",      desc: "Every product we ship meets industry-grade security and performance standards." },
+  {
+    icon: Lightbulb,
+    title: "Innovation",
+    desc: "We stay ahead of the curve by embracing modern tech and creative problem-solving.",
+  },
+  {
+    icon: Handshake,
+    title: "Transparency",
+    desc: "Clear communication and honest collaboration at every step of your project.",
+  },
+  {
+    icon: Zap,
+    title: "Speed",
+    desc: "Fast delivery without compromise — we move with urgency and purpose.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Security",
+    desc: "Every product we ship meets industry-grade security and performance standards.",
+  },
 ];
 
 const WA = "https://wa.me/918484905526";
@@ -142,46 +158,88 @@ const MissionCard = ({ item, idx, inView, isMobile }) => (
 // ── VALUE CARD ───────────────────────────────────────────────────────
 const ValueCard = ({ v, idx, inView, isMobile }) => {
   const [hov, setHov] = useState(false);
+  const Icon = v.icon; // ✅ IMPORTANT FIX
+
   return (
     <div
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
       style={{
-        background:   hov ? colors.primary : colors.bgCard,
+        background: hov ? colors.primary : colors.bgCard,
         borderRadius: radius.lg,
-        padding:      isMobile ? "22px 18px" : "30px 24px",
-        border:       `2px solid ${hov ? "transparent" : colors.borderDefault}`,
-        boxShadow:    hov ? shadows.cardSmHover : shadows.cardSm,
-        transform:    hov ? "translateY(-6px)" : inView ? "translateY(0)" : "translateY(30px)",
-        opacity:      inView ? 1 : 0,
-        transition:   `all ${transitions.slow} ${idx * 0.08}s`,
-        cursor:       "default",
-        textAlign:    "center",
+        padding: isMobile ? "22px 18px" : "30px 24px",
+        border: `2px solid ${hov ? "transparent" : colors.borderDefault}`,
+       boxShadow: hov
+  ? "0 10px 25px rgba(232, 160, 32, 0.25)"
+  : shadows.cardSm,
+        transform: hov
+          ? "translateY(-6px)"
+          : inView
+          ? "translateY(0)"
+          : "translateY(30px)",
+        opacity: inView ? 1 : 0,
+        transition: `all ${transitions.slow} ${idx * 0.08}s`,
+        cursor: "default",
+        textAlign: "center",
+        
       }}
     >
-      <div style={{ fontSize: 32, marginBottom: spacing.md }}>{v.icon}</div>
-      <h4 style={{
-        fontSize: t.size.lg,
-        fontWeight: t.weight.extrabold,
-        color: hov ? colors.white : colors.textHeading,
-        margin: `0 0 10px`,
-        fontFamily: t.fontFamily.heading,
-      }}>
+      {/* ✅ FIXED ICON */}
+      <div
+  style={{
+    width: 64,
+    height: 64,
+    borderRadius: "50%",
+    border: hov
+  ? `1px solid rgba(232, 160, 32, 0.6)`
+  : `2px solid rgba(232, 160, 32, 0.2)`,
+    background: hov
+      ? "rgba(255,255,255,0.15)"
+      : "rgba(232, 160, 32, 0.12)", // light accent background
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    margin: "0 auto",
+    marginBottom: spacing.md,
+    transition: "all 0.3s ease",
+    transform: hov ? "scale(1.05)" : "scale(1)",
+    boxShadow: hov
+  ? "0 10px 25px rgba(232, 160, 32, 0.25)"
+  : shadows.cardSm,
+  }}
+>
+  <Icon
+    size={26}
+    color={hov ? "white" : "rgb(232, 160, 32)"}
+  />
+</div>
+
+      <h4
+        style={{
+          fontSize: t.size.lg,
+          fontWeight: t.weight.extrabold,
+          color: hov ? colors.white : colors.textHeading,
+          margin: `0 0 10px`,
+          fontFamily: t.fontFamily.heading,
+        }}
+      >
         {v.title}
       </h4>
-      <p style={{
-        fontSize: t.size.base,
-        color: hov ? colors.textOnDark72 : colors.textSub,
-        lineHeight: t.lineHeight.body,
-        margin: 0,
-        fontFamily: t.fontFamily.paragraph,
-      }}>
+
+      <p
+        style={{
+          fontSize: t.size.base,
+          color: hov ? colors.textOnDark72 : colors.textSub,
+          lineHeight: t.lineHeight.body,
+          margin: 0,
+          fontFamily: t.fontFamily.paragraph,
+        }}
+      >
         {v.desc}
       </p>
     </div>
   );
 };
-
 // ── MAIN ─────────────────────────────────────────────────────────────
 const AboutUs = () => {
   const width    = useWindowWidth();
@@ -219,7 +277,7 @@ const AboutUs = () => {
 
   <meta
     name="keywords"
-    content="RAM company, web development company, software development, mobile app development, digital solutions, UI UX design, cloud solutions, IT consulting, scalable applications"
+    content="RAM company, web development company, software development, mobile app development, digital solutions, cloud solutions, IT consulting, scalable applications"
   />
 
   <meta name="author" content="RAM" />
@@ -323,7 +381,7 @@ const AboutUs = () => {
           gridTemplateColumns: isMobile ? "1fr" : "1.1fr 0.9fr",
           gap: isMobile ? 50 : 60,
           alignItems: "center",
-          paddingTop: isMobile ? 20 : 60,
+          paddingTop: isMobile ? 20 : 78,
           paddingBottom: isMobile ? 0 : 60,
         }}>
 
@@ -378,79 +436,87 @@ const AboutUs = () => {
   
   {/* Consultation Button */}
   <a
-    href={WA}
-    target="_blank"
-    rel="noreferrer"
-    style={{
-      display: "inline-flex",
-      alignItems: "center",
-      gap: 10,
+  href={WA}
+  target="_blank"
+  rel="noreferrer"
+  style={{
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 6,                              // ✅ match others
 
-      background: colors.accent,
-      color: colors.white,
+    background: colors.accent,
+    color: colors.white,
 
-      padding: isMobile ? "14px 24px" : "15px 34px",
-      borderRadius: radius.md + 2,
-      textDecoration: "none",
+    padding: isMobile ? "14px 24px" : "21px 26px",                // ✅ SAME everywhere
+    borderRadius: radius.md + 2,
+    textDecoration: "none",
 
-      fontWeight: t.weight.extrabold,
-      fontSize: t.size.sm,
-      letterSpacing: "0.08em",
-      textTransform: "uppercase",
+    fontWeight: t.weight.bold,           // ❌ was extrabold
+    fontSize: t.size.base,               // ❌ was sm
+    letterSpacing: "0.07em",             // ❌ was 0.08em
+    textTransform: "uppercase",
 
-      boxShadow: shadows.primaryLg,
-      fontFamily: t.fontFamily.secondaryHeading,
+    boxShadow: shadows.primary,          // ❌ was primaryLg
+    fontFamily: t.fontFamily.secondaryHeading,
 
-      transition: "all 0.3s ease",
-    }}
-    onMouseEnter={(e) => {
-      e.currentTarget.style.transform = "translateY(-3px)";
-    }}
-    onMouseLeave={(e) => {
-      e.currentTarget.style.transform = "translateY(0px)";
-    }}
-  >
-    <MessageCircle size={18} />
-    Get Consultation
-  </a>
-
+    transition: "all 0.3s ease",
+    lineHeight: "1",
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform = "translateY(-3px)";
+    e.currentTarget.style.boxShadow = "0 14px 30px rgba(0,0,0,0.15)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = "translateY(0px)";
+    e.currentTarget.style.boxShadow = shadows.primary;
+  }}
+>
+  <PhoneCall size={14} /> {/* ✅ match icon size */}
+  Get Consultation
+</a>
   {/* Explore Button */}
   <a
-    href="#mission"
-    style={{
-      display: "inline-flex",
-      alignItems: "center",
-      gap: 10,
+  href="#mission"
+  style={{
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 6,                              // ✅ match all buttons
 
-      background: "transparent",
-      color: colors.white,
+    background: "transparent",
+    color: colors.white,
 
-      padding: isMobile ? "14px 24px" : "15px 30px",
-      borderRadius: radius.md + 2,
-      textDecoration: "none",
+    padding: isMobile ? "14px 24px" : "21px 26px",                // ✅ SAME
+    borderRadius: radius.md + 2,
+    textDecoration: "none",
 
-      fontWeight: t.weight.bold,
-      fontSize: t.size.sm,
-      letterSpacing: "0.08em",
-      textTransform: "uppercase",
+    fontWeight: t.weight.bold,
+    fontSize: t.size.base,               // ❌ was sm
+    letterSpacing: "0.07em",             // ❌ was 0.08em
+    textTransform: "uppercase",
 
-      border: `1px solid ${colors.borderLight}`,
-      fontFamily: t.fontFamily.secondaryHeading,
+    border: `1px solid ${colors.borderLight}`,
+    boxShadow: shadows.primary,          // ✅ keep consistent depth
+    fontFamily: t.fontFamily.secondaryHeading,
 
-      transition: "all 0.3s ease",
-    }}
-    onMouseEnter={(e) => {
-      e.currentTarget.style.background = colors.whiteTint10;
-      e.currentTarget.style.transform = "translateY(-3px)";
-    }}
-    onMouseLeave={(e) => {
-      e.currentTarget.style.background = "transparent";
-      e.currentTarget.style.transform = "translateY(0px)";
-    }}
-  >
-    <Rocket size={18} />
-    Explore More
-  </a>
+    transition: "all 0.3s ease",
+    lineHeight: "1",
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.background = colors.whiteTint10;
+    e.currentTarget.style.transform = "translateY(-3px)";
+    e.currentTarget.style.boxShadow = "0 14px 30px rgba(0,0,0,0.15)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.background = "transparent";
+    e.currentTarget.style.transform = "translateY(0px)";
+    e.currentTarget.style.boxShadow = shadows.primary;
+  }}
+>
+  <Rocket size={14} /> {/* ✅ match icon size */}
+  Explore More
+</a>
 
 </div>
           </div>
@@ -466,8 +532,49 @@ const AboutUs = () => {
               <div style={{ position: "absolute", top: 0, left: "-120%", width: "80%", height: "100%", background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent)", transform: "skewX(-20deg)", animation: "shineMove 5s linear infinite" }} />
 
               {/* Icon */}
-              <div style={{ width: isMobile ? 64 : 76, height: isMobile ? 64 : 76, borderRadius: radius.lg, background: gradients.primaryLg, display: "flex", alignItems: "center", justifyContent: "center", fontSize: isMobile ? 28 : 34, marginBottom: spacing.xl, boxShadow: shadows.cardMdHover }}>🚀</div>
+              <div
+  style={{
+    width: isMobile ? 64 : 76,
+    height: isMobile ? 64 : 76,
+    borderRadius: radius.lg,
+    background: gradients.primaryLg,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: spacing.xl,
+    boxShadow: shadows.cardMdHover,
+  }}
+>
+  <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  width={isMobile ? 28 : 34}
+  height={isMobile ? 28 : 34}
+  style={{
+    transform: "rotate(30deg) scaleY(1.3)",
+    transformOrigin: "center",
+  }}
+>
+    {/* Bell body (main structure) */}
+    <path
+      d="M18 14.8095L20 17.0778V19.0048H4V17.0778L6 14.8095V9.00481C6 5.52156 8.50442 2.55825 12 1.46002C15.4956 2.55825 18 5.52156 18 9.00481V14.8095Z"
+      fill="white"
+      opacity="0.95"
+    />
 
+    {/* Top indicator / highlight */}
+    <path
+      d="M12 11.0048C13.1046 11.0048 14 10.1094 14 9.00481C14 7.90024 13.1046 7.00481 12 7.00481C10.8954 7.00481 10 7.90024 10 9.00481C10 10.1094 10.8954 11.0048 12 11.0048Z"
+      fill="rgb(9, 44, 127)"
+    />
+
+    {/* Bottom clapper (your “flame-like” accent) */}
+    <path
+      d="M8.49816 20.0048H15.5018C14.8432 21.5842 13.5794 22.848 12 23.5066C10.4206 22.848 9.15679 21.5842 8.49816 20.0048Z"
+      fill="orange"
+    />
+  </svg>
+</div>
               {/* Card Heading */}
               <h3 style={{
                 color: colors.white,
@@ -534,7 +641,7 @@ const AboutUs = () => {
         <div style={{ display: "flex", animation: "marqueeScroll 18s linear infinite", width: "max-content" }}>
           {[...Array(2)].map((_, rep) => (
             <div key={rep} style={{ display: "flex", alignItems: "center" }}>
-              {["Web Development", "Mobile Apps", "Data Analytics", "UI/UX Design", "Cloud & DevOps", "IT Consulting", "Performance Optimization", "Security Solutions"].map((item, i) => (
+              {["Web Development", "Mobile Apps", "Data Analytics", "Cloud & DevOps", "IT Consulting", "Performance Optimization", "Security Solutions"].map((item, i) => (
                 <React.Fragment key={i}>
                   <span style={{
                     color: colors.textOnDark85,
@@ -575,18 +682,49 @@ const AboutUs = () => {
               <p style={{ color: colors.textBodyAlt, fontSize: t.size.lg, lineHeight: t.lineHeight.body, margin: `0 0 28px`, fontFamily: t.fontFamily.paragraph }}>
                 Whether you're looking for a simple business website or a complex software platform, our team designs and develops with precision and purpose.
               </p>
-              <a href={WA} target="_blank" rel="noreferrer" style={{
-                display: "inline-flex", alignItems: "center", gap: spacing.sm,
-                background: gradients.primary, color: colors.white,
-                padding: "13px 26px", borderRadius: radius.md + 2,
-                textDecoration: "none", fontWeight: t.weight.bold,
-                fontSize: t.size.base, letterSpacing: "0.07em",
-                textTransform: "uppercase", boxShadow: shadows.primary,
-                fontFamily: t.fontFamily.secondaryHeading,
-              }}>
-                Know More
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 4l3 3-3 3" stroke={colors.white} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
-              </a>
+             <a
+  href={WA}
+  target="_blank"
+  rel="noreferrer"
+  style={{
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",     // ✅ add
+    gap: spacing.sm,
+    background: gradients.primary,
+    color: colors.white,
+    padding: isMobile ? "14px 24px" : "21px 26px",
+    borderRadius: radius.md + 2,
+    textDecoration: "none",
+    fontWeight: t.weight.bold,
+    fontSize: t.size.base,
+    letterSpacing: "0.07em",
+    textTransform: "uppercase",
+    boxShadow: shadows.primary,
+    fontFamily: t.fontFamily.secondaryHeading,
+    transition: "all 0.3s ease",  // ✅ smooth hover
+    lineHeight: "1",              // ✅ prevent height mismatch
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform = "translateY(-3px)";
+    e.currentTarget.style.boxShadow = "0 14px 30px rgba(0,0,0,0.15)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = "translateY(0px)";
+    e.currentTarget.style.boxShadow = shadows.primary;
+  }}
+>
+  Know More
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path
+      d="M2 7h10M8 4l3 3-3 3"
+      stroke={colors.white}
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+</a>
             </div>
 
             {/* Right visual */}
@@ -705,12 +843,87 @@ const AboutUs = () => {
             </p>
           </div>
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap", width: isMobile ? "100%" : "auto" }}>
-            <a href="tel:+918484905526" style={{ display: "inline-block", background: colors.accent, color: colors.white, fontWeight: t.weight.bold, fontSize: t.size.base, letterSpacing: "0.06em", textTransform: "uppercase", padding: "14px 28px", borderRadius: radius.md, textDecoration: "none", boxShadow: shadows.ctaLg, flex: isMobile ? "1" : "none", textAlign: "center", fontFamily: t.fontFamily.secondaryHeading }}>
-              📞 Call Now
-            </a>
-            <a href={WA} target="_blank" rel="noreferrer" style={{ display: "inline-block", background: colors.whiteTint10, color: colors.white, fontWeight: t.weight.bold, fontSize: t.size.base, letterSpacing: "0.06em", textTransform: "uppercase", padding: "14px 28px", borderRadius: radius.md, textDecoration: "none", border: `1px solid ${colors.borderLight}`, flex: isMobile ? "1" : "none", textAlign: "center", fontFamily: t.fontFamily.secondaryHeading }}>
-              💬 WhatsApp
-            </a>
+           <a
+  href="tel:+918484905526"
+  style={{
+    display: "inline-flex",              // ✅ match
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 6,
+
+    background: colors.accent,
+    color: colors.white,
+
+    padding: isMobile ? "14px 24px" : "21px 26px",                // ✅ SAME
+    borderRadius: radius.md + 2,         // ✅ SAME
+    textDecoration: "none",
+
+    fontWeight: t.weight.bold,
+    fontSize: t.size.base,
+    letterSpacing: "0.07em",             // ✅ SAME
+    textTransform: "uppercase",
+
+    boxShadow: shadows.primary,          // ✅ SAME
+    fontFamily: t.fontFamily.secondaryHeading,
+
+    transition: "all 0.3s ease",
+    lineHeight: "1",
+    width: isMobile ? "100%" : "auto",   // ✅ mobile friendly
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform = "translateY(-3px)";
+    e.currentTarget.style.boxShadow = "0 14px 30px rgba(0,0,0,0.15)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = "translateY(0px)";
+    e.currentTarget.style.boxShadow = shadows.primary;
+  }}
+>
+ <Phone size={18} /> Call Now
+</a>
+           <a
+  href={WA}
+  target="_blank"
+  rel="noreferrer"
+  style={{
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 6,
+
+    background: colors.whiteTint10,
+    color: colors.white,
+
+    padding: isMobile ? "14px 24px" : "21px 26px",                // ✅ SAME
+    borderRadius: radius.md + 2,       // ✅ SAME
+    textDecoration: "none",
+
+    fontWeight: t.weight.bold,
+    fontSize: t.size.base,
+    letterSpacing: "0.07em",           // ✅ SAME
+    textTransform: "uppercase",
+
+    border: `1px solid ${colors.borderLight}`,
+    boxShadow: shadows.primary,        // ✅ SAME
+    fontFamily: t.fontFamily.secondaryHeading,
+
+    transition: "all 0.3s ease",
+    lineHeight: "1",
+    width: isMobile ? "100%" : "auto", // ✅ mobile friendly
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform = "translateY(-3px)";
+    e.currentTarget.style.boxShadow = "0 14px 30px rgba(0,0,0,0.15)";
+    e.currentTarget.style.background = colors.whiteTint20; // subtle hover
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = "translateY(0px)";
+    e.currentTarget.style.boxShadow = shadows.primary;
+    e.currentTarget.style.background = colors.whiteTint10;
+  }}
+>
+  <MessageCircle size={18} /> WhatsApp
+</a>
           </div>
         </div>
       </div>
